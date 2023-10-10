@@ -37,6 +37,9 @@
     display: flex;
     gap: 0 10px;
     margin-right: 10px;
+    min-width: 100px;
+    justify-content: space-around;
+
 
     & svg {
       width: 32px;
@@ -51,7 +54,8 @@
 
     & .open-app {
       position: relative;
-      width: 100%;
+
+
       &__close {
         position: absolute;
         top: -5px;

@@ -135,8 +135,12 @@ const Home = () => {
                           href="#"
                           className="app-link"
                           onClick={() => {
-                            if (app.component) {
-                              setOpenApps([...new Set([app])]);
+                            if (app.component && !openApps.includes(app) && openApps.length < 3) {
+                              if (isSmallScreen) {
+                                setOpenApps([app]);
+                              } else {
+                                setOpenApps([...openApps, app]);
+                              }
                             }
                           }}
                         >

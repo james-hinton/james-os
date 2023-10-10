@@ -174,6 +174,13 @@ export const ThirdPage = [
     label: "CV",
     href: "/cv",
   },
+  {
+    name: "Terminal",
+    icon: <TerminalIcon />,
+    label: "Terminal",
+    component: <Terminal />,
+    
+  }
 ];
 
 export const DockApps = [
