@@ -1,0 +1,53 @@
+.island-container {
+  flex: 0 0 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .island {
+    width: 12rem;
+    height: 70%;
+    background-color: #23232399;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.2rem;
+    box-sizing: border-box;
+    position: relative;
+
+    &__lock {
+      position: absolute;
+      left: 5px;
+      color: #cccccc;
+      height: 1rem;
+
+      & svg {
+        height: 100%;
+      }
+    }
+
+    &__text {
+      text-align: center;
+      color: #cccccc;
+      width: 50%;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+
+      &-unlocked {
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 900;
+        width: 100%;
+      }
+    }
+
+    &-unlocked {
+      background-color: none;
+    }
+  }
+
+  & .spacer {
+    width: 0rem;
+  }
+}

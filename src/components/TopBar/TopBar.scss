@@ -1,0 +1,17 @@
+.top-bar {
+  position: absolute;
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  z-index: 1008;
+
+  & .spacer {
+    flex: 0 0 25%;
+    max-width: 10rem;
+  }
+
+  @media (max-height: 500px) {
+    display: none;
+  }
+}

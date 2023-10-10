@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "SF Pro Italic";
+  src: url("/assets/fonts/SF-Pro-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "SF Pro";
+  src: url("/assets/fonts/SF-Pro.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  font-family: "SF Pro";
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#phone {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}

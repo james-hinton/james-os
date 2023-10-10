@@ -1,0 +1,74 @@
+.dock-container {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  margin: 20px 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
+  z-index: 1007;
+
+  .dock-app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+    svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+
+    .dock-label {
+      margin-top: 5px;
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+
+  & .open-apps {
+    display: flex;
+    gap: 0 10px;
+    margin-right: 10px;
+
+    & svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+
+    & img {
+      width: 35px;
+      height: 35px;
+    }
+
+    & .open-app {
+      position: relative;
+      width: 100%;
+      &__close {
+        position: absolute;
+        top: -5px;
+        right: -15px;
+
+        & svg {
+          font-size: 0.5rem;
+          height: 1rem;
+          width: 1rem;
+
+          &:hover {
+            color: #ff0000;
+            cursor: pointer;
+            box-shadow: 0px 0px 10px rgba(103, 6, 6, 0.5);
+          }
+        }
+      }
+    }
+  }
+}
