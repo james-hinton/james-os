@@ -74,7 +74,7 @@ const Home = () => {
     });
   }, []);
 
-  const [deltaX, setDeltaX] = useState(0); // Track the change in the X-axis position
+  const [deltaX, setDeltaX] = useState(0);
   const [isSwiping, setIsSwiping] = useState(false);
 
   const handlers = useSwipeable({
@@ -135,7 +135,7 @@ const Home = () => {
                       {app.widget ? (
                         <div className="widget-content">{app.widget}</div>
                       ) : (
-                        <a
+                        <span
                           href="#"
                           className="app-link"
                           onClick={() => {
@@ -144,7 +144,7 @@ const Home = () => {
                               !openApps.includes(app) &&
                               openApps.length < 3
                             ) {
-                              const newIndex = openApps.length; 
+                              const newIndex = openApps.length;
 
                               let offsetX = 0;
                               let offsetY = 0;
@@ -170,10 +170,14 @@ const Home = () => {
                           {app.icon ? (
                             app.icon
                           ) : (
-                            <img src={app.iconHref} alt={app.name} />
+                            <img
+                              src={app.iconHref}
+                              alt={app.name}
+                              draggable={false}
+                            />
                           )}
                           <span className="app-label">{app.label}</span>
-                        </a>
+                        </span>
                       )}
                     </div>
                   );
@@ -237,15 +241,12 @@ const Home = () => {
               <WindowBar
                 onClose={() => {
                   const closedAppIndex = openApps.indexOf(app);
-
                   const newAppPositions = { ...appPositions };
                   delete newAppPositions[closedAppIndex];
-
                   for (let i = closedAppIndex + 1; i < openApps.length; i++) {
                     newAppPositions[i - 1] = newAppPositions[i];
                   }
                   delete newAppPositions[openApps.length - 1];
-
                   setAppPositions(newAppPositions);
                   setOpenApps(openApps.filter((a) => a !== app));
                 }}

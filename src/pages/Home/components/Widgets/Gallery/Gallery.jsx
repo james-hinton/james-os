@@ -26,6 +26,7 @@ const GalleryWidget = () => {
           <img 
             key={index}
             src={image} 
+            draggable={false}
             alt={`Gallery Slide ${index}`}
             className={currentIndex === index ? 'active' : ''}
           />

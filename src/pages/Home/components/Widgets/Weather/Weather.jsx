@@ -15,7 +15,6 @@ const WeatherWidget = () => {
       </div>
 
       <div className="weather-content">
-        {/* Example hourly forecast */}
         {['12PM', '1PM', '2PM', '3PM'].map((hour, idx) => (
           <div key={idx} className="hourly-forecast">
             <div className="hour">{hour}</div>
