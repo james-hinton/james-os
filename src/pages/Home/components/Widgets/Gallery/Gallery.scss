@@ -1,8 +1,6 @@
 .gallery {
   width: 100%;
   height: 12rem;
-
-
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -10,14 +8,22 @@
   border-radius: 15px;
   overflow: hidden;
   color: white;
-
+  position: relative;
 
   & img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 
+    &.active {
+      opacity: 1; // Show the active image
+    }
+  }
 
   @media (max-height: 500px) {
     height: 5rem;

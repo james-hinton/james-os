@@ -14,7 +14,7 @@ const GalleryWidget = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 10000);
+    }, 7000);
 
     return () => clearInterval(timer);
   }, []);
@@ -22,10 +22,18 @@ const GalleryWidget = () => {
   return (
     <div className="widget gallery">
       <div className="gallery">
-        <img src={images[currentIndex]} alt={`Gallery Slide ${currentIndex}`} />
+        {images.map((image, index) => (
+          <img 
+            key={index}
+            src={image} 
+            alt={`Gallery Slide ${index}`}
+            className={currentIndex === index ? 'active' : ''}
+          />
+        ))}
       </div>
     </div>
   );
+  
 };
 
 export default GalleryWidget;
