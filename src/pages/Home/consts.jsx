@@ -80,6 +80,15 @@ export const HomeApps = [
   },
 ];
 
+export const SingleApps = [
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+]
+
 export const DockApps = [
   {
     name: "Phone",

@@ -11,6 +11,12 @@
   align-items: center;
   position: relative;
 
+  // prevent highlighting of text
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+
   &-content {
     box-sizing: border-box;
   

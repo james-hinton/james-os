@@ -19,16 +19,20 @@ import Dock from "./components/Dock/Dock";
 import WindowBar from "../../components/WindowBar/WindowBar";
 
 // Data
-import { HomeApps } from "./consts";
+import { HomeApps, SingleApps } from "./consts";
 
 // Styles
 import "./Home.scss";
 
 const Home = () => {
   const { openApps, setOpenApps, setPhoneLocked } = useContext(PhoneContext);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [defaultPositions, setDefaultPositions] = useState({});
+
   const homeScreenRef = useRef(null);
   const isSmallScreen = window.innerHeight < 700 || window.innerWidth < 700;
-  const [defaultPositions, setDefaultPositions] = useState({});
+
+  const PAGES = [HomeApps, SingleApps];
 
   useLayoutEffect(() => {
     if (homeScreenRef.current) {
@@ -64,10 +68,43 @@ const Home = () => {
     });
   }, []);
 
+  const [deltaX, setDeltaX] = useState(0); // Track the change in the X-axis position
+  const [isSwiping, setIsSwiping] = useState(false);
+
+  const handlers = useSwipeable({
+    onSwiping: (eventData) => {
+      setIsSwiping(true);
+      setDeltaX(eventData.deltaX);
+    },
+
+    onSwipedRight: () => {
+      if (currentPage - 1 >= 0) {
+        setCurrentPage(currentPage - 1);
+      }
+      setIsSwiping(false);
+      setDeltaX(0);
+    },
+
+    onSwipedLeft: () => {
+      if (currentPage + 1 < PAGES.length) {
+        setCurrentPage(currentPage + 1);
+      }
+      setIsSwiping(false);
+      setDeltaX(0);
+    },
+
+    preventDefaultTouchmoveEvent: true,
+    trackMouse: true,
+  });
   return (
-    <div className="home-screen" ref={homeScreenRef}>
+    <div
+      className="home-screen"
+      ref={homeScreenRef}
+      {...handlers}
+      style={{ transform: isSwiping ? `translateX(${deltaX}px)` : "" }}
+    >
       <div className="home-screen-content">
-        {HomeApps.map((app, index) => {
+        {PAGES[currentPage].map((app, index) => {
           return (
             <div
               key={index}
@@ -151,7 +188,7 @@ const Home = () => {
                         position: "absolute",
                         top: 0,
                         left: 0,
-                        paddingTop: '1.5rem'
+                        paddingTop: "1.5rem",
                       }
                     : {
                         width: "100%",
