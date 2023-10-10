@@ -1,0 +1,25 @@
+.gallery {
+  width: 100%;
+  height: 12rem;
+
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background: green;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+
+
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  @media (max-height: 500px) {
+    height: 5rem;
+  }
+}

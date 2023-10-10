@@ -1,0 +1,15 @@
+.time-and-date {
+  text-align: center;
+
+  &__date {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  &__time {
+    color: #fff;
+    font-size: 8rem;
+    font-weight: 900;
+  }
+}
