@@ -37,7 +37,6 @@
     display: flex;
     gap: 0 10px;
     margin-right: 10px;
-    min-width: 100px;
     justify-content: space-around;
 
 
@@ -54,6 +53,11 @@
 
     & .open-app {
       position: relative;
+      margin-right: 1.5rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
 
 
       &__close {

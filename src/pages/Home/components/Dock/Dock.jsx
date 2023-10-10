@@ -23,7 +23,6 @@ const Dock = () => {
         <div className="open-apps">
           {openApps.map((app, index) => (
             <div key={index} className="open-app">
-              {/* Close */}
               <div
                 className="open-app__close"
                 onClick={() => {
