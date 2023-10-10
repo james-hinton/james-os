@@ -142,7 +142,7 @@ const Home = () => {
                             if (
                               app.component &&
                               !openApps.includes(app) &&
-                              openApps.length < 3
+                              openApps.length < 7
                             ) {
                               const newIndex = openApps.length;
 
