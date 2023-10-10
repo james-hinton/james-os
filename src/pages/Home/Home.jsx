@@ -19,7 +19,7 @@ import Dock from "./components/Dock/Dock";
 import WindowBar from "../../components/WindowBar/WindowBar";
 
 // Data
-import { HomeApps, SingleApps } from "./consts";
+import { HomeApps, SecondPage, ThirdPage } from "./consts";
 
 // Styles
 import "./Home.scss";
@@ -32,7 +32,7 @@ const Home = () => {
   const homeScreenRef = useRef(null);
   const isSmallScreen = window.innerHeight < 700 || window.innerWidth < 700;
 
-  const PAGES = [HomeApps, SingleApps];
+  const PAGES = [HomeApps, SecondPage, ThirdPage];
 
   useLayoutEffect(() => {
     if (homeScreenRef.current) {
@@ -74,7 +74,7 @@ const Home = () => {
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
       setIsSwiping(true);
-      setDeltaX(eventData.deltaX);
+      setDeltaX(eventData.deltaX * 0.08);
     },
 
     onSwipedRight: () => {
@@ -97,46 +97,62 @@ const Home = () => {
     trackMouse: true,
   });
   return (
-    <div
-      className="home-screen"
-      ref={homeScreenRef}
-      {...handlers}
-      style={{ transform: isSwiping ? `translateX(${deltaX}px)` : "" }}
-    >
-      <div className="home-screen-content">
-        {PAGES[currentPage].map((app, index) => {
-          return (
-            <div
-              key={index}
-              className={`app-icon-container ${
-                app.widget ? "widget-container" : ""
-              }`}
-              style={app.width ? { gridColumn: `span ${app.width}` } : {}}
-            >
-              {app.widget ? (
-                <div className="widget-content">{app.widget}</div>
-              ) : (
-                <a
-                  href="#"
-                  className="app-link"
-                  onClick={() => {
-                    if (app.component) {
-                      setOpenApps([...new Set([app])]);
-                    }
-                  }}
-                >
-                  {app.icon ? (
-                    app.icon
-                  ) : (
-                    <img src={app.iconHref} alt={app.name} />
-                  )}
-                  <span className="app-label">{app.label}</span>
-                </a>
-              )}
+    <div className="home-screen" ref={homeScreenRef} {...handlers}>
+      <div
+        className="page-container"
+        style={{
+          display: "flex",
+          transition: isSwiping ? "none" : "transform 0.8s ease",
+          transform: isSwiping
+            ? `translateX(${-currentPage * 100 + deltaX * 0.07}%)`
+            : `translateX(-${currentPage * 100}%)`,
+        }}
+      >
+        {PAGES.map((pageApps, pageIndex) => (
+          <div key={pageIndex} className="home-screen-page">
+            <div className="home-screen-container">
+              <div className="home-screen-content">
+                {pageApps.map((app, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className={`app-icon-container ${
+                        app.widget ? "widget-container" : ""
+                      }`}
+                      style={
+                        app.width ? { gridColumn: `span ${app.width}` } : {}
+                      }
+                    >
+                      {app.widget ? (
+                        <div className="widget-content">{app.widget}</div>
+                      ) : (
+                        <a
+                          href="#"
+                          className="app-link"
+                          onClick={() => {
+                            if (app.component) {
+                              setOpenApps([...new Set([app])]);
+                            }
+                          }}
+                        >
+                          {app.icon ? (
+                            app.icon
+                          ) : (
+                            <img src={app.iconHref} alt={app.name} />
+                          )}
+                          <span className="app-label">{app.label}</span>
+                        </a>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
+
+      {/* Move to own component */}
       {openApps?.map((app, index) => {
         return (
           <Draggable

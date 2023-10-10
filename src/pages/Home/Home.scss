@@ -17,13 +17,16 @@
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
 
+  &-container {
+    width: 100vw;
+  }
+
   &-content {
     box-sizing: border-box;
-  
     padding-top: 5rem;
     padding-left: 1rem;
     padding-right: 1rem;
-  
+
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-row-gap: 2rem;
@@ -33,13 +36,12 @@
     margin: 0 auto;
 
     @media (max-height: 500px) {
-      padding-top: 2rem
+      padding-top: 2rem;
     }
 
     @media (min-width: 500px) {
       grid-row-gap: 4rem;
     }
-
 
     .app-icon-container {
       display: flex;
@@ -100,7 +102,7 @@
           }
 
           @media (max-width: 600px) {
-            width:3.5rem;
+            width: 3.5rem;
             height: 3.5rem;
           }
         }
@@ -120,15 +122,7 @@
   }
 }
 
-
-// .home-screen-content {
-//   display: flex; // to layout pages horizontally
-//   overflow-x: hidden; // hide the horizontal scroll bar
-//   width: 100vw; // restrict the view to the viewport width
-//   scroll-snap-type: x mandatory; // enable smooth scroll to pages
-// }
-
-// .page {
-//   flex: 0 0 100vw; // make each page take 100% of viewport width
-//   scroll-snap-align: start; // snap pages
-// }
+.page-container {
+  width: 100vw;
+  flex-wrap: nowrap;
+}

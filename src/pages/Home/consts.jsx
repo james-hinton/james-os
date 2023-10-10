@@ -80,14 +80,101 @@ export const HomeApps = [
   },
 ];
 
-export const SingleApps = [
+export const SecondPage = [
   {
     name: "Twitter",
     iconHref: "/assets/icons/twitter.png",
     label: "Twitter",
     href: "/twitter",
   },
-]
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+  {
+    name: "Twitter",
+    iconHref: "/assets/icons/twitter.png",
+    label: "Twitter",
+    href: "/twitter",
+  },
+];
+
+export const ThirdPage = [
+  {
+    name: "CV",
+    icon: <NotesOutlined />,
+    label: "CV",
+    href: "/cv",
+  },
+  {
+    name: "CV",
+    icon: <NotesOutlined />,
+    label: "CV",
+    href: "/cv",
+  },
+  {
+    name: "CV",
+    icon: <NotesOutlined />,
+    label: "CV",
+    href: "/cv",
+  },
+  {
+    name: "CV",
+    icon: <NotesOutlined />,
+    label: "CV",
+    href: "/cv",
+  },
+  {
+    name: "CV",
+    icon: <NotesOutlined />,
+    label: "CV",
+    href: "/cv",
+  },
+];
 
 export const DockApps = [
   {
