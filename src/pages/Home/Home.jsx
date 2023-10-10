@@ -30,6 +30,7 @@ const Home = () => {
   const [isDragging, setIsDragging] = useState(false);
 
   const [defaultPositions, setDefaultPositions] = useState({});
+  const [appPositions, setAppPositions] = useState({});
 
   const homeScreenRef = useRef(null);
   const isSmallScreen = window.innerHeight < 700 || window.innerWidth < 700;
@@ -49,8 +50,11 @@ const Home = () => {
           const draggableWidth = draggableElem.offsetWidth;
           const draggableHeight = draggableElem.offsetHeight;
 
-          const centerX = (parentWidth - draggableWidth) / 2;
-          const centerY = (parentHeight - draggableHeight) / 2;
+          const offsetX = index * 30;
+          const offsetY = index * 30;
+
+          const centerX = (parentWidth - draggableWidth) / 2 + offsetX;
+          const centerY = (parentHeight - draggableHeight) / 2 + offsetY;
 
           newPositions[index] = { x: centerX, y: centerY };
         }
@@ -135,7 +139,26 @@ const Home = () => {
                           href="#"
                           className="app-link"
                           onClick={() => {
-                            if (app.component && !openApps.includes(app) && openApps.length < 3) {
+                            if (
+                              app.component &&
+                              !openApps.includes(app) &&
+                              openApps.length < 3
+                            ) {
+                              const newIndex = openApps.length; 
+
+                              let offsetX = 0;
+                              let offsetY = 0;
+                              if (appPositions[newIndex - 1]) {
+                                // Check if a previous app exists
+                                offsetX = appPositions[newIndex - 1].x + 30;
+                                offsetY = appPositions[newIndex - 1].y + 30;
+                              }
+
+                              setAppPositions((prev) => ({
+                                ...prev,
+                                [newIndex]: { x: offsetX, y: offsetY },
+                              }));
+
                               if (isSmallScreen) {
                                 setOpenApps([app]);
                               } else {
@@ -167,6 +190,7 @@ const Home = () => {
           <Draggable
             key={index}
             bounds="parent"
+            position={appPositions[index] || { x: 0, y: 0 }}
             defaultPosition={
               isSmallScreen
                 ? { x: 0, y: 0 }
@@ -174,7 +198,15 @@ const Home = () => {
             }
             cancel=".interactable"
             onStart={() => setIsDragging(true)}
-            onStop={() => {
+            onStop={(e, data) => {
+              setAppPositions((prevPositions) => ({
+                ...prevPositions,
+                [index]: {
+                  x: data.x,
+                  y: data.y,
+                },
+              }));
+
               setTimeout(() => {
                 setIsDragging(false);
               }, 100);
@@ -204,6 +236,17 @@ const Home = () => {
             >
               <WindowBar
                 onClose={() => {
+                  const closedAppIndex = openApps.indexOf(app);
+
+                  const newAppPositions = { ...appPositions };
+                  delete newAppPositions[closedAppIndex];
+
+                  for (let i = closedAppIndex + 1; i < openApps.length; i++) {
+                    newAppPositions[i - 1] = newAppPositions[i];
+                  }
+                  delete newAppPositions[openApps.length - 1];
+
+                  setAppPositions(newAppPositions);
                   setOpenApps(openApps.filter((a) => a !== app));
                 }}
               />
