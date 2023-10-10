@@ -27,6 +27,8 @@ import "./Home.scss";
 const Home = () => {
   const { openApps, setOpenApps, setPhoneLocked } = useContext(PhoneContext);
   const [currentPage, setCurrentPage] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+
   const [defaultPositions, setDefaultPositions] = useState({});
 
   const homeScreenRef = useRef(null);
@@ -73,11 +75,13 @@ const Home = () => {
 
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
+      if (isDragging) return;
       setIsSwiping(true);
       setDeltaX(eventData.deltaX * 0.08);
     },
 
     onSwipedRight: () => {
+      if (isDragging) return;
       if (currentPage - 1 >= 0) {
         setCurrentPage(currentPage - 1);
       }
@@ -86,16 +90,17 @@ const Home = () => {
     },
 
     onSwipedLeft: () => {
+      if (isDragging) return;
       if (currentPage + 1 < PAGES.length) {
         setCurrentPage(currentPage + 1);
       }
       setIsSwiping(false);
       setDeltaX(0);
     },
-
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
+
   return (
     <div className="home-screen" ref={homeScreenRef} {...handlers}>
       <div
@@ -164,8 +169,12 @@ const Home = () => {
                 : defaultPositions[index] || { x: 0, y: 0 }
             }
             cancel=".interactable"
-            // resize
-            enableUserSelectHack={false}
+            onStart={() => setIsDragging(true)}
+            onStop={() => {
+              setTimeout(() => {
+                setIsDragging(false);
+              }, 100);
+            }}
           >
             <div
               id={`draggable-${index}`}
@@ -211,6 +220,8 @@ const Home = () => {
                         height: "100%",
                       }
                 }
+                onMouseDown={(e) => e.stopPropagation()}
+                onTouchStart={(e) => e.stopPropagation()}
               >
                 {app.component}
               </div>
