@@ -14,7 +14,7 @@ const GalleryWidget = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 7000);
+    }, 7500);
 
     return () => clearInterval(timer);
   }, []);
