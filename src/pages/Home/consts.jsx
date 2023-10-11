@@ -118,40 +118,44 @@ export const SecondPage = [
 
 export const ThirdPage = [
   {
-    name: "CV",
-    icon: <NotesOutlined />,
-    label: "CV",
-    href: "/cv",
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
   },
   {
-    name: "CV",
-    icon: <NotesOutlined />,
-    label: "CV",
-    href: "/cv",
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
   },
   {
-    name: "CV",
-    icon: <NotesOutlined />,
-    label: "CV",
-    href: "/cv",
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
   },
   {
-    name: "CV",
-    icon: <NotesOutlined />,
-    label: "CV",
-    href: "/cv",
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
   },
   {
-    name: "CV",
-    icon: <NotesOutlined />,
-    label: "CV",
-    href: "/cv",
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
   },
   {
-    name: "Terminal",
-    icon: <TerminalIcon />,
-    label: "Terminal",
-    component: <Terminal />,
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
+  },
+  {
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
+  },
+  {
+    name: "Placeholder",
+    iconHref: "/assets/icons/placeholder.png",
+    label: "Placeholder",
   },
 ];
 
