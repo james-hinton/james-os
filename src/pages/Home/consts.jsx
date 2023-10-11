@@ -85,64 +85,34 @@ export const HomeApps = [
 
 export const SecondPage = [
   {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
+    name: "Ordnance Survey",
+    iconHref: "/assets/icons/os.png",
+    label: "Ordnance Survey",
   },
   {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
+    name: "Satellite Applications",
+    iconHref: "/assets/icons/satapps.png",
+    label: "Satellite Applications Catapult",
   },
   {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
+    name: "Spatial Days",
+    iconHref: "/assets/icons/spatialdays.png",
+    label: "Spatial Days",
   },
   {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
+    name: "Yeti",
+    iconHref: "/assets/icons/yeti.png",
+    label: "Yeti",
   },
   {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
+    name: "Whoovr",
+    iconHref: "/assets/icons/whoovr.png",
+    label: "Whoovr",
   },
   {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
-  },
-  {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
-  },
-  {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
-  },
-  {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
-  },
-  {
-    name: "Twitter",
-    iconHref: "/assets/icons/twitter.png",
-    label: "Twitter",
-    href: "/twitter",
+    name: "Requiem",
+    iconHref: "/assets/icons/requiem.png",
+    label: "Requiem",
   },
 ];
 
@@ -182,8 +152,7 @@ export const ThirdPage = [
     icon: <TerminalIcon />,
     label: "Terminal",
     component: <Terminal />,
-    
-  }
+  },
 ];
 
 export const DockApps = [

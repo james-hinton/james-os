@@ -14,6 +14,7 @@ import { PhoneContext } from "../../context/PhoneContext";
 // Components
 import App from "./components/App/App";
 import Dock from "./components/Dock/Dock";
+import PageControl from "./components/PageControl/PageControl";
 
 // Data
 import { HomeApps, SecondPage, ThirdPage } from "./consts";
@@ -145,8 +146,14 @@ const Home = () => {
           setIsDragging={setIsDragging}
         />
       ))}
-
-      <Dock />
+      <div>
+        <PageControl
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          pageCount={PAGES.length}
+        />
+        <Dock />
+      </div>
     </div>
   );
 };

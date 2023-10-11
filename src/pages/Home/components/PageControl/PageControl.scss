@@ -1,0 +1,23 @@
+.page-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e1e1e18e;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #b6b6b6;
+  }
+}
+
+.dot.active {
+  background-color: #ffffff;
+}

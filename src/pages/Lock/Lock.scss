@@ -13,6 +13,8 @@
 
   transition: transform 0.3s ease-in-out;
 
+  user-select: none;
+
   &-content {
     box-sizing: border-box;
     padding-top: 5rem;
