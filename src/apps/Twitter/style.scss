@@ -56,19 +56,19 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 20px;
-      box-sizing: border-box;
       border-bottom: 1px solid #e6ecf0;
       border-left: 1px solid #e6ecf0;
       // Sticky
-      position: fixed;
-      z-index: 10000;
 
       &-title {
         font-size: 20px;
         font-weight: 700;
         color: #14171a;
         font-family: "Chirp-Bold-web", sans-serif;
+        background-color: #fff;
       }
+
+
     }
   }
 

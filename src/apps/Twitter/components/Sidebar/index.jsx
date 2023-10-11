@@ -14,7 +14,7 @@ const whatsHappening = [
   },
   {
     type: "trending",
-    title: "Why did the tomato turn red? Because it saw the salad dressing!",
+    title: "As Twitter Rebrands to X, Millions Wonder: Do Retweets Now Mark the Spot?",
     time: "3 hour ago",
     count: "1.2K Tweets",
   },
@@ -22,7 +22,7 @@ const whatsHappening = [
     type: "trending",
     title:
       "I just spilled my coffee all over my keyboard. Now my keys are extra caffeinated and typing really fast",
-    time: "1 hour ago",
+    time: "17 hour ago",
     count: "1.2K Tweets",
   },
 ];

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 // Components
 import Post from "./components/Post";
-import ProfileImg from "../../assets/images/profile.jpeg"
+import ProfileImg from "../../assets/images/profile.jpeg";
 
 // Styles
 import "./style.scss";
@@ -64,14 +64,13 @@ const Timeline = ({ tweets, setTweets }) => {
 
   return (
     <div className="twitter-timeline">
-      {tweets.map((tweet) => {
+      {tweets.map((tweet, index) => {
         const repliedTweet = hasThisTweetGotAReply(tweet.id);
         return (
           <Post
             user={users.find((user) => user.id === tweet.user)}
             tweet={tweet}
-            // Look through the other tweets and if theres a reply to that ID
-            // then return that tweet
+            key={index}
             reply={
               repliedTweet && {
                 tweet: repliedTweet,

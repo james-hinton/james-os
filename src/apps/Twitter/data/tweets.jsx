@@ -2,11 +2,11 @@ export let defaultTweets = [
     {
       id: 6,
       user: 1,
-      text: "Hi guys. Haven't been on twitter for a while, but I'm back now! Maybe.",
+      text: "Twitter's called X now? Guess I'll just keep calling it Twitter in my code. Legacy naming conventions for the win! 🚀😂",
       likes: 12901290,
       retweets: 112233,
       replies: 699991,
-      createdAt: "2022-12-20T00:00:00.000Z",
+      createdAt: "2023-10-11T00:00:00.000Z",
     },
     {
       id: 1,
