@@ -16,6 +16,8 @@
   width: 100%;
   height: 100%;
   background-color: white;
+  font-size: 0.9rem;
+  padding-top: 1rem;
 
 }
 
@@ -24,10 +26,12 @@
   &-container {
     display: flex;
     flex-direction: row;
+    padding-right:1rem;
   }
 
   &-content {
     width: 45%;
+    overflow: hidden;
 
     // If width is under 1000px make it 100%
     @media (max-width: 1000px) {

@@ -9,6 +9,9 @@ import Draggable from "react-draggable";
 // Components
 import WindowBar from "../../../../components/WindowBar/WindowBar";
 
+// Style
+import "./OpenApp.scss";
+
 const OpenApp = ({
   app,
   index,
@@ -40,13 +43,12 @@ const OpenApp = ({
   };
 
   const handleMouseMove = (e) => {
-    console.log('App ref', appRef)
     if (appRef.current && e.target.className !== "handle") {
       let newWidth = appRef.current.offsetWidth + e.movementX;
       let newHeight = appRef.current.offsetHeight + e.movementY;
 
-      if (newWidth < 300) {
-        newWidth = 300;
+      if (newWidth < 630) {
+        newWidth = 630;
       }
       if (newHeight < 300) {
         newHeight = 300;
@@ -140,17 +142,20 @@ const OpenApp = ({
                   left: 0,
                   paddingTop: "1.5rem",
                   overflow: "auto",
+                  backgroundColor: app.backgroundColor || "",
+
                 }
               : {
                   width: "100%",
                   height: "100%",
                   overflow: "auto",
+                  backgroundColor: app.backgroundColor || "",
                 }
           }
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
         >
-          {app.component}
+          <app.component appRef={appRef} />
         </div>
       </div>
     </Draggable>

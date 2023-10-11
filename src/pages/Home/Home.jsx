@@ -33,7 +33,6 @@ const Home = () => {
   const [appPositions, setAppPositions] = useState({});
 
   const homeScreenRef = useRef(null);
-  const appRefs = useRef({});
   const isSmallScreen = window.innerHeight < 700 || window.innerWidth < 700;
 
   // Set default positions for new apps

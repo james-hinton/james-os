@@ -35,12 +35,20 @@ const menuItems = [
   },
 ];
 
-const TwitterNavbar = () => {
+const TwitterNavbar = ({ appRef }) => {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // If the screen is less than 600px, the sidebar is expanded
-  const isMobile = useMediaQuery("(min-width:1300px)");
+  useEffect(() => {
+    const appWidth = appRef?.current?.offsetWidth;
+    console.log('IS MOBILE', appWidth)
+    if (appWidth > 1300) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  }, [appRef?.current?.offsetWidth]);
 
   useEffect(() => {
     setSidebarExpanded(isMobile);

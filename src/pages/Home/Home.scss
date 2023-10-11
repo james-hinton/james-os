@@ -116,11 +116,7 @@
     width: 100%;
   }
 
-  .app-container {
-    position: absolute;
-    z-index: 1009;
-    box-sizing: border-box;
-  }
+
 }
 
 .page-container {
@@ -128,13 +124,3 @@
   flex-wrap: nowrap;
 }
 
-.handle {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  bottom: 0;
-  right: 0;
-  cursor: se-resize;
-  background-color: #333;
-  z-index: 2000;
-}

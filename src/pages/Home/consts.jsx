@@ -39,9 +39,10 @@ export const HomeApps = [
     name: "Twitter",
     iconHref: "/assets/icons/twitter.png",
     label: "Twitter",
-    component: <Twitter />,
+    component: Twitter,
     width: "80%",
-    height: "70%"
+    height: "70%",
+    backgroundColor: "white",
   },
   {
     name: "Music",
@@ -72,13 +73,13 @@ export const HomeApps = [
     icon: <SettingsIcon />,
     label: "Settings",
     href: "/projects",
-    component: <Settings />,
+    component: Settings,
   },
   {
     name: "Terminal",
     icon: <TerminalIcon />,
     label: "Terminal",
-    component: <Terminal />,
+    component: Terminal,
   },
 ];
 

@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+import { useRef, useEffect, useState } from "react";
+
 import "./style.scss";
 
 const whatsHappening = [
@@ -42,86 +45,102 @@ const whoToFollow = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ appRef }) => {
+  const initialAppWidth = appRef?.current?.offsetWidth || 0;
+  const [isHidden, setIsHidden] = useState(initialAppWidth < 1000);
+
+  useEffect(() => {
+    const appWidth = appRef?.current?.offsetWidth;
+    if (appWidth < 1000) {
+      setIsHidden(true);
+    } else {
+      setIsHidden(false);
+    }
+  }, [appRef?.current?.offsetWidth]);
+
   return (
-    <div className="twitter-sidebar">
-      {/* Search Twitter */}
-      <div className="twitter-sidebar-search">
-        <input type="text" placeholder="Search Twitter" />
-      </div>
-
-      {/* Whats happening */}
-      <div className="twitter-sidebar-whats-happening">
-        <span className="twitter-sidebar-whats-happening-title">
-          What's happening
-        </span>
-        {whatsHappening.map((item, index) => (
-          <div className="twitter-sidebar-whats-happening-item">
-            <div className="twitter-sidebar-whats-happening-item-left">
-              {/* Header */}
-              <div className="twitter-sidebar-whats-happening-item-left-header">
-                <div className="twitter-sidebar-whats-happening-item-left-header-type">
-                  {item.type}
-                </div>
-
-                {/* Time */}
-                <div className="twitter-sidebar-whats-happening-item-left-header-time">
-                  {item.time}
-                </div>
-              </div>
-              {/* Title */}
-              <div className="twitter-sidebar-whats-happening-item-left-title">
-                {item.title}
-              </div>
-            </div>
-            <div className="twitter-sidebar-whats-happening-item-right">
-              {/* Image */}
-              {item.img ? (
-                <div className="twitter-sidebar-whats-happening-item-right-img">
-                  <img src={item.img} alt="" />
-                </div>
-              ) : (
-                <div className="twitter-sidebar-whats-happening-item-right-more">
-                  ...
-                </div>
-              )}
-            </div>
+    <div>
+      {!isHidden && (
+        <div className="twitter-sidebar">
+          {/* Search Twitter */}
+          <div className="twitter-sidebar-search">
+            <input type="text" placeholder="Search Twitter" />
           </div>
-        ))}
-      </div>
 
-      {/* Who to follow */}
-      <div className="twitter-sidebar-who-to-follow">
-        <span className="twitter-sidebar-who-to-follow-title">
-          Who to follow
-        </span>
-        {whoToFollow.map((item, index) => (
-          <div className="twitter-sidebar-who-to-follow-item">
-            <div className="twitter-sidebar-who-to-follow-item-left">
-              {/* Avatar */}
-              <div className="twitter-sidebar-who-to-follow-item-left-avatar">
-                <img src={item.avatar} alt="" />
-              </div>
-            </div>
+          {/* Whats happening */}
+          <div className="twitter-sidebar-whats-happening">
+            <span className="twitter-sidebar-whats-happening-title">
+              What's happening
+            </span>
+            {whatsHappening.map((item, index) => (
+              <div className="twitter-sidebar-whats-happening-item" key={index}>
+                <div className="twitter-sidebar-whats-happening-item-left">
+                  {/* Header */}
+                  <div className="twitter-sidebar-whats-happening-item-left-header">
+                    <div className="twitter-sidebar-whats-happening-item-left-header-type">
+                      {item.type}
+                    </div>
 
-            {/* Info */}
-            <div className="twitter-sidebar-who-to-follow-item-info">
-              <div className="twitter-sidebar-who-to-follow-item-info-name">
-                {item.name}
+                    {/* Time */}
+                    <div className="twitter-sidebar-whats-happening-item-left-header-time">
+                      {item.time}
+                    </div>
+                  </div>
+                  {/* Title */}
+                  <div className="twitter-sidebar-whats-happening-item-left-title">
+                    {item.title}
+                  </div>
+                </div>
+                <div className="twitter-sidebar-whats-happening-item-right">
+                  {/* Image */}
+                  {item.img ? (
+                    <div className="twitter-sidebar-whats-happening-item-right-img">
+                      <img src={item.img} alt="" />
+                    </div>
+                  ) : (
+                    <div className="twitter-sidebar-whats-happening-item-right-more">
+                      ...
+                    </div>
+                  )}
+                </div>
               </div>
-              <div className="twitter-sidebar-who-to-follow-item-info-username">
-                {item.username}
-              </div>
-            </div>
-            {/* Follow */}
-            <div className="twitter-sidebar-who-to-follow-item-right">
-              <div className="twitter-sidebar-who-to-follow-item-right-follow">
-                <span>Follow</span>
-              </div>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
+
+          {/* Who to follow */}
+          <div className="twitter-sidebar-who-to-follow">
+            <span className="twitter-sidebar-who-to-follow-title">
+              Who to follow
+            </span>
+            {whoToFollow.map((item, index) => (
+              <div className="twitter-sidebar-who-to-follow-item" key={index}>
+                <div className="twitter-sidebar-who-to-follow-item-left">
+                  {/* Avatar */}
+                  <div className="twitter-sidebar-who-to-follow-item-left-avatar">
+                    <img src={item.avatar} alt="" />
+                  </div>
+                </div>
+
+                {/* Info */}
+                <div className="twitter-sidebar-who-to-follow-item-info">
+                  <div className="twitter-sidebar-who-to-follow-item-info-name">
+                    {item.name}
+                  </div>
+                  <div className="twitter-sidebar-who-to-follow-item-info-username">
+                    {item.username}
+                  </div>
+                </div>
+                {/* Follow */}
+                <div className="twitter-sidebar-who-to-follow-item-right">
+                  <div className="twitter-sidebar-who-to-follow-item-right-follow">
+                    <span>Follow</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
