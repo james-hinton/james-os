@@ -127,3 +127,14 @@
   width: 100vw;
   flex-wrap: nowrap;
 }
+
+.handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  bottom: 0;
+  right: 0;
+  cursor: se-resize;
+  background-color: #333;
+  z-index: 2000;
+}

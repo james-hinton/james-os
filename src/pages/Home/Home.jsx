@@ -6,10 +6,10 @@ import {
   useLayoutEffect,
   useState,
 } from "react";
+import { useSwipeable } from "react-swipeable";
 
 // External Libraries
 import Draggable from "react-draggable";
-import { useSwipeable } from "react-swipeable";
 
 // Context
 import { PhoneContext } from "../../context/PhoneContext";
@@ -70,7 +70,7 @@ const Home = () => {
       const widthValue = parseFloat(width);
       return `${(100 - widthValue) / 2}%`;
     }
-    return "25%"; 
+    return "25%";
   };
 
   useEffect(() => {
@@ -112,6 +112,42 @@ const Home = () => {
     preventDefaultTouchmoveEvent: true,
     trackMouse: true,
   });
+
+  // Resizing
+  const isResizing = useRef(false);
+  const appRefs = useRef({});
+  const [appSize, setAppSize] = useState({ width: 0, height: 0 });
+
+  const handleMouseDown = (e) => {
+    e.stopPropagation();
+    isResizing.current = true;
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  };
+
+  const handleMouseMove = (e) => {
+    const currentAppRef = appRefs.current[0];
+    if (currentAppRef && e.target.className !== "handle") {
+      let newWidth = currentAppRef.offsetWidth + e.movementX;
+      let newHeight = currentAppRef.offsetHeight + e.movementY;
+
+      // minimum width
+      if (newWidth < 300) {
+        newWidth = 300;
+      }
+      if (newHeight < 300) {
+        newHeight = 300;
+      }
+
+      currentAppRef.style.width = `${newWidth}px`;
+      currentAppRef.style.height = `${newHeight}px`;
+    }
+  };
+
+  const handleMouseUp = () => {
+    isResizing.current = false;
+    document.removeEventListener("mousemove", handleMouseMove);
+  };
 
   return (
     <div className="home-screen" ref={homeScreenRef} {...handlers}>
@@ -226,6 +262,7 @@ const Home = () => {
           >
             <div
               id={`draggable-${index}`}
+              ref={(el) => (appRefs.current[index] = el)}
               style={
                 isSmallScreen
                   ? {
@@ -249,6 +286,8 @@ const Home = () => {
                     }
               }
             >
+              <div className="handle" onMouseDown={handleMouseDown}></div>
+
               <WindowBar
                 onClose={() => {
                   const closedAppIndex = openApps.indexOf(app);
