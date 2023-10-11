@@ -6,7 +6,6 @@ import {
   TerrainOutlined,
   ThreeDRotationOutlined,
   WorkOutlineOutlined,
-  Twitter,
   Terminal as TerminalIcon,
   Email,
   Settings as SettingsIcon,
@@ -19,6 +18,7 @@ import GalleryWidget from "./components/Widgets/Gallery/Gallery";
 // Apps
 import Settings from "../../apps/Settings/Settings";
 import Terminal from "../../apps/Terminal/Terminal";
+import Twitter from "../../apps/Twitter";
 
 export const HomeApps = [
   {
@@ -39,7 +39,9 @@ export const HomeApps = [
     name: "Twitter",
     iconHref: "/assets/icons/twitter.png",
     label: "Twitter",
-    href: "/twitter",
+    component: <Twitter />,
+    width: "80%",
+    height: "70%"
   },
   {
     name: "Music",

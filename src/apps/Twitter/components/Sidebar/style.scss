@@ -1,0 +1,278 @@
+.twitter-sidebar {
+  // If width is under 1000px hide
+  @media (max-width: 1000px) {
+    display: none;
+  }
+
+  width: 30%;
+  max-width: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  padding-top: 5px;
+  box-sizing: border-box;
+
+  &-search {
+    height: 50px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: #fff;
+
+    & input {
+      height: 75%;
+      display: flex;
+      width: 100%;
+
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      border-radius: 20px;
+      border: 0;
+      background-color: #f7f9f9;
+      outline: none;
+      font-size: 1em;
+      font-weight: 400;
+      padding: 15px;
+      color: #14171a;
+      line-height: 1;
+      font-family: "Chirp-Regular-web", sans-serif;
+
+      &::placeholder {
+        color: #657786;
+      }
+    }
+  }
+
+  &-whats-happening {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom: 1px solid #e6ecf0;
+    font-family: "Chirp-Bold-web", sans-serif;
+    background-color: #f7f9f9;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &-title {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      font-family: "Chirp-Bold-web", sans-serif;
+      font-size: 1.2em;
+      color: #14171a;
+      line-height: 1.3125;
+      font-weight: 900;
+    }
+
+    &-item {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      font-family: "Chirp-Bold-web", sans-serif;
+      margin-bottom: 30px;
+
+      &-left {
+        width: 60%;
+        display: flex;
+        box-sizing: border-box;
+        font-family: "Chirp-Bold-web", sans-serif;
+
+        flex-direction: column;
+
+        &-header {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          box-sizing: border-box;
+          font-family: "Chirp-Bold-web", sans-serif;
+          font-size: 0.7em;
+          color: gray;
+
+          &-type {
+            margin-right: 20px;
+          }
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      &-right {
+        width: 40%;
+        display: flex;
+        box-sizing: border-box;
+        font-family: "Chirp-Bold-web", sans-serif;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+
+        &-img {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          box-sizing: border-box;
+          font-family: "Chirp-Bold-web", sans-serif;
+          align-items: center;
+          justify-content: center;
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10%;
+          }
+        }
+
+        &-more {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          box-sizing: border-box;
+          font-family: "Chirp-Bold-web", sans-serif;
+          align-items: center;
+          justify-content: flex-end;
+          font-size: 1em;
+          color: gray;
+        }
+      }
+    }
+  }
+
+  &-who-to-follow {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1em;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom: 1px solid #e6ecf0;
+    font-family: "Chirp-Bold-web", sans-serif;
+    background-color: #f7f9f9;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &-title {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      font-family: "Chirp-Bold-web", sans-serif;
+      font-size: 1.2em;
+      color: #14171a;
+      line-height: 1.3125;
+      font-weight: 900;
+    }
+
+    &-item {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      font-family: "Chirp-Bold-web", sans-serif;
+      margin-bottom: 30px;
+
+      &-left {
+        width:20%;
+        display: flex;
+        box-sizing: border-box;
+        font-family: "Chirp-Bold-web", sans-serif;
+
+        flex-direction: column;
+
+        &-avatar { 
+          width: 50px;
+          height: 50px;
+          display: flex;
+          box-sizing: border-box;
+          font-family: "Chirp-Bold-web", sans-serif;
+          font-size: 0.7em;
+          color: gray;
+
+          & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      &-info {
+        width: 60%;
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+
+
+        &-username {
+          font-size: 0.8em;
+          line-height: 1.3125;
+          font-weight: 900;
+          color: gray;
+        }
+      }
+
+      &-right {
+        width: 20%;
+        display: flex;
+        box-sizing: border-box;
+        font-family: "Chirp-Bold-web", sans-serif;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+
+        &-follow {
+          // Black cicle white font
+          width: 50px;
+          height: 30px;
+          padding: 0.2em;
+          border-radius: 15%;
+          padding-left: 14px;
+          padding-right: 14px;
+          background-color: #14171a;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            background-color: #1da1f2;
+            color: white;
+            cursor: pointer;
+          }
+
+
+        }
+      }
+    }
+  }
+}

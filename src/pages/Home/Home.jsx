@@ -65,6 +65,14 @@ const Home = () => {
   }, [openApps]);
 
   // Listen for Control + Command + Q shortcut and lock
+  const getLeftPosition = (width) => {
+    if (width.endsWith("%")) {
+      const widthValue = parseFloat(width);
+      return `${(100 - widthValue) / 2}%`;
+    }
+    return "25%"; 
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
       if (e.key === "q" && e.ctrlKey && e.metaKey) {
@@ -227,14 +235,17 @@ const Home = () => {
                       top: "4rem",
                       left: 0,
                       zIndex: 1010,
+                      overflow: "hidden",
                     }
                   : {
                       position: "absolute",
                       top: "4rem",
-                      left: "25%",
-                      height: "30%",
-                      width: "50%",
+                      left: getLeftPosition(app.width || "50%"),
+                      height: app.height || "35%",
+                      width: app.width || "50%",
                       zIndex: 1010,
+                      backgroundColor: "white",
+                      overflow: "hidden",
                     }
               }
             >
@@ -262,10 +273,12 @@ const Home = () => {
                         top: 0,
                         left: 0,
                         paddingTop: "1.5rem",
+                        overflow: "auto",
                       }
                     : {
                         width: "100%",
                         height: "100%",
+                        overflow: "auto",
                       }
                 }
                 onMouseDown={(e) => e.stopPropagation()}
