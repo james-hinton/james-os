@@ -15,7 +15,7 @@ const Profile = () => {
         {/* Profile image */}
 
         <img
-          className="sc-h-60 sc-min-w-max sc-object-contain sc-rounded-full sc-mr-8"
+          className="sc-h-60 sc-object-contain sc-rounded-full sc-mr-8"
           src="./soundcloud/user.jfif"
         />
 
