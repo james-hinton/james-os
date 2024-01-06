@@ -56,9 +56,9 @@ const Bar = () => {
   return (
     <div className="bar interactable">
       <div className="bar-content">
-        <div className="bar-content-logo">
+        {/* <div className="bar-content-logo">
           <img src="/assets/bar/logo.png" alt="logo" />
-        </div>
+        </div> */}
         {/* Drinks */}
         <div className="bar-content-drinks">
           <div className="bar-content-drinks-header">
