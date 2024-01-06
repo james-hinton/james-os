@@ -53,6 +53,7 @@ const Song = ({ track, large, hover, hideSidebar }) => {
                 hideSidebar
                   ? {
                       backdropFilter: "blur(10px)",
+                      WebkitBackdropFilter: "blur(10px)",
                       margin: "0.5rem 0.5rem",
                       backgroundColor: "rgba(255, 255, 255, 0.5)",
                       borderRadius: "0.5rem",
@@ -73,7 +74,6 @@ const Song = ({ track, large, hover, hideSidebar }) => {
                   style={
                     hideSidebar
                       ? {
-                          backgroundColor: "rgba(255, 255, 255, 0.5)",
                           padding: "0.5rem 1rem",
                           borderRadius: "0.5rem",
                         }
