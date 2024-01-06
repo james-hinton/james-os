@@ -52,8 +52,8 @@ const Song = ({ track, large, hover, hideSidebar }) => {
               style={
                 hideSidebar
                   ? {
-                      backdropFilter: "blur(10px)",
-                      WebkitBackdropFilter: "blur(10px)",
+                      backdropFilter: "blur(8px)",
+                      WebkitBackdropFilter: "blur(8px)",
                       margin: "0.5rem 0.5rem",
                       backgroundColor: "rgba(255, 255, 255, 0.5)",
                       borderRadius: "0.5rem",
