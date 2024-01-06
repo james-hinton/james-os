@@ -45,7 +45,7 @@ const Resume = ({
   }, [appRef?.current?.offsetWidth]);
 
   return (
-    <div className="resume-container">
+    <div className="resume-container interactable">
       {/* Download button */}
       <a
         href="james-hinton-cv.pdf"

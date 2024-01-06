@@ -101,7 +101,6 @@ const Home = ({ appRef }) => {
   }, [appRef?.current?.offsetWidth]);
 
   const [hideSidebar, sideHideSidebar] = useState(false);
-  console.log("Soundcloud refreshign ");
 
   useEffect(() => {
     const appWidth = appRef?.current?.offsetWidth;

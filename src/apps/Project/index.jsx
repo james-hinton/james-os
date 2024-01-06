@@ -6,8 +6,8 @@ const Project = ({ title, description, image, link, github, tech, about }) => {
   // State to toggle the full description view
 
   return (
-    <div className="project-container">
-      <div className="project interactable">
+    <div className="project-container interactable">
+      <div className="project">
         <img src={image} alt={title} className="project-image" />
         <h1 className="project-title">{title}</h1>
         <p className="project-description">{description}</p>
