@@ -24,6 +24,7 @@ import Resume from "../../apps/Resume/Resume";
 
 const Twitter = lazy(() => import("../../apps/Twitter"));
 const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
+const PrimevalTraces = lazy(() => import("../../apps/PrimevalTraces"));
 
 export const HomeApps = [
   {
@@ -73,6 +74,9 @@ export const HomeApps = [
     iconHref: "/assets/icons/fossils.png",
     label: "Fossils",
     href: "/paleontology",
+    component: PrimevalTraces,
+    width: "80%",
+    height: "80%",
   },
   {
     name: "3D Room",

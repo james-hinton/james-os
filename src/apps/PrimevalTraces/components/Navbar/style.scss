@@ -1,0 +1,51 @@
+@import "../../colours";
+
+.primeval-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $earthy-brown;
+  background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
+
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  box-shadow: rgba(0, 0, 0, 0.404) 0px 20px 30px -10px;
+  border-bottom: 3px solid black;
+  z-index: 9999;
+  height: 30px;
+
+  &-brand {
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Arial", sans-serif; /* Add a nice font */
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+    }
+
+    &-subtitle {
+      font-size: 0.6rem;
+      font-weight: normal;
+      letter-spacing: 0.5px;
+      color : rgb(209, 209, 209);
+    }
+
+    &:hover {
+      color: $moss-green;
+    }
+  }
+
+  &-search {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2rem;
+  }
+}

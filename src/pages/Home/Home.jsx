@@ -110,6 +110,11 @@ const Home = () => {
   useEffect(() => {
     const handleWheel = (e) => {
       if (isDragging) return;
+
+      // check if the user is scrolling on an open app
+      const openApp = document.querySelector(".open-app");
+      if (openApp && openApp.contains(e.target)) return;
+
       if (e.deltaY > 0 && currentPage + 1 < PAGES.length) {
         setCurrentPage(currentPage + 1);
       } else if (e.deltaY < 0 && currentPage - 1 >= 0) {
@@ -151,18 +156,19 @@ const Home = () => {
       </div>
       {/* Move to own component */}
       {openApps?.map((app, index) => (
-        <OpenApp
-          key={index}
-          app={app}
-          index={index}
-          openApps={openApps}
-          setOpenApps={setOpenApps}
-          appPositions={appPositions}
-          setAppPositions={setAppPositions}
-          defaultPositions={defaultPositions}
-          isSmallScreen={isSmallScreen}
-          setIsDragging={setIsDragging}
-        />
+        <div className="open-app" key={index}>
+          <OpenApp
+            app={app}
+            index={index}
+            openApps={openApps}
+            setOpenApps={setOpenApps}
+            appPositions={appPositions}
+            setAppPositions={setAppPositions}
+            defaultPositions={defaultPositions}
+            isSmallScreen={isSmallScreen}
+            setIsDragging={setIsDragging}
+          />
+        </div>
       ))}
       <div>
         <PageControl
