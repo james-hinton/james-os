@@ -119,6 +119,7 @@ const Home = () => {
 
       // check if the user is scrolling on an open app
       if (openApp && openApp.contains(e.target)) return;
+      if (e.deltaY === 0) return;
 
       if (e.deltaY > 0 && currentPage + 1 < PAGES.length) {
         setCurrentPage(currentPage + 1);

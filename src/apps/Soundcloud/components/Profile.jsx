@@ -13,11 +13,11 @@ const Profile = ({
       <img className={`sc-w-[100%] sc-object-cover ${hideSidebar ? ' sc-max-h-[15rem]' : 'sc-h-80'} `} src={background}></img>
 
       {/* Profile image over background */}
-      <div className={`sc-absolute sc-top-10 sc-h-max sc-text-white sc-justify-center sc-flex-wrap sc-flex ${hideSidebar ? 'sc-flex-row' : 'sc-flex-row sc-left-20 '} `}>
+      <div className={`sc-absolute sc-top-10 sc-h-max sc-text-white sc-justify-center sc-items-center sc-flex-wrap sc-flex ${hideSidebar ? 'sc-flex-row' : 'sc-flex-row sc-left-20 '} `}>
         {/* Profile image */}
 
         <img
-          className={`sc-object-contain sc-rounded-full sc-mr-8 ${hideSidebar ? 'sc-h-40' : 'sc-h-60'} `}
+          className={`sc-object-contain sc-rounded-full sc-mr-4 ${hideSidebar ? 'sc-h-20' : 'sc-h-60 sc-mr-8'} `}
           src="./soundcloud/user.jfif"
         />
 
