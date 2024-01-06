@@ -73,7 +73,7 @@ export const HomeApps = [
     href: "/paleontology",
     component: PrimevalTraces,
     width: "80%",
-    height: "80%",
+    height: "70%",
   },
   {
     name: "3D Room",

@@ -12,7 +12,7 @@ const PrimevalTraces = ({ appRef }) => {
   }, []);
 
   return (
-    <div id="primeval">
+    <div id="primeval" className="interactable">
       <Map />
     </div>
   )
