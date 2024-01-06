@@ -23,6 +23,7 @@ const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
 const PrimevalTraces = lazy(() => import("../../apps/PrimevalTraces"));
 const Project = lazy(() => import("../../apps/Project"));
 const Room = lazy(() => import("../../apps/Room"));
+const Bar = lazy(() => import("../../apps/Bar"));
 
 export const HomeApps = [
   {
@@ -62,10 +63,13 @@ export const HomeApps = [
   },
 
   {
-    name: "Translate",
+    name: "Bar",
     iconHref: "/assets/icons/translate.png",
-    label: "Translate",
+    label: "Bar",
     href: "/translate",
+    component: Bar,
+    width: "50%",
+    height: "70%",
   },
   {
     name: "Paleontology",

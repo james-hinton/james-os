@@ -162,7 +162,7 @@ const OpenApp = ({
                 }
               : {
                   width: "100%",
-                  height: "95%",
+                  height: "97%",
                   overflow: "auto",
                   backgroundColor: app.backgroundColor || "",
                 }
