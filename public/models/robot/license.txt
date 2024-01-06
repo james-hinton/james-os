@@ -1,0 +1,11 @@
+Model Information:
+* title:	Atom Robot - Retro Futuristic Version
+* source:	https://sketchfab.com/3d-models/atom-robot-retro-futuristic-version-74760ece01904dd4bd529735ccc8a95c
+* author:	sleepwalker77 (https://sketchfab.com/sleepwalker77)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Atom Robot - Retro Futuristic Version" (https://sketchfab.com/3d-models/atom-robot-retro-futuristic-version-74760ece01904dd4bd529735ccc8a95c) by sleepwalker77 (https://sketchfab.com/sleepwalker77) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

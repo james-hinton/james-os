@@ -22,6 +22,7 @@ const Twitter = lazy(() => import("../../apps/Twitter"));
 const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
 const PrimevalTraces = lazy(() => import("../../apps/PrimevalTraces"));
 const Project = lazy(() => import("../../apps/Project"));
+const Room = lazy(() => import("../../apps/Room"));
 
 export const HomeApps = [
   {
@@ -80,6 +81,9 @@ export const HomeApps = [
     icon: <ThreeDRotationOutlined />,
     label: "3D",
     href: "/3droom",
+    component: Room,
+    width: "80%",
+    height: "70%",
   },
   {
     name: "Settings",
@@ -159,7 +163,7 @@ export const SecondPage = [
   },
   // UK Centre for Ecology and Hydrology
   {
-    name: "Spatial Days",
+    name: "UK Centre for Ecology and Hydrology",
     iconHref: "/assets/icons/spatialdays.png",
     label: "UK Centre for Ecology and Hydrology",
     component: (props) => (
