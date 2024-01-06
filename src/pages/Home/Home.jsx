@@ -77,16 +77,20 @@ const Home = () => {
   // Handle swipe
   const [deltaX, setDeltaX] = useState(0);
   const [isSwiping, setIsSwiping] = useState(false);
+  const openApp = document.querySelector(".open-app");
 
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
       if (isDragging) return;
+      if (openApp && openApp.contains(eventData.event.target)) return;
       setIsSwiping(true);
       setDeltaX(eventData.deltaX * 0.08);
     },
 
-    onSwipedRight: () => {
+    onSwipedRight: (eventData) => {
       if (isDragging) return;
+      if (openApp && openApp.contains(eventData.event.target)) return;
+
       if (currentPage - 1 >= 0) {
         setCurrentPage(currentPage - 1);
       }
@@ -94,8 +98,10 @@ const Home = () => {
       setDeltaX(0);
     },
 
-    onSwipedLeft: () => {
+    onSwipedLeft: (eventData) => {
       if (isDragging) return;
+      if (openApp && openApp.contains(eventData.event.target)) return;
+
       if (currentPage + 1 < PAGES.length) {
         setCurrentPage(currentPage + 1);
       }
@@ -112,7 +118,6 @@ const Home = () => {
       if (isDragging) return;
 
       // check if the user is scrolling on an open app
-      const openApp = document.querySelector(".open-app");
       if (openApp && openApp.contains(e.target)) return;
 
       if (e.deltaY > 0 && currentPage + 1 < PAGES.length) {
