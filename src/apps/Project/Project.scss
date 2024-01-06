@@ -1,0 +1,83 @@
+// Project.scss
+
+.project {
+  width: 100%;
+  max-width: 700px;
+  height: 80%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+
+  &-about {
+    margin-top: 1.5rem;
+    max-height: 300px;
+    overflow: auto;
+
+    // smaller text on mobile
+    @media (max-width: 600px) {
+      font-size: 0.8rem;
+      max-height: 30%;
+    }
+
+    & p {
+      text-align: justify;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  .project-image {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+  }
+  .project-title {
+    font-size: 1.5em;
+  }
+  .project-description {
+    color: #666;
+  }
+  .project-tech-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      margin-right: 10px;
+      background: #eee;
+      padding: 5px 10px;
+    }
+  }
+  .project-links {
+    margin-top: 15px;
+    a {
+      margin-right: 10px;
+    }
+    .MuiSvgIcon-root {
+      cursor: pointer;
+    }
+  }
+}
+
+/* Tooltip styling */
+.__react_component_tooltip {
+  font-size: 12px;
+  max-width: 150px;
+}

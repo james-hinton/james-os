@@ -2,12 +2,8 @@ import { lazy } from "react";
 
 import {
   NotesOutlined,
-  MusicNoteOutlined,
   PhoneOutlined,
-  TranslateOutlined,
-  TerrainOutlined,
   ThreeDRotationOutlined,
-  WorkOutlineOutlined,
   Terminal as TerminalIcon,
   Email,
   Settings as SettingsIcon,
@@ -25,6 +21,7 @@ import Resume from "../../apps/Resume/Resume";
 const Twitter = lazy(() => import("../../apps/Twitter"));
 const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
 const PrimevalTraces = lazy(() => import("../../apps/PrimevalTraces"));
+const Project = lazy(() => import("../../apps/Project"));
 
 export const HomeApps = [
   {
@@ -104,6 +101,21 @@ export const SecondPage = [
     name: "Ordnance Survey",
     iconHref: "/assets/icons/os.png",
     label: "Ordnance Survey",
+    component: (props) => (
+      <Project
+        title="Ordnance Survey"
+        description="Description for Ordnance Survey"
+        image="/assets/projects/os.png"
+        link="https://www.ordnancesurvey.co.uk/"
+        github="https://github.com"
+        tech={["React", "Node.js", "PostgreSQL"]}
+        about="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl
+        nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae aliquam nisl nisl nec nisl"
+        {...props}
+      />
+    ),
+    width: "50%",
+    height: "70%",
   },
   {
     name: "Satellite Applications",

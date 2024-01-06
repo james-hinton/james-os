@@ -156,8 +156,8 @@ const Home = () => {
       </div>
       {/* Move to own component */}
       {openApps?.map((app, index) => (
-        <div className="open-app" key={index}>
           <OpenApp
+            key={index}
             app={app}
             index={index}
             openApps={openApps}
@@ -168,7 +168,6 @@ const Home = () => {
             isSmallScreen={isSmallScreen}
             setIsDragging={setIsDragging}
           />
-        </div>
       ))}
       <div>
         <PageControl

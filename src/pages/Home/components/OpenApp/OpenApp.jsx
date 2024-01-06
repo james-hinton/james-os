@@ -67,8 +67,8 @@ const OpenApp = ({
 
   const handleMouseUp = () => {
     setAppDimensions({
-      width: appRef.current.offsetWidth,
-      height: appRef.current.offsetHeight,
+      width: appRef?.current?.offsetWidth,
+      height: appRef?.current?.offsetHeight,
     });
     isResizing.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
@@ -77,6 +77,7 @@ const OpenApp = ({
   return (
     <Draggable
       bounds="parent"
+      defaultClassName="open-app"
       position={appPositions[index] || { x: 0, y: 0 }}
       defaultPosition={
         isSmallScreen
@@ -161,7 +162,7 @@ const OpenApp = ({
                 }
               : {
                   width: "100%",
-                  height: "100%",
+                  height: "95%",
                   overflow: "auto",
                   backgroundColor: app.backgroundColor || "",
                 }
