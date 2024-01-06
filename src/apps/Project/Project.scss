@@ -45,14 +45,15 @@
     width: 100%;
     height: auto;
     max-height: 150px;
-    max-width: 150px;
-    object-fit: cover;
+    max-width: 200px;
+    object-fit: contain;
   }
   .project-title {
     font-size: 1.5em;
   }
   .project-description {
     color: #666;
+    margin: 1rem;
   }
   .project-tech-list {
     list-style: none;
