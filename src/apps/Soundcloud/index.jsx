@@ -34,71 +34,68 @@ const Home = ({ appRef }) => {
   const soundcloudRef = useRef(null);
   const contentRef = useRef(null);
 
+  // useEffect(() => {
+  //   const appWidth = appRef?.current?.offsetWidth;
 
-  useEffect(() => {
-    const appWidth = appRef?.current?.offsetWidth;
+  //   const stylesConfig = [
+  //     {
+  //       max: 800,
+  //       styles: {
+  //         contentWidth: "100%",
+  //         soundcloudTransform: "scale(0.8)",
+  //         soundcloudTransformOrigin: "top left",
+  //         soundcloudWidth: "100%",
+  //       },
+  //     },
+  //     {
+  //       max: 1000,
+  //       styles: {
+  //         contentWidth: "100%",
+  //         soundcloudTransform: "scale(0.8)",
+  //         soundcloudTransformOrigin: "top left",
+  //         soundcloudWidth: "100%",
+  //       },
+  //     },
+  //     {
+  //       max: 1400,
+  //       styles: {
+  //         contentWidth: "100%",
+  //         soundcloudTransform: "none",
+  //         soundcloudWidth: "100%",
+  //       },
+  //     },
+  //     {
+  //       default: true,
+  //       styles: {
+  //         contentWidth: "100%",
+  //         soundcloudTransform: "none",
+  //         soundcloudWidth: "100%",
+  //       },
+  //     },
+  //   ];
 
-    const stylesConfig = [
-      {
-        max: 800,
-        styles: {
-          contentWidth: "100%",
-          soundcloudTransform: "scale(0.8)",
-          soundcloudTransformOrigin: "top left",
-          soundcloudWidth: "100%",
-        },
-      },
-      {
-        max: 1000,
-        styles: {
-          contentWidth: "100%",
-          soundcloudTransform: "scale(0.8)",
-          soundcloudTransformOrigin: "top left",
-          soundcloudWidth: "100%",
-        },
-      },
-      {
-        max: 1400,
-        styles: {
-          contentWidth: "100%",
-          soundcloudTransform: "none",
-          soundcloudWidth: "100%",
-        },
-      },
-      {
-        default: true,
-        styles: {
-          contentWidth: "100%",
-          soundcloudTransform: "none",
-          soundcloudWidth: "100%",
-        },
-      },
-    ];
+  //   for (const config of stylesConfig) {
+  //     if (config.default || appWidth < config.max) {
+  //       const {
+  //         contentWidth,
+  //         soundcloudTransform,
+  //         soundcloudTransformOrigin,
+  //         soundcloudWidth,
+  //       } = config.styles;
 
-    console.log("appWidth", appWidth);
+  //       if (contentWidth) contentRef.current.style.width = contentWidth;
+  //       if (soundcloudTransform)
+  //         soundcloudRef.current.style.transform = soundcloudTransform;
+  //       if (soundcloudTransformOrigin)
+  //         soundcloudRef.current.style.transformOrigin =
+  //           soundcloudTransformOrigin;
+  //       if (soundcloudWidth)
+  //         soundcloudRef.current.style.width = soundcloudWidth;
 
-    for (const config of stylesConfig) {
-      if (config.default || appWidth < config.max) {
-        const {
-          contentWidth,
-          soundcloudTransform,
-          soundcloudTransformOrigin,
-          soundcloudWidth,
-        } = config.styles;
-
-        if (contentWidth) contentRef.current.style.width = contentWidth;
-        if (soundcloudTransform)
-          soundcloudRef.current.style.transform = soundcloudTransform;
-        if (soundcloudTransformOrigin)
-          soundcloudRef.current.style.transformOrigin =
-            soundcloudTransformOrigin;
-        if (soundcloudWidth)
-          soundcloudRef.current.style.width = soundcloudWidth;
-
-        break; // Stop the loop once we find the appropriate breakpoint
-      }
-    }
-  }, [appRef?.current?.offsetWidth]);
+  //       break; // Stop the loop once we find the appropriate breakpoint
+  //     }
+  //   }
+  // }, [appRef?.current?.offsetWidth]);
 
   const [hideSidebar, sideHideSidebar] = useState(false);
 
@@ -114,10 +111,10 @@ const Home = ({ appRef }) => {
   return (
     <div
       id="soundcloud"
-      className="interactable sc-bg-sc-background sc-bg-sc-background min-w-[1200px] "
+      className="interactable sc-bg-sc-background sc-bg-sc-background "
       ref={soundcloudRef}
     >
-      <Navbar appRef={appRef} />
+      {/* <Navbar appRef={appRef} /> */}
 
       <div
         className="sc-flex sc-justify-center soundcloud-container"
@@ -129,14 +126,20 @@ const Home = ({ appRef }) => {
 
           {/* Left side 66% */}
           <div className="sc-flex sc-mt-4">
-            {/* Min 1000px */}
-            <div className="sc-flex sc-flex-col sc-w-4/6 sc-min-w-[750px]">
-              <Songs tracks={tracks} />
-            </div>
+            {/* Adjusted Left side to take full width on small screens */}
+            {!hideSidebar ? (
+              <div className="sc-flex sc-flex-col sc-w-full md:sc-w-4/6 ">
+                <Songs tracks={tracks} />
+              </div>
+            ) : (
+              <div className="sc-flex sc-flex-col sc-w-full md:sc-w-6/6 ">
+                <Songs tracks={tracks} />
+              </div>
+            )}
 
-            {/* Right side 33% with left border */}
+            {/* Adjusted Right side to hide on small screens */}
             {!hideSidebar && (
-              <div className="sc-flex sc-flex-col sc-w-2/6 sc-p-4 sc-border-l-[0.5px] sc-min-w-[400px]">
+              <div className="sc-hidden md:sc-flex sc-flex-col md:sc-w-2/6 sc-p-4 sc-border-l-[0.5px] sc-min-w-[400px]">
                 <AccountDetails tracks={tracks} />
               </div>
             )}

@@ -1,29 +1,30 @@
-.error-list {
-    list-style: none;
-}
-
-.demo-gif-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.demo-gif-container img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-    max-width: 700px;
-    object-fit: contain;
-}
-
 .error-boundary {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
+  background-color: white;
 }
 
 .error-boundary h1 {
-    margin-bottom:0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.error-list {
+  list-style: none;
+}
+
+.demo-gif-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.demo-gif-container img {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  max-width: 700px;
+  object-fit: contain;
 }

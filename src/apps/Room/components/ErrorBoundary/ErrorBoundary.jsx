@@ -85,11 +85,6 @@ class ErrorBoundary extends React.Component {
           <p>
             If you're still having issues after enabling WebGL, your device or
             browser might not support it, or there could be another issue.{" "}
-            <br />
-            <strong>
-              I know that a lot of browsers have been disabling WebGL due to
-              security concerns.
-            </strong>
           </p>
         </div>
       );
