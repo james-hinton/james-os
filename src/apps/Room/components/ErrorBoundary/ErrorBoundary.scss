@@ -9,12 +9,21 @@
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .demo-gif-container img {
     width: 100%;
     height: auto;
-    max-height: 400px;
-    max-width: 600px;
+    max-height: 500px;
+    max-width: 700px;
     object-fit: contain;
+}
+
+.error-boundary {
+    margin-bottom: 2rem;
+}
+
+.error-boundary h1 {
+    margin-bottom:0.5rem;
 }

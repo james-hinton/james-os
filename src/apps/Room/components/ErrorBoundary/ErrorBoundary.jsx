@@ -20,10 +20,18 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // User-friendly error message
       return (
-        <div style={{ padding: "20px", textAlign: "center" }} className="interactable">
+        <div
+          style={{ padding: "20px", textAlign: "center" }}
+          className="interactable error-boundary"
+        >
           <h1>Oops! Something went wrong.</h1>
           <p>It looks like WebGL 2.0 might not be enabled on your browser.</p>
           <br />
+
+          <div className="demo-gif-container">
+            <img src="/models/demo.gif" alt="Room Demo" />
+          </div>
+
           <p>
             WebGL is a technology that allows this application to display 3D
             graphics. Without it, you can't see my 3D Room.
@@ -83,10 +91,6 @@ class ErrorBoundary extends React.Component {
               security concerns.
             </strong>
           </p>
-
-          <div className="demo-gif-container">
-            <img src="/models/demo.gif" alt="Room Demo" />
-          </div>
         </div>
       );
     }
