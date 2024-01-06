@@ -6,6 +6,14 @@ const App = ({
   setAppPositions,
   isSmallScreen,
 }) => {
+
+  const checkLabelLength = (label) => {
+    if (label.length > 10) {
+      return label.slice(0, 7) + "...";
+    }
+    return label;
+  }
+
   return (
     <div className="home-screen-container">
       <div className="home-screen-content">
@@ -57,7 +65,7 @@ const App = ({
                   ) : (
                     <img src={app.iconHref} alt={app.name} draggable={false} />
                   )}
-                  <span className="app-label">{app.label}</span>
+                  <span className="app-label">{checkLabelLength(app.name)}</span>
                 </span>
               )}
             </div>
