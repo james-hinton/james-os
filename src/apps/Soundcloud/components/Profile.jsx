@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-const Profile = () => {
+const Profile = ({
+  hideSidebar
+}) => {
   const [background, setBackground] = useState(
     "./soundcloud/profile-background-desert.jpg"
   );
@@ -8,14 +10,14 @@ const Profile = () => {
   return (
     <div className="sc-w-[100%] sc-bg-sc-gray sc-flex sc-justify-center sc-relative">
       {/* Background */}
-      <img className="sc-h-80 sc-w-[100%] sc-object-cover" src={background}></img>
+      <img className={`sc-w-[100%] sc-object-cover ${hideSidebar ? ' sc-max-h-[15rem]' : 'sc-h-80'} `} src={background}></img>
 
       {/* Profile image over background */}
-      <div className="sc-absolute sc-top-10 sc-left-20 sc-h-max sc-text-white sc-flex">
+      <div className={`sc-absolute sc-top-10 sc-h-max sc-text-white sc-justify-center sc-flex-wrap sc-flex ${hideSidebar ? 'sc-flex-row' : 'sc-flex-row sc-left-20 '} `}>
         {/* Profile image */}
 
         <img
-          className="sc-h-60 sc-object-contain sc-rounded-full sc-mr-8"
+          className={`sc-object-contain sc-rounded-full sc-mr-8 ${hideSidebar ? 'sc-h-40' : 'sc-h-60'} `}
           src="./soundcloud/user.jfif"
         />
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Song from "./Song";
 
-const Songs = ({ tracks }) => {
+const Songs = ({ tracks, hideSidebar }) => {
   return (
     <>
       <div className="sc-flex sc-flex-col">
@@ -12,7 +12,7 @@ const Songs = ({ tracks }) => {
 
         {tracks.map((track, index) => (
           <div key={"track" + index} className="sc-p-6">
-            <Song track={track} large />
+            <Song track={track} large hideSidebar={hideSidebar} />
           </div>
         ))}
       </div>

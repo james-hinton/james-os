@@ -121,21 +121,18 @@ const Home = ({ appRef }) => {
         ref={contentRef}
       >
         <div className="sc-w-[100%] sc-max-w-[1200px] sc-bg-white">
-          <Profile />
-          <ProfileMenu />
+          <Profile hideSidebar={hideSidebar} />
+          <ProfileMenu  hideSidebar={hideSidebar} />
 
           {/* Left side 66% */}
           <div className="sc-flex sc-mt-4">
-            {/* Adjusted Left side to take full width on small screens */}
-            {!hideSidebar ? (
-              <div className="sc-flex sc-flex-col sc-w-full md:sc-w-4/6 ">
-                <Songs tracks={tracks} />
-              </div>
-            ) : (
-              <div className="sc-flex sc-flex-col sc-w-full md:sc-w-6/6 ">
-                <Songs tracks={tracks} />
-              </div>
-            )}
+            <div
+              className={`sc-flex sc-flex-col sc-w-full ${
+                hideSidebar ? "md:sc-w-6/6" : "md:sc-w-4/6"
+              } `}
+            >
+              <Songs tracks={tracks} hideSidebar={hideSidebar} />
+            </div>
 
             {/* Adjusted Right side to hide on small screens */}
             {!hideSidebar && (

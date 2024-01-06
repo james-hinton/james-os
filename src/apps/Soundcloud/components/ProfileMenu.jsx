@@ -1,5 +1,7 @@
-const ProfileMenu = () => {
-  const menuItems = [
+const ProfileMenu = ({
+  hideSidebar,
+}) => {
+  const menuItems = hideSidebar ? ["All", "Popular tracks", "Playlists"] : [
     "All",
     "Popular tracks",
     "Tracks",
