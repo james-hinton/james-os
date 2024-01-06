@@ -20,7 +20,7 @@ class ErrorBoundary extends React.Component {
     if (this.state.hasError) {
       // User-friendly error message
       return (
-        <div style={{ padding: "20px", textAlign: "center" }}>
+        <div style={{ padding: "20px", textAlign: "center" }} className="interactable">
           <h1>Oops! Something went wrong.</h1>
           <p>It looks like WebGL 2.0 might not be enabled on your browser.</p>
           <br />

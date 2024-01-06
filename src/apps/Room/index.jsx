@@ -32,7 +32,7 @@ const Room = () => {
 
   return (
     <>
-      <div id="canvas-container">
+      <div id="canvas-container" className="interactable">
         <ErrorBoundary>
           <Canvas camera={{ rotation: [1, 9, 5], position: [-45, 45, 80] }}>
             <Suspense fallback={<Loader />}>
