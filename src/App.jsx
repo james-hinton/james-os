@@ -8,6 +8,13 @@ import Home from "./pages/Home/Home";
 // Components
 import TopBar from "./components/TopBar/TopBar";
 
+import { pdfjs } from 'react-pdf';
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.js',
+  import.meta.url,
+).toString();
+
 const App = () => {
   const location = useLocation();
   const [showLock, setShowLock] = useState(true);

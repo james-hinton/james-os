@@ -1,3 +1,5 @@
+import { lazy } from "react";
+
 import {
   NotesOutlined,
   MusicNoteOutlined,
@@ -18,7 +20,10 @@ import GalleryWidget from "./components/Widgets/Gallery/Gallery";
 // Apps
 import Settings from "../../apps/Settings/Settings";
 import Terminal from "../../apps/Terminal/Terminal";
-import Twitter from "../../apps/Twitter";
+import Resume from "../../apps/Resume/Resume";
+
+const Twitter = lazy(() => import("../../apps/Twitter"));
+const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
 
 export const HomeApps = [
   {
@@ -34,6 +39,18 @@ export const HomeApps = [
     icon: <NotesOutlined />,
     label: "CV",
     href: "/cv",
+    component: Resume,
+    height: "80%",
+    width: "80%",
+  },
+  {
+    name: "Music",
+    iconHref: "/assets/icons/music.png",
+    label: "Music",
+    component: Soundcloud,
+    width: "70%",
+    height: "70%",
+    backgroundColor: "white",
   },
   {
     name: "Twitter",
@@ -44,12 +61,7 @@ export const HomeApps = [
     height: "70%",
     backgroundColor: "white",
   },
-  {
-    name: "Music",
-    iconHref: "/assets/icons/music.png",
-    label: "Music",
-    href: "/music",
-  },
+
   {
     name: "Translate",
     iconHref: "/assets/icons/translate.png",

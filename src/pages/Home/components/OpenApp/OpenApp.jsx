@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 // React Libs
-import { useRef } from "react";
+import { useRef, Suspense, useEffect, useState } from "react";
 
 // External Libraries
 import Draggable from "react-draggable";
@@ -35,6 +35,12 @@ const OpenApp = ({
   const isResizing = useRef(false);
   const appRef = useRef(null);
 
+  const [appDimensions, setAppDimensions] = useState({
+    width: appRef.current?.offsetWidth,
+    height: appRef.current?.offsetHeight,
+  });
+
+
   const handleMouseDown = (e) => {
     e.stopPropagation();
     isResizing.current = true;
@@ -60,6 +66,10 @@ const OpenApp = ({
   };
 
   const handleMouseUp = () => {
+    setAppDimensions({
+      width: appRef.current.offsetWidth,
+      height: appRef.current.offsetHeight,
+    });
     isResizing.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
   };
@@ -115,7 +125,12 @@ const OpenApp = ({
               }
         }
       >
-        <div className="handle" onMouseDown={handleMouseDown}></div>
+        <div
+          className="handle"
+          onMouseDown={(e) => {
+            handleMouseDown(e);
+          }}
+        ></div>
 
         <WindowBar
           onClose={() => {
@@ -143,7 +158,6 @@ const OpenApp = ({
                   paddingTop: "1.5rem",
                   overflow: "auto",
                   backgroundColor: app.backgroundColor || "",
-
                 }
               : {
                   width: "100%",
@@ -155,7 +169,9 @@ const OpenApp = ({
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
         >
-          <app.component appRef={appRef} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <app.component appRef={appRef} />
+          </Suspense>
         </div>
       </div>
     </Draggable>

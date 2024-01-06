@@ -17,6 +17,7 @@ const Twitter = ({ appRef }) => {
   const [tweets, setTweets] = useState(defaultTweets);
   const twitterRef = useRef(null);
   const contentRef = useRef(null);
+
   useEffect(() => {
     const appWidth = appRef?.current?.offsetWidth;
 
@@ -65,6 +66,8 @@ const Twitter = ({ appRef }) => {
         },
       },
     ];
+
+    console.log('Twitter appWidth', appWidth)
 
     for (const config of stylesConfig) {
       if (config.default || appWidth < config.max) {

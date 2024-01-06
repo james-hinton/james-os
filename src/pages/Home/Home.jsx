@@ -106,6 +106,24 @@ const Home = () => {
     trackMouse: true,
   });
 
+  // Check for scroll wheel to initiate swipe
+  useEffect(() => {
+    const handleWheel = (e) => {
+      if (isDragging) return;
+      if (e.deltaY > 0 && currentPage + 1 < PAGES.length) {
+        setCurrentPage(currentPage + 1);
+      } else if (e.deltaY < 0 && currentPage - 1 >= 0) {
+        setCurrentPage(currentPage - 1);
+      }
+    };
+
+    window.addEventListener("wheel", handleWheel);
+
+    return () => {
+      window.removeEventListener("wheel", handleWheel);
+    };
+  }, [currentPage, isDragging]);
+
   return (
     <div className="home-screen" ref={homeScreenRef} {...handlers}>
       <div

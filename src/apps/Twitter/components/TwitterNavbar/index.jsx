@@ -42,7 +42,6 @@ const TwitterNavbar = ({ appRef }) => {
 
   useEffect(() => {
     const appWidth = appRef?.current?.offsetWidth;
-    console.log('IS MOBILE', appWidth)
     if (appWidth > 1300) {
       setIsMobile(true);
     } else {
