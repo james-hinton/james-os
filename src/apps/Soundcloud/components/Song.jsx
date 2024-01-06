@@ -41,11 +41,8 @@ const Song = ({ track, large, hover, hideSidebar }) => {
                 }
               : {}
           }
-          
         >
-          <div className="sc-flex sc-flex-col sc-w-100"
-          
-          >
+          <div className="sc-flex sc-flex-col sc-w-100">
             {/* Title */}
             <div
               className={
@@ -56,16 +53,14 @@ const Song = ({ track, large, hover, hideSidebar }) => {
                 hideSidebar
                   ? {
                       backdropFilter: "blur(10px)",
-                      margin: '0.5rem 0.5rem',
+                      margin: "0.5rem 0.5rem",
                       backgroundColor: "rgba(255, 255, 255, 0.5)",
                       borderRadius: "0.5rem",
                     }
                   : {}
               }
             >
-              <div className="sc-flex sc-flex-row sc-mb-4"
-
-              >
+              <div className="sc-flex sc-flex-row sc-mb-4 sc-items-center ">
                 <div className="sc-mr-4">
                   {track.song && (
                     <div className="sc-flex sc-items-center sc-justify-center sc-h-8 sc-w-8 sc-rounded-full sc-bg-orange-500 sc-text-white">
@@ -74,8 +69,22 @@ const Song = ({ track, large, hover, hideSidebar }) => {
                   )}
                 </div>
 
-                <div>
-                  <h5 className={`sc-text-gray-400 sc-text-sm ${hideSidebar ? 'sc-text-gray-800' : ''}`}>
+                <div
+                  style={
+                    hideSidebar
+                      ? {
+                          backgroundColor: "rgba(255, 255, 255, 0.5)",
+                          padding: "0.5rem 1rem",
+                          borderRadius: "0.5rem",
+                        }
+                      : {}
+                  }
+                >
+                  <h5
+                    className={`sc-text-gray-400 sc-text-sm ${
+                      hideSidebar ? "sc-text-gray-800" : ""
+                    }`}
+                  >
                     {track.artist ? track.artist : "James Hinton"}
                   </h5>
                   <h4
