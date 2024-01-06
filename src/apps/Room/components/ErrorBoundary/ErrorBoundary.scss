@@ -1,3 +1,20 @@
 .error-list {
     list-style: none;
 }
+
+.demo-gif-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.demo-gif-container img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    max-width: 600px;
+    object-fit: contain;
+}

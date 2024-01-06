@@ -83,6 +83,10 @@ class ErrorBoundary extends React.Component {
               security concerns.
             </strong>
           </p>
+
+          <div className="demo-gif-container">
+            <img src="/models/demo.gif" alt="Room Demo" />
+          </div>
         </div>
       );
     }

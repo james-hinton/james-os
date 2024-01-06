@@ -1,6 +1,7 @@
 #canvas-container {
   height: 100vh;
   position: relative;
+  background-color: white;
 }
 
 .about-header {
