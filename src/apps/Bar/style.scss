@@ -1,7 +1,7 @@
 .bar {
   width: 100%;
   height: 100%;
-  background-image: url(assets/bar/bar.jpg);
+  background-image: url(bar/bar.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -9,7 +9,6 @@
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-
 
   display: flex;
   flex-direction: column;
