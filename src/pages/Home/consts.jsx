@@ -64,12 +64,12 @@ export const HomeApps = [
 
   {
     name: "Bar",
-    iconHref: "/assets/icons/translate.png",
+    iconHref: "/assets/icons/mix.png",
     label: "Bar",
     href: "/translate",
     component: Bar,
-    width: "50%",
-    height: "70%",
+    width: "30%",
+    height: "81%",
   },
   {
     name: "Paleontology",

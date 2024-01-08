@@ -77,10 +77,11 @@ const Home = () => {
   // Handle swipe
   const [deltaX, setDeltaX] = useState(0);
   const [isSwiping, setIsSwiping] = useState(false);
-  const openApp = document.querySelector(".open-app");
 
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
+      const openApp = document.querySelector(".open-app");
+
       if (isDragging) return;
       if (openApp && openApp.contains(eventData.event.target)) return;
       setIsSwiping(true);
@@ -88,6 +89,8 @@ const Home = () => {
     },
 
     onSwipedRight: (eventData) => {
+      const openApp = document.querySelector(".open-app");
+
       if (isDragging) return;
       if (openApp && openApp.contains(eventData.event.target)) return;
 
@@ -99,6 +102,8 @@ const Home = () => {
     },
 
     onSwipedLeft: (eventData) => {
+      const openApp = document.querySelector(".open-app");
+
       if (isDragging) return;
       if (openApp && openApp.contains(eventData.event.target)) return;
 
@@ -115,11 +120,12 @@ const Home = () => {
   // Check for scroll wheel to initiate swipe
   useEffect(() => {
     const handleWheel = (e) => {
+      const openApp = document.querySelector(".open-app");
+
       if (isDragging) return;
 
       // check if the user is scrolling on an open app
       if (openApp && openApp.contains(e.target)) return;
-      if (e.deltaY === 0) return;
 
       if (e.deltaY > 0 && currentPage + 1 < PAGES.length) {
         setCurrentPage(currentPage + 1);
@@ -162,18 +168,18 @@ const Home = () => {
       </div>
       {/* Move to own component */}
       {openApps?.map((app, index) => (
-          <OpenApp
-            key={index}
-            app={app}
-            index={index}
-            openApps={openApps}
-            setOpenApps={setOpenApps}
-            appPositions={appPositions}
-            setAppPositions={setAppPositions}
-            defaultPositions={defaultPositions}
-            isSmallScreen={isSmallScreen}
-            setIsDragging={setIsDragging}
-          />
+        <OpenApp
+          key={index}
+          app={app}
+          index={index}
+          openApps={openApps}
+          setOpenApps={setOpenApps}
+          appPositions={appPositions}
+          setAppPositions={setAppPositions}
+          defaultPositions={defaultPositions}
+          isSmallScreen={isSmallScreen}
+          setIsDragging={setIsDragging}
+        />
       ))}
       <div>
         <PageControl
