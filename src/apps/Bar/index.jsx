@@ -54,7 +54,7 @@ const Bar = () => {
   }, [volume]);
 
   return (
-    <div className="bar interactable">
+    <div className="bar interactable" style={{ backgroundImage: `url("assets/bar/texture.png")` }}>
       <div className="bar-content">
         <div className="bar-content-logo">
           <img src="/assets/bar/logo.png" alt="logo" />
