@@ -1,12 +1,11 @@
-// React
 import { Suspense, useEffect } from "react";
 
 // Three
-import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
+import { Canvas, useThree } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
 // Styles
-import "./About.css";
+import "./Room.scss";
 
 // Components
 import Model from "./components/Model/Model";
@@ -25,7 +24,6 @@ const Room = () => {
       return false;
     }
   }
-
   if (!isWebGLAvailable()) {
     return <div>Please enable WebGL to use this feature.</div>;
   }
@@ -34,10 +32,14 @@ const Room = () => {
     <>
       <div id="canvas-container" className="interactable">
         <ErrorBoundary>
-          <Canvas camera={{ rotation: [1, 9, 5], position: [-45, 45, 80] }}>
+          <Canvas
+            camera={{ position: [0, 70, 50], rotation: [Math.PI / 4, Math.PI / 4, 0]}}
+            colorManagement
+            shadowMap
+            className="canvas"
+          >
             <Suspense fallback={<Loader />}>
-              <Environment preset="forest" background />
-
+              <directionalLight intensity={0.8} position={[-20, -20, 40]} />
               <Model
                 path={"/models/room/scene.gltf"}
                 scale={30}
