@@ -1,7 +1,7 @@
-import { Suspense, useEffect } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 // Three
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 
 // Styles
@@ -33,7 +33,17 @@ const Room = () => {
       <div id="canvas-container" className="interactable">
         <ErrorBoundary>
           <Canvas
-            camera={{ position: [0, 70, 50], rotation: [Math.PI / 4, Math.PI / 4, 0], fov: 45 }}
+            camera={{
+              position: [
+                -45.63719467954878, 27.15804689608689, 122.69736384267884,
+              ],
+              rotation: [
+                -0.23048209986456342, // Radians
+                -0.5786665092707384, // Radians
+                -0.12763539634518176, // Radians
+              ],
+              fov: 45,
+            }}
             colorManagement
             shadowMap
             className="canvas"
