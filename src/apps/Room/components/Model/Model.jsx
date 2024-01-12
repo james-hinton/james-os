@@ -6,7 +6,7 @@ import { useLoader, useThree } from "@react-three/fiber";
 const Model = ({ path, scale, position, rotation }) => {
   const { scene, gl, size, camera } = useThree();
 
-  const gltf = useLoader(GLTFLoader, 'http://localhost:5173/' + path);
+  const gltf = useLoader(GLTFLoader, path);
   return (
     <>
       <primitive

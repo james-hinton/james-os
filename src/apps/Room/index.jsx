@@ -33,7 +33,7 @@ const Room = () => {
       <div id="canvas-container" className="interactable">
         <ErrorBoundary>
           <Canvas
-            camera={{ position: [0, 70, 50], rotation: [Math.PI / 4, Math.PI / 4, 0]}}
+            camera={{ position: [0, 70, 50], rotation: [Math.PI / 4, Math.PI / 4, 0], fov: 45 }}
             colorManagement
             shadowMap
             className="canvas"
