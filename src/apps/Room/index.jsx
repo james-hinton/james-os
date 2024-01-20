@@ -12,6 +12,23 @@ import Model from "./components/Model/Model";
 import Loader from "./components/Loader/Loader";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
+const CameraLogger = () => {
+  const { camera } = useThree();
+  const [lastLog, setLastLog] = useState(Date.now());
+
+  useFrame(() => {
+    const now = Date.now();
+    if (now - lastLog >= 1000) {
+      // Log every 1000 milliseconds (1 second)
+      console.log("Camera Position:", camera.position);
+      console.log("Camera Rotation:", camera.rotation);
+      setLastLog(now);
+    }
+  });
+
+  return null; // This component does not render anything
+};
+
 const Room = () => {
   function isWebGLAvailable() {
     try {
@@ -35,12 +52,12 @@ const Room = () => {
           <Canvas
             camera={{
               position: [
-                -45.63719467954878, 27.15804689608689, 122.69736384267884,
+                0, 0, 0
               ],
               rotation: [
-                -0.23048209986456342, // Radians
-                -0.5786665092707384, // Radians
-                -0.12763539634518176, // Radians
+                -0.3013837081135052, // Radians
+                -0.7158750724030751, // Radians
+                -0.20124447110888063, // Radians
               ],
               fov: 45,
             }}
@@ -50,6 +67,8 @@ const Room = () => {
           >
             <Suspense fallback={<Loader />}>
               <directionalLight intensity={0.8} position={[-20, -20, 40]} />
+              <CameraLogger />
+
               <Model
                 path={"/models/room/scene.gltf"}
                 scale={30}

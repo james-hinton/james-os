@@ -1,0 +1,88 @@
+.contact-container {
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding: 15px;
+
+  .messages {
+    overflow-y: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .message {
+    max-width: 70%;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 18px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-break: break-word;
+
+    &.user {
+      background-color: #007aff;
+      color: white;
+      align-self: flex-end;
+    }
+
+    &.bot,
+    &.typing {
+      background-color: #e5e5ea;
+      color: black;
+      align-self: flex-start;
+    }
+
+    .confirm-button {
+        background-color: #007aff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+        cursor: pointer;
+
+        &.disabled {
+            background-color: #e5e5ea;
+            color: #8e8e93;
+            cursor: not-allowed;
+        }
+    }
+  }
+
+  form {
+    display: flex;
+    margin-top: 10px;
+
+    textarea {
+      flex: 1;
+      border-radius: 20px;
+      border: none;
+      padding: 10px;
+      resize: none;
+    //   Position text in the y center
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        line-height: 1.4;
+        word-break: break-word;
+
+    }
+
+    button {
+      background-color: #007aff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-left: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }
+}

@@ -6,6 +6,8 @@ import {
   ThreeDRotationOutlined,
   Terminal as TerminalIcon,
   Email,
+  // Code
+  Code as CodeIcon,
   Settings as SettingsIcon,
 } from "@mui/icons-material";
 
@@ -17,6 +19,7 @@ import GalleryWidget from "./components/Widgets/Gallery/Gallery";
 import Settings from "../../apps/Settings/Settings";
 import Terminal from "../../apps/Terminal/Terminal";
 import Resume from "../../apps/Resume/Resume";
+import Contact from "../../apps/Contact/Contact";
 
 const Twitter = lazy(() => import("../../apps/Twitter"));
 const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
@@ -225,7 +228,6 @@ export const SecondPage = [
   },
 ];
 
-
 export const ThirdPage = [
   {
     name: "Placeholder",
@@ -271,13 +273,17 @@ export const ThirdPage = [
 
 export const DockApps = [
   {
-    name: "Phone",
-    icon: <PhoneOutlined />,
-    href: "/phone",
-  },
-  {
     name: "Email",
     icon: <Email />,
-    href: "/email",
+    label: "Email",
+    component: Contact,
+    width: "35%",
+    height: "70%",
+  },
+  {
+    name: "Github",
+    icon: <CodeIcon />,
+    label: "Github",
+    href: "https://github.com/james-hinton/james-os",
   },
 ];

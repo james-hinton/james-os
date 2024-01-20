@@ -152,7 +152,7 @@ const OpenApp = ({
             isSmallScreen
               ? {
                   width: "100%",
-                  height: "100%",
+                  // height: "100%",
                   position: "absolute",
                   top: 0,
                   left: 0,
@@ -162,7 +162,6 @@ const OpenApp = ({
                 }
               : {
                   width: "100%",
-                  height: "97%",
                   overflow: "auto",
                   backgroundColor: app.backgroundColor || "",
                 }
