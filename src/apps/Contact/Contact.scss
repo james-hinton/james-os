@@ -26,6 +26,27 @@
     line-height: 1.4;
     word-break: break-word;
 
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &-text-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .bot-avatar {
+      width: 30px; /* Adjust size as needed */
+      height: 30px; /* Adjust size as needed */
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  
+    &.bot {
+      flex-direction: row;
+    }
+
     &.user {
       background-color: #007aff;
       color: white;
@@ -40,19 +61,19 @@
     }
 
     .confirm-button {
-        background-color: #007aff;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        border-radius: 5px;
-        margin-top: 0.5rem;
-        cursor: pointer;
+      background-color: #007aff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+      cursor: pointer;
 
-        &.disabled {
-            background-color: #e5e5ea;
-            color: #8e8e93;
-            cursor: not-allowed;
-        }
+      &.disabled {
+        background-color: #e5e5ea;
+        color: #8e8e93;
+        cursor: not-allowed;
+      }
     }
   }
 
@@ -63,26 +84,35 @@
     textarea {
       flex: 1;
       border-radius: 20px;
-      border: none;
-      padding: 10px;
+      border: 2px solid #007aff;
+      background-color: #f8f8f8;
+      padding: 15px;
       resize: none;
-    //   Position text in the y center
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        line-height: 1.4;
-        word-break: break-word;
+      white-space: pre-wrap;
+      color: #333;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: border-color 0.3s;
+    }
 
+    textarea:focus {
+      outline: none;
+      border-color: #0056b3;
     }
 
     button {
       background-color: #007aff;
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 10px 20px;
       margin-left: 10px;
       border-radius: 20px;
       cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
     }
   }
 }

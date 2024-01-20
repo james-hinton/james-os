@@ -5,17 +5,11 @@ import { useEffect, useState } from "react";
 import "./style.scss";
 
 // Icons
-import HouseIcon from "@mui/icons-material/House";
-import VolumeOffIcon from "@mui/icons-material/VolumeOff";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import CloseFullscreenIcon from "@mui/icons-material/CloseFullscreen";
 import FullscreenIcon from "@mui/icons-material/Fullscreen";
 
 // Data
 import allCocktails from "./data/cocktails.json";
-
-// Songs
-import stranger from "./music/stranger.mp3";
 
 const Bar = () => {
   // State
@@ -28,30 +22,6 @@ const Bar = () => {
     setSelectedCocktail(drinks[Math.floor(Math.random() * drinks.length)]);
   }, []);
 
-  // Music
-  const [volume, setVolume] = useState(0);
-  const [audioDuration, setAudioDuration] = useState(0);
-
-  useEffect(() => {
-    // If its already playing, find how far in
-    const audio = new Audio(stranger);
-    audio.volume = volume;
-    // Skip to the right place
-    audio.currentTime = audioDuration;
-    audio.play();
-
-    // Make sure to loop
-    audio.addEventListener("ended", () => {
-      audio.currentTime = 0;
-      audio.play();
-    });
-
-    return () => {
-      // Set the audio duration to where the song is paused
-      setAudioDuration(audio.currentTime);
-      audio.pause();
-    };
-  }, [volume]);
 
   return (
     <div className="bar interactable" style={{ backgroundImage: `url("assets/bar/texture.png")` }}>
@@ -173,35 +143,6 @@ const Bar = () => {
           </div>
         )}
       </div>
-
-      {/* Music */}
-      {/* Music button */}
-      {/* <div className="bar-music">
-        {volume === 0 ? (
-          <VolumeOffIcon
-            onClick={() => {
-              setVolume(0.5);
-            }}
-          />
-        ) : (
-          <VolumeUpIcon
-            onClick={() => {
-              setVolume(0);
-            }}
-          />
-        )}
-
-        <input
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={(e) => {
-            setVolume(e.target.value);
-          }}
-        />
-      </div> */}
     </div>
   );
 };

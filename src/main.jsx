@@ -9,13 +9,11 @@ import { PhoneProvider } from "./context/PhoneContext.jsx";
 
 const root = document.getElementById("root");
 const app = (
-  <React.StrictMode>
     <PhoneProvider>
       <Router>
         <App />
       </Router>
     </PhoneProvider>
-  </React.StrictMode>
 );
 
 createRoot(root).render(app);

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
 
 import "./Contact.scss";
@@ -48,7 +48,7 @@ const Contact = ({ appRef }) => {
         },
       ]);
       setIsTyping(false);
-    }, 3000);
+    }, 3500);
 
     setMessage("");
   };
@@ -106,25 +106,52 @@ const Contact = ({ appRef }) => {
     }
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsTyping(true);
+    }, 1000);
+
+    setTimeout(() => {
+      console.log("Sending welcome message");
+      setSentMessages((sentMessages) => [
+        ...sentMessages,
+        {
+          type: "bot",
+          text: "Hi there, thanks for taking the time to visit my site. Leave a message for me here and it will be sent to my email. :)",
+        },
+      ]);
+      setIsTyping(false);
+    }, 3000);
+  }, []);
+
   return (
     <div className="contact-container interactable">
       <div className="messages">
         {sentMessages.map((msg, index) => (
           <div key={index} className={`message ${msg.type}`}>
-            {msg.text}
-            <br />
-            {msg.text ===
-              "Thanks for your message, do you want to send this message as an email?" && (
-              <button
-                onClick={(e) => {
-                  confirmSendEmail();
-                  e.target.style.display = "none";
-                }}
-                className="confirm-button"
-              >
-                Yes, send email
-              </button>
+            {msg.type === "bot" && (
+              <img
+                src="/assets/contact/bot.png"
+                alt="Bot"
+                className="bot-avatar"
+              />
             )}
+
+            <div className="message-text-container">
+              <span className="message-text">{msg.text}</span>
+              {msg.text ===
+                "Thanks for your message, do you want to send this message as an email?" && (
+                <button
+                  onClick={(e) => {
+                    confirmSendEmail();
+                    e.target.style.display = "none";
+                  }}
+                  className="confirm-button"
+                >
+                  Yes, send email
+                </button>
+              )}
+            </div>
           </div>
         ))}
         {isTyping && <div className="message typing">Typing...</div>}
