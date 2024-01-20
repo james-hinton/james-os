@@ -16,8 +16,9 @@ const TopBar = () => {
 
   return (
     <div className="top-bar">
-      <div className="spacer"></div>
-      <Island locked={locked} />
+      <div className="island-container">
+        <Island locked={locked} />
+      </div>
       <StatusBar />
     </div>
   );

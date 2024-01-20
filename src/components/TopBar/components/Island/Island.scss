@@ -5,8 +5,13 @@
   justify-content: center;
   align-items: center;
 
+  flex-grow: 1; /* Takes up the available space */
+  display: flex;
+  justify-content: center; /* Center Island horizontally */
+  align-items: center; /* Center Island vertically */
+
   & .island {
-    width: 9rem;
+    width: 10rem;
     height: 70%;
     background-color: #23232370;
     display: flex;

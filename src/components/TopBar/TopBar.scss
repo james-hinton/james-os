@@ -2,15 +2,11 @@
   position: absolute;
   height: 3rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Keeps items on the edges */
+  align-items: center; /* Center items vertically */
   width: 100vw;
   z-index: 1008;
   user-select: none;
-
-  & .spacer {
-    flex: 0 0 25%;
-    max-width: 10rem;
-  }
 
   @media (max-height: 500px) {
     display: none;
