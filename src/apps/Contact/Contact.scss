@@ -81,7 +81,7 @@
     display: flex;
     margin-top: 10px;
 
-    textarea {
+    input {
       flex: 1;
       border-radius: 20px;
       border: 2px solid #007aff;
@@ -94,7 +94,7 @@
       transition: border-color 0.3s;
     }
 
-    textarea:focus {
+    input:focus {
       outline: none;
       border-color: #0056b3;
     }

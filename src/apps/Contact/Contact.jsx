@@ -157,7 +157,7 @@ const Contact = ({ appRef }) => {
         {isTyping && <div className="message typing">Typing...</div>}
       </div>
       <form onSubmit={sendEmail}>
-        <textarea
+        <input
           value={message}
           onChange={(e) => {
             setMessage(e.target.value);

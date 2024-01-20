@@ -6,9 +6,9 @@
   align-items: center;
 
   & .island {
-    width: 12rem;
+    width: 9rem;
     height: 70%;
-    background-color: #23232399;
+    background-color: #23232370;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +30,9 @@
     &__text {
       text-align: center;
       color: #cccccc;
-      width: 50%;
+      width: 80%;
+      margin-left: 1.15rem;
+
       font-size: 0.8rem;
       letter-spacing: 1px;
 
