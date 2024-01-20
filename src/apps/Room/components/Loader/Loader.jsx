@@ -5,7 +5,7 @@ function Loader() {
   const { progress } = useProgress();
   return (
     <Html center>
-      <h2 id="loading">{progress} % loaded</h2>
+      <h2 id="loading">{progress.toFixed()}%</h2>
     </Html>
   );
 }
