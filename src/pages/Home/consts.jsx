@@ -71,7 +71,7 @@ export const HomeApps = [
     label: "Bar",
     href: "/translate",
     component: Bar,
-    width: "30%",
+    width: "44%",
     height: "81%",
   },
   {
