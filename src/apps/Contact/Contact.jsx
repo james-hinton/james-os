@@ -70,7 +70,7 @@ const Contact = ({ appRef }) => {
       { type: "bot", text: "Sending email..." },
     ]);
 
-    console.log("Service ID: ", import.meta.env.VITE_EMAIL_SERVICE_ID);
+    console.log("Service ID (placeholder): ", import.meta.env.VITE_EMAIL_SERVICE_ID);
 
     try {
       emailjs
