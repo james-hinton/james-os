@@ -61,7 +61,6 @@ const Contact = ({ appRef }) => {
       e.target.value = "";
     }
   };
-  console.log("Service ID: ", import.meta.env.VITE_EMAIL_SERVICE_ID);
 
   const confirmSendEmail = () => {
     // Add a bot message saying sending email

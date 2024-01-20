@@ -176,7 +176,7 @@ const Bar = () => {
 
       {/* Music */}
       {/* Music button */}
-      <div className="bar-music">
+      {/* <div className="bar-music">
         {volume === 0 ? (
           <VolumeOffIcon
             onClick={() => {
@@ -191,7 +191,6 @@ const Bar = () => {
           />
         )}
 
-        {/* Music volume */}
         <input
           type="range"
           min="0"
@@ -202,7 +201,7 @@ const Bar = () => {
             setVolume(e.target.value);
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 };
