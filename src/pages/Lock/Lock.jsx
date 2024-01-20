@@ -1,9 +1,10 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 
 // Components
 import TimeAndDate from "./components/TimeAndDate/TimeAndDate";
 import SwipeAlert from "./components/SwipeAlert/SwipeAlert";
+import Notification from "../../components/Notification/Notification";
 
 // Context
 import { PhoneContext } from "../../context/PhoneContext";
@@ -13,6 +14,8 @@ import "./Lock.scss";
 const Lock = () => {
   const { phoneLocked, setPhoneLocked } = useContext(PhoneContext);
   const [isMovedUp, setIsMovedUp] = useState(false);
+  const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
+  const [showSwipeNotification, setShowSwipeNotification] = useState(false);
 
   const handlers = useSwipeable({
     onSwipedUp: () => {
@@ -42,6 +45,15 @@ const Lock = () => {
     }
   });
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowWelcomeNotification(true);
+    }, 5000);
+    setTimeout(() => {
+      setShowSwipeNotification(true);
+    }, 13000);
+  }, []);
+
   return (
     <div
       className={`lock-screen ${isMovedUp ? "move-up" : ""}`}
@@ -50,8 +62,25 @@ const Lock = () => {
     >
       <div className="lock-screen-content">
         <TimeAndDate />
-      </div>
 
+        <div className="lock-screen-notifications">
+          {showWelcomeNotification && (
+            <Notification
+              icon="assets/contact/bot.png"
+              title="Welcome!"
+              message="Hello & Welcome! 👋 Swipe up or press Enter to unlock."
+            />
+          )}
+
+          {showSwipeNotification && (
+            <Notification
+              icon="assets/contact/bell.png"
+              title="Reminder"
+              message="Ready to explore? There's more to see."
+            />
+          )}
+        </div>
+      </div>
       <div className="lock-screen-footer">
         <SwipeAlert />
       </div>
