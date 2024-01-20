@@ -85,19 +85,12 @@ export const HomeApps = [
   },
   {
     name: "3D Room",
-    icon: <ThreeDRotationOutlined />,
+    iconHref: "/assets/icons/room.png",
     label: "3D",
     href: "/3droom",
     component: Room,
     width: "80%",
     height: "70%",
-  },
-  {
-    name: "Settings",
-    icon: <SettingsIcon />,
-    label: "Settings",
-    href: "/projects",
-    component: Settings,
   },
   {
     name: "Terminal",
