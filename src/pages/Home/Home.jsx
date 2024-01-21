@@ -209,7 +209,7 @@ const Home = () => {
         />
       ))}
 
-      <div>
+      <div className="home-screen__control">
         <PageControl
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

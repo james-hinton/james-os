@@ -1,4 +1,4 @@
-import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
 import "./Popup.scss";
 
 const Popup = ({ sender, message, time, setDisplayPopup }) => {
@@ -15,7 +15,15 @@ const Popup = ({ sender, message, time, setDisplayPopup }) => {
           <img className="popup-icon" src="assets/contact/contact.png"></img>
           <div className="popup-title">MESSAGES</div>
         </div>
-        <span className="popup-time">{time}</span>
+        <span
+          className="popup-close"
+          onClick={(e) => {
+            e.stopPropagation();
+            setDisplayPopup(false);
+          }}
+        >
+          <CloseIcon />
+        </span>
       </div>
       <div className="popup-content">
         <div className="popup-sender">{sender}</div>
