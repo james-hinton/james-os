@@ -118,7 +118,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
         )}
       </div>
       {lockScreenLoaded && (
-        <div className="lock-screen-footer">
+        <div className="lock-screen-footer fade-in">
           <SwipeAlert />
         </div>
       )}
