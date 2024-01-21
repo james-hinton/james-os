@@ -15,6 +15,7 @@ const App = () => {
   const [startLoadingHome, setStartLoadingHome] = useState(false);
 
   useEffect(() => {
+    if (!lockScreenLoaded) return;
     setTimeout(() => {
       setStartLoadingHome(true);
     }, 3000);

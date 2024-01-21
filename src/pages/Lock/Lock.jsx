@@ -64,7 +64,9 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
     img.src = imageUrl;
     img.onload = () => {
       setBackgroundImage(imageUrl);
-      setLockScreenLoaded(true);
+      setTimeout(() => {
+        setLockScreenLoaded(true);
+      }, 500);
     };
 
     img.onerror = () => {
