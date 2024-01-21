@@ -27,14 +27,22 @@ import Popup from "../../components/Popup/Popup";
 const Home = () => {
   const PAGES = [HomeApps, SecondPage, ThirdPage];
 
-  const { openApps, setOpenApps, phoneLocked, setPhoneLocked } =
-    useContext(PhoneContext);
+  const {
+    openApps,
+    setOpenApps,
+    phoneLocked,
+    setPhoneLocked,
+    displayPopup,
+    setDisplayPopup,
+    popupContent,
+    setPopupContent,
+  } = useContext(PhoneContext);
+
   const [currentPage, setCurrentPage] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
   const [defaultPositions, setDefaultPositions] = useState({});
   const [appPositions, setAppPositions] = useState({});
-  const [displayPopup, setDisplayPopup] = useState(false);
 
   const homeScreenRef = useRef(null);
   const isSmallScreen = window.innerHeight < 700 || window.innerWidth < 700;
@@ -156,6 +164,17 @@ const Home = () => {
     const timeout = setTimeout(() => {
       if (isSmallScreen && openAppsRef.current.length > 0) return;
       if (openAppsRef.current.find((app) => app.name === "Contact")) return;
+      if (localStorage.getItem("contact-popup")) return;
+      if (displayPopup) return;
+
+      localStorage.setItem("contact-popup", true);
+      setPopupContent({
+        sender: "James Hinton",
+        message:
+          "Hey, still here? Thanks for checking out my portfolio! Click on this notification to send me a message.",
+        time: "now",
+        action: "open-contact",
+      });
 
       setDisplayPopup(true);
       setTimeout(() => {
@@ -167,6 +186,36 @@ const Home = () => {
       clearTimeout(timeout);
     };
   }, [phoneLocked]);
+
+  // Listen for when the user goes onto the second page and then send a popup saying "This is my experience page"
+  useEffect(() => {
+    if (currentPage === 1) {
+      const date = new Date();
+      // 2 hours
+      const delay = 1000 * 60 * 60 * 2;
+      const lastPopup = localStorage.getItem("experience-popup");
+      if (lastPopup) {
+        const lastPopupDate = new Date(lastPopup);
+        const timeSinceLastPopup = date.getTime() - lastPopupDate.getTime();
+        if (timeSinceLastPopup < delay) return;
+      }
+      // Date in YYYY-MM-DD HH:MM format
+      const dateToSet = `${date.getFullYear()}-${
+        date.getMonth() + 1
+      }-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
+
+      localStorage.setItem("experience-popup", dateToSet);
+
+      setDisplayPopup(true);
+      setPopupContent({
+        sender: "James Hinton",
+        message: "This is my projects and experience section.",
+        time: "now",
+        action: "close",
+        duration: 2500,
+      });
+    }
+  }, [currentPage]);
 
   return (
     <div className="home-screen" ref={homeScreenRef} {...handlers}>
@@ -220,12 +269,11 @@ const Home = () => {
 
       {displayPopup && (
         <Popup
-          sender={"James Hinton"}
-          message={
-            "Hey, still here? Thanks for checking out my portfolio! Click on this notification to send me a message."
-          }
-          time={"now"}
+          sender={popupContent.sender}
+          message={popupContent.message}
+          action={popupContent.action}
           setDisplayPopup={setDisplayPopup}
+          duration={popupContent.duration}
         />
       )}
     </div>

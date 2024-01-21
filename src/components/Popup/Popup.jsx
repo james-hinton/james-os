@@ -1,13 +1,27 @@
 import CloseIcon from "@mui/icons-material/Close";
 import "./Popup.scss";
+import { useEffect } from "react";
 
-const Popup = ({ sender, message, time, setDisplayPopup }) => {
+const Popup = ({ sender, message, action, setDisplayPopup, duration }) => {
+
+  useEffect(() => {
+    if (duration) {
+      setTimeout(() => {
+        setDisplayPopup(false);
+      }, duration);
+    }
+  }, [duration, setDisplayPopup]);
+  
   return (
     <div
       className="popup"
       onClick={() => {
-        document.getElementById("dock-app-Contact").click();
-        setDisplayPopup(false);
+        if (action === "open-contact") {
+          document.getElementById("dock-app-Contact").click();
+          setDisplayPopup(false);
+        } else if (action === "close") {
+          setDisplayPopup(false);
+        }
       }}
     >
       <div className="popup-header">
