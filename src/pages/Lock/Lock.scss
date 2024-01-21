@@ -53,4 +53,24 @@
   &.move-up {
     transform: translateY(-100vh);
   }
+
+  &-loading {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1008;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(40, 40, 40, 0.5);
+
+    & img {
+      height: 5%;
+    }
+  }
 }
+
+
+

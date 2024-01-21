@@ -15,7 +15,7 @@ const TopBar = () => {
   }, [location]);
 
   return (
-    <div className="top-bar">
+    <div className="top-bar fade-in">
       <div className="island-container">
         <Island locked={locked} />
       </div>

@@ -8,26 +8,32 @@ import Home from "./pages/Home/Home";
 // Components
 import TopBar from "./components/TopBar/TopBar";
 
-import { pdfjs } from 'react-pdf';
-
-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
-  'pdfjs-dist/build/pdf.worker.min.js',
-  import.meta.url,
-).toString();
-
 const App = () => {
   const location = useLocation();
   const [showLock, setShowLock] = useState(true);
+  const [lockScreenLoaded, setLockScreenLoaded] = useState(false);
+  const [startLoadingHome, setStartLoadingHome] = useState(false);
 
   useEffect(() => {
-    setShowLock(location.pathname === '/');
+    setTimeout(() => {
+      setStartLoadingHome(true);
+    }, 2000);
+  }, [lockScreenLoaded]);
+
+  useEffect(() => {
+    setShowLock(location.pathname === "/");
   }, [location.pathname]);
 
   return (
     <div id="phone">
-      <TopBar />
-      <Home />
-      {showLock && <Lock />}
+      {lockScreenLoaded && <TopBar />}
+      {startLoadingHome && <Home />}
+      {showLock && (
+        <Lock
+          lockScreenLoaded={lockScreenLoaded}
+          setLockScreenLoaded={setLockScreenLoaded}
+        />
+      )}
     </div>
   );
 };
