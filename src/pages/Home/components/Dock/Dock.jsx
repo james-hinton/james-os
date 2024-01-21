@@ -15,11 +15,13 @@ const Dock = () => {
     <div className="dock-container" style={phoneLocked ? {} : { zIndex: 9999 }}>
       {DockApps.map((app, index) => (
         <a
+          id={`dock-app-${app.name}`}
           key={index}
           href={app.href}
           className="dock-app"
           onClick={(e) => {
             e.preventDefault();
+            if (openApps.includes(app)) return;
             if (app.component) {
               setOpenApps([...openApps, app]);
             } else {

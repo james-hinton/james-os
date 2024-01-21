@@ -266,9 +266,9 @@ export const ThirdPage = [
 
 export const DockApps = [
   {
-    name: "Email",
+    name: "Contact",
     icon: <Email />,
-    label: "Email",
+    label: "Contact",
     component: Contact,
     width: "35%",
     height: "70%",

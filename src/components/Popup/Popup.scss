@@ -1,0 +1,84 @@
+.popup {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #eeefef;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 0.875rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0.97;
+  animation: fadeInAnimation ease 0.5s;
+  cursor: pointer;
+  height: auto;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: white;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  &-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-title {
+    text-transform: capitalize;
+    color: #3f3e3e;
+    font-weight: 200;
+    font-size: 0.8rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  &-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+
+  &-time {
+    font-size: 0.75em;
+    color: #999;
+  }
+
+  &-content {
+    padding: 12px;
+    font-size: 0.9rem;
+    color: #3f3e3e;
+  }
+
+  &-message {
+    line-height: 1.4;
+  }
+
+  &-sender {
+    font-weight: bold;
+    color: #202020;
+    margin-bottom: 3px;
+  }
+
+  @media (max-width: 1300px) {
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 5vw;
+    max-width: 90vw;
+    margin: 0;
+    margin-top: 0.5rem;
+    z-index: 9999;
+    box-sizing: border-box;
+  }
+}

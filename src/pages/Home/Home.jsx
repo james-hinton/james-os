@@ -22,19 +22,23 @@ import { HomeApps, SecondPage, ThirdPage } from "./consts";
 // Styles
 import "./Home.scss";
 import OpenApp from "./components/OpenApp/OpenApp";
+import Popup from "../../components/Popup/Popup";
 
 const Home = () => {
   const PAGES = [HomeApps, SecondPage, ThirdPage];
 
-  const { openApps, setOpenApps, setPhoneLocked } = useContext(PhoneContext);
+  const { openApps, setOpenApps, phoneLocked, setPhoneLocked } =
+    useContext(PhoneContext);
   const [currentPage, setCurrentPage] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
 
   const [defaultPositions, setDefaultPositions] = useState({});
   const [appPositions, setAppPositions] = useState({});
+  const [displayPopup, setDisplayPopup] = useState(false);
 
   const homeScreenRef = useRef(null);
   const isSmallScreen = window.innerHeight < 700 || window.innerWidth < 700;
+  const openAppsRef = useRef(openApps);
 
   // Set default positions for new apps
   useLayoutEffect(() => {
@@ -141,6 +145,29 @@ const Home = () => {
     };
   }, [currentPage, isDragging]);
 
+  useEffect(() => {
+    openAppsRef.current = openApps;
+  }, [openApps]);
+
+  // Wait for 45 seconds to display popup and then hide after 15 seconds, but wait until the phone is unlocked
+  useEffect(() => {
+    if (phoneLocked) return;
+
+    const timeout = setTimeout(() => {
+      if (isSmallScreen && openAppsRef.current.length > 0) return;
+      if (openAppsRef.current.find((app) => app.name === "Contact")) return;
+
+      setDisplayPopup(true);
+      setTimeout(() => {
+        setDisplayPopup(false);
+      }, 15000);
+    }, 45000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [phoneLocked]);
+
   return (
     <div className="home-screen" ref={homeScreenRef} {...handlers}>
       <div
@@ -181,6 +208,7 @@ const Home = () => {
           setIsDragging={setIsDragging}
         />
       ))}
+
       <div>
         <PageControl
           currentPage={currentPage}
@@ -189,6 +217,17 @@ const Home = () => {
         />
         <Dock />
       </div>
+
+      {displayPopup && (
+        <Popup
+          sender={"James Hinton"}
+          message={
+            "Hey, still here? Thanks for checking out my portfolio! Click on this notification to send me a message."
+          }
+          time={"now"}
+          setDisplayPopup={setDisplayPopup}
+        />
+      )}
     </div>
   );
 };
