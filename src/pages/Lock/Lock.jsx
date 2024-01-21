@@ -11,7 +11,7 @@ import { PhoneContext } from "../../context/PhoneContext";
 
 import "./Lock.scss";
 
-const Lock = ({ lockScreenLoaded, setLockScreenLoaded }) => {
+const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
   const { phoneLocked, setPhoneLocked } = useContext(PhoneContext);
   const [isMovedUp, setIsMovedUp] = useState(false);
   const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
@@ -20,6 +20,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded }) => {
 
   const handlers = useSwipeable({
     onSwipedUp: () => {
+      if (!startLoadingHome) return;
       setIsMovedUp(true);
       setTimeout(() => {
         setPhoneLocked(false);
@@ -39,6 +40,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded }) => {
       "Space",
     ];
     if (listenableKeys.includes(e.key)) {
+      if (!startLoadingHome) return;
       setIsMovedUp(true);
       setTimeout(() => {
         setPhoneLocked(false);
@@ -49,7 +51,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded }) => {
   useEffect(() => {
     setTimeout(() => {
       setShowWelcomeNotification(true);
-    }, 5000);
+    }, 2000);
     setTimeout(() => {
       setShowSwipeNotification(true);
     }, 13000);

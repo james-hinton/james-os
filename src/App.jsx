@@ -17,7 +17,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setStartLoadingHome(true);
-    }, 2000);
+    }, 3000);
   }, [lockScreenLoaded]);
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const App = () => {
         <Lock
           lockScreenLoaded={lockScreenLoaded}
           setLockScreenLoaded={setLockScreenLoaded}
+          startLoadingHome={startLoadingHome}
         />
       )}
     </div>
