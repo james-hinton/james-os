@@ -38,8 +38,8 @@ const TimeAndDate = () => {
 
   return (
     <div className="time-and-date fade-in">
-      <div className="time-and-date__date">{currentDate}</div>
-      <div className="time-and-date__time">{currentTime}</div>
+      <div className="time-and-date__date fade-in">{currentDate}</div>
+      <div className="time-and-date__time fade-in">{currentTime}</div>
     </div>
   );
 };

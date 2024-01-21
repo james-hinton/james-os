@@ -49,24 +49,25 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
   });
 
   useEffect(() => {
+    if (!lockScreenLoaded) return;
     setTimeout(() => {
       setShowWelcomeNotification(true);
-    }, 2000);
+    }, 1000);
     setTimeout(() => {
       setShowSwipeNotification(true);
     }, 13000);
-  }, []);
+  }, [lockScreenLoaded]);
 
   useEffect(() => {
     // Preload the image
     const img = new Image();
-    const imageUrl = "/assets/wallpapers/default.jpg";
+    const imageUrl = "/assets/wallpapers/background.jpg";
     img.src = imageUrl;
     img.onload = () => {
       setBackgroundImage(imageUrl);
       setTimeout(() => {
         setLockScreenLoaded(true);
-      }, 500);
+      }, 1500);
     };
 
     img.onerror = () => {
@@ -89,7 +90,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
       }}
     >
       <div className="lock-screen-content">
-        {!lockScreenLoaded ? (
+        {!lockScreenLoaded && !backgroundImage ? (
           <div className="lock-screen-loading">
             <img src={"tail-spin.svg"} alt="Loading..." />
           </div>
