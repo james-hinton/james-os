@@ -1,13 +1,8 @@
-@font-face {
-  font-family: "SF Pro Italic";
-  src: url("/assets/fonts/SF-Pro-Italic.ttf") format("truetype");
-  font-weight: normal;
-  font-style: italic;
-}
+
 
 @font-face {
   font-family: "SF Pro";
-  src: url("/assets/fonts/SF-Pro.woff2") format("woff2");
+  src: url("/assets/fonts/subset-SFPro-Regular.woff") format("woff"); // 30 kb
   font-weight: normal;
   font-style: normal;
 }
@@ -25,6 +20,8 @@ html,
   overflow: hidden;
   margin: 0;
   padding: 0;
+  // font spacing
+  letter-spacing: 0.8px;
 }
 
 #phone {
