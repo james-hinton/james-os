@@ -111,7 +111,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
                 <Notification
                   icon="assets/contact/bell.png"
                   title="Reminder"
-                  message="Ready to explore? There's more to see."
+                  message="This site is still under development. Use the message app to send any ideas or suggestions."
                 />
               )}
             </div>
