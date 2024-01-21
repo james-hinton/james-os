@@ -190,6 +190,7 @@ const Home = () => {
   // Listen for when the user goes onto the second page and then send a popup saying "This is my experience page"
   useEffect(() => {
     if (currentPage === 1) {
+      if (Object.keys(popupContent).length > 0) return;
       const date = new Date();
       // 2 hours
       const delay = 1000 * 60 * 60 * 2;
