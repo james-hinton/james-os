@@ -20,19 +20,23 @@ const ExternalLink = ({ message, href }) => {
       <div className="external-link-content">
         <p>{message}</p>
         <div className="button-group">
-          <button onClick={handleStay} className="stay-button"
+          <button
+            onClick={handleStay}
+            className="stay-button"
             data-tip
             data-tooltip-id="stayTooltip"
           >
             Nope, stay here
           </button>
           <a
-            href={href}
-            target="_blank"
             rel="noopener noreferrer"
             className="leave-button"
             data-tip
             data-tooltip-id="leaveTooltip"
+            onClick={() => {
+              setOpenApps([]);
+              window.open(href, "_blank");
+            }}
           >
             Yep, let's go!
           </a>
