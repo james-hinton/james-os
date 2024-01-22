@@ -36,6 +36,8 @@ const Home = () => {
     setDisplayPopup,
     popupContent,
     setPopupContent,
+    darkenScreen,
+    setDarkenScreen,
   } = useContext(PhoneContext);
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -256,6 +258,7 @@ const Home = () => {
           defaultPositions={defaultPositions}
           isSmallScreen={isSmallScreen}
           setIsDragging={setIsDragging}
+          setDarkenScreen={setDarkenScreen}
         />
       ))}
 
@@ -277,6 +280,8 @@ const Home = () => {
           duration={popupContent.duration}
         />
       )}
+
+      {darkenScreen && <div className="darken-screen fade-in"></div>}
     </div>
   );
 };

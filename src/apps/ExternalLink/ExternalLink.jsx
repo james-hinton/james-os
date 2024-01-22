@@ -1,14 +1,50 @@
-// Project.js or Project.tsx
-import React, { useState } from "react";
-import "./ExternalLink.scss";
+// Context
+import { useContext } from "react";
 
-const ExternalLink = ({
-    message,
-    href
-}) => {
+// Components
+import { Tooltip } from "react-tooltip";
+
+// Styles
+import "./ExternalLink.scss";
+import { PhoneContext } from "../../context/PhoneContext";
+
+const ExternalLink = ({ message, href }) => {
+  const { setOpenApps } = useContext(PhoneContext);
+
+  const handleStay = () => {
+    setOpenApps([]);
+  };
 
   return (
-    <div className="project-container interactable">
+    <div className="external-link">
+      <div className="external-link-content">
+        <p>{message}</p>
+        <div className="button-group">
+          <button onClick={handleStay} className="stay-button"
+            data-tip
+            data-tooltip-id="stayTooltip"
+          >
+            Nope, stay here
+          </button>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="leave-button"
+            data-tip
+            data-tooltip-id="leaveTooltip"
+          >
+            Yep, let's go!
+          </a>
+        </div>
+        <Tooltip id="stayTooltip" place="bottom" effect="solid">
+          <span>Stay on this page</span>
+        </Tooltip>
+
+        <Tooltip id="leaveTooltip" place="bottom" effect="solid">
+          <span>Visit the link in a new tab</span>
+        </Tooltip>
+      </div>
     </div>
   );
 };

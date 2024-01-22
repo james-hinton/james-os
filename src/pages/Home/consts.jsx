@@ -280,12 +280,13 @@ export const DockApps = [
     label: "Github",
     component: (props) => (
       <ExternalLink
-        message="Are you sure you want to navigate to the code of this website?"
-        href="https://github.com/james-hinton/"
+        message="Are you sure you want to leave the website and visit my GitHub?"
+        href="https://github.com/james-hinton/james-os"
         {...props}
       />
     ),
-    width: "35%",
-    height: "70%",
+    componentType: ["nobanner", "heightoverride", "noresize", "darkenscreen"],
+    width: "70%",
+    height: "20%",
   },
 ];

@@ -5,6 +5,7 @@ const initialState = {
   openApps: [],
   displayPopup: false,
   popupContent: {},
+  darkenScreen: false,
 };
 
 function reducer(state, action) {
@@ -17,6 +18,8 @@ function reducer(state, action) {
       return { ...state, displayPopup: action.payload };
     case "SET_POPUP_CONTENT":
       return { ...state, popupContent: action.payload };
+    case "SET_DARKEN_SCREEN":
+      return { ...state, darkenScreen: action.payload };
     default:
       return state;
   }
@@ -43,16 +46,22 @@ const PhoneProvider = ({ children }) => {
     dispatch({ type: "SET_POPUP_CONTENT", payload });
   };
 
+  const setDarkenScreen = (payload) => {
+    dispatch({ type: "SET_DARKEN_SCREEN", payload });
+  };
+
   const value = {
     phoneLocked: state.phoneLocked,
     openApps: state.openApps,
     displayPopup: state.displayPopup,
     popupContent: state.popupContent,
+    darkenScreen: state.darkenScreen,
 
     setPhoneLocked,
     setOpenApps,
     setDisplayPopup,
     setPopupContent,
+    setDarkenScreen,
   };
 
   return (

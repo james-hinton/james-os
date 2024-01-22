@@ -73,3 +73,12 @@ html,
 .go-up {
   animation: go-up 0.1s ease-out forwards;
 }
+
+.darken-screen {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+  animation: fade-in 0.5s ease-out forwards;
+}

@@ -22,6 +22,7 @@ const OpenApp = ({
   defaultPositions,
   isSmallScreen,
   setIsDragging,
+  setDarkenScreen,
 }) => {
   // Listen for Control + Command + Q shortcut and lock
   const getLeftPosition = (width) => {
@@ -39,7 +40,6 @@ const OpenApp = ({
     width: appRef.current?.offsetWidth,
     height: appRef.current?.offsetHeight,
   });
-
 
   const handleMouseDown = (e) => {
     e.stopPropagation();
@@ -73,6 +73,19 @@ const OpenApp = ({
     isResizing.current = false;
     document.removeEventListener("mousemove", handleMouseMove);
   };
+
+  useEffect(() => {
+    // if app component type has darkenscreen, set darken screen to true
+    if (app.componentType?.includes("darkenscreen")) {
+      setDarkenScreen(true);
+    }
+    return () => {
+      // if app component type has darkenscreen, set darken screen to false
+      if (app.componentType?.includes("darkenscreen")) {
+        setDarkenScreen(false);
+      }
+    };
+  }, [app.componentType]);
 
   return (
     <Draggable
@@ -126,43 +139,49 @@ const OpenApp = ({
               }
         }
       >
-        <div
-          className="handle"
-          onMouseDown={(e) => {
-            handleMouseDown(e);
-          }}
-        ></div>
-
-        <WindowBar
-          onClose={() => {
-            const closedAppIndex = openApps.indexOf(app);
-            const newAppPositions = { ...appPositions };
-            delete newAppPositions[closedAppIndex];
-            for (let i = closedAppIndex + 1; i < openApps.length; i++) {
-              newAppPositions[i - 1] = newAppPositions[i];
-            }
-            delete newAppPositions[openApps.length - 1];
-            setAppPositions(newAppPositions);
-            setOpenApps(openApps.filter((a) => a !== app));
-          }}
-        />
+        {!app.componentType?.includes("noresize") && (
+          <div
+            className="handle"
+            onMouseDown={(e) => {
+              handleMouseDown(e);
+            }}
+          ></div>
+        )}
+        {!app.componentType?.includes("nobanner") && (
+          <WindowBar
+            onClose={() => {
+              const closedAppIndex = openApps.indexOf(app);
+              const newAppPositions = { ...appPositions };
+              delete newAppPositions[closedAppIndex];
+              for (let i = closedAppIndex + 1; i < openApps.length; i++) {
+                newAppPositions[i - 1] = newAppPositions[i];
+              }
+              delete newAppPositions[openApps.length - 1];
+              setAppPositions(newAppPositions);
+              setOpenApps(openApps.filter((a) => a !== app));
+            }}
+          />
+        )}
         <div
           className="app-container"
           style={
             isSmallScreen
               ? {
                   width: "100%",
-                  // height: "100%",
                   position: "absolute",
                   top: 0,
                   left: 0,
                   paddingTop: "1.5rem",
                   overflow: "auto",
                   backgroundColor: app.backgroundColor || "",
+                  ...(app.componentType?.includes("heightoverride")
+                    ? { height: app.height, minHeight: "200px" }
+                    : {}),
                 }
               : {
                   width: "100%",
                   backgroundColor: app.backgroundColor || "",
+                  height: "100%",
                 }
           }
           onMouseDown={(e) => e.stopPropagation()}
