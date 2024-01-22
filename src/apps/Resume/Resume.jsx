@@ -21,11 +21,11 @@ const Resume = ({
     const stylesConfig = [
       {
         max: 400,
-        scale : 0.5
+        scale : 0.65
       },
       {
         max: 600,
-        scale : 0.6
+        scale : 0.71
       },
       {
         max: 1000,
