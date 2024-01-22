@@ -96,6 +96,7 @@
       transition: border-color 0.3s;
       font-size: 16px;
       height: 2.5rem;
+      min-width: 0;
       box-sizing: border-box;
     }
 
@@ -117,6 +118,9 @@
       font-size: 16px;
       height: 2.5rem;
       box-sizing: border-box;
+      min-width: 50px; // Minimum width of the button
+      max-width: 200px; // Maximum width of the button
+      white-space: nowrap; // Prevents text from wrapping
 
     }
 
