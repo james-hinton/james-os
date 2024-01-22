@@ -181,7 +181,9 @@ const OpenApp = ({
               : {
                   width: "100%",
                   backgroundColor: app.backgroundColor || "",
-                  height: "100%",
+                  ...(app.componentType?.includes("heightoverride")
+                  ? { height: "100%" }
+                  : {}),
                 }
           }
           onMouseDown={(e) => e.stopPropagation()}

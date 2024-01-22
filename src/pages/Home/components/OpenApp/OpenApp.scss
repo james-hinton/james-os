@@ -3,9 +3,9 @@
   z-index: 1009;
   box-sizing: border-box;
   height: calc(100% - 30px);
+  min-height: 100px;
   overflow-y: auto;
   overflow-x: hidden;
-
 }
 
 .handle {

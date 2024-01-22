@@ -280,7 +280,7 @@ export const DockApps = [
     label: "Github",
     component: (props) => (
       <ExternalLink
-        message="Are you sure you want to leave the website and visit my GitHub?"
+        message="Are you sure you want to leave the website and see it's code?"
         href="https://github.com/james-hinton/james-os"
         {...props}
       />
