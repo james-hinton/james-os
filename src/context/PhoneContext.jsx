@@ -6,6 +6,12 @@ const initialState = {
   displayPopup: false,
   popupContent: {},
   darkenScreen: false,
+  notifications: [
+    {
+      appName: "Contact",
+      eventTrigger: "welcome",
+    },
+  ],
 };
 
 function reducer(state, action) {
@@ -20,6 +26,8 @@ function reducer(state, action) {
       return { ...state, popupContent: action.payload };
     case "SET_DARKEN_SCREEN":
       return { ...state, darkenScreen: action.payload };
+    case "SET_NOTIFICATIONS":
+      return { ...state, notifications: action.payload };
     default:
       return state;
   }
@@ -50,18 +58,24 @@ const PhoneProvider = ({ children }) => {
     dispatch({ type: "SET_DARKEN_SCREEN", payload });
   };
 
+  const setNotifications = (payload) => {
+    dispatch({ type: "SET_NOTIFICATIONS", payload });
+  };
+
   const value = {
     phoneLocked: state.phoneLocked,
     openApps: state.openApps,
     displayPopup: state.displayPopup,
     popupContent: state.popupContent,
     darkenScreen: state.darkenScreen,
+    notifications: state.notifications,
 
     setPhoneLocked,
     setOpenApps,
     setDisplayPopup,
     setPopupContent,
     setDarkenScreen,
+    setNotifications,
   };
 
   return (

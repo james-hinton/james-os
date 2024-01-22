@@ -12,7 +12,7 @@ import { PhoneContext } from "../../context/PhoneContext";
 import "./Lock.scss";
 
 const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
-  const { phoneLocked, setPhoneLocked } = useContext(PhoneContext);
+  const { phoneLocked, setPhoneLocked, setOpenApps, setNotifications } = useContext(PhoneContext);
   const [isMovedUp, setIsMovedUp] = useState(false);
   const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
   const [showSwipeNotification, setShowSwipeNotification] = useState(false);
@@ -97,13 +97,25 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
         ) : (
           <>
             <TimeAndDate />
-
             <div className="lock-screen-notifications">
               {showWelcomeNotification && (
                 <Notification
                   icon="assets/contact/bot.png"
-                  title="Welcome!"
-                  message="Hello & Welcome! 👋 Swipe up or press Enter to unlock."
+                  title="James Hinton"
+                  message="Hello & welcome to my portfolio 👋 I've just sent you a message, unlock the phone or click here to read it"
+                  customOnClick={() => {
+                    setIsMovedUp(true);
+                    setTimeout(() => {
+                      setPhoneLocked(false);
+
+                      // Clcik on dock-app-Contact
+                      document
+                        .getElementById("dock-app-Contact")
+                        .dispatchEvent(new MouseEvent("click", { bubbles: true }));
+                        
+
+                    }, 500);
+                  }}
                 />
               )}
 

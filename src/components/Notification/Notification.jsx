@@ -5,13 +5,21 @@ import CloseIcon from "@mui/icons-material/Close";
 import "./Notification.scss";
 import { useState } from "react";
 
-const Notification = ({ icon, title, message }) => {
+const Notification = ({ icon, title, message, customOnClick }) => {
   const [isClosed, setIsClosed] = useState(false);
 
   return (
     <>
       {!isClosed && (
-        <div className="notification">
+        <div
+          className="notification"
+          onClick={() => {
+            if (customOnClick) {
+              customOnClick();
+            }
+          }}
+          style={customOnClick ? { cursor: "pointer" } : {}}
+        >
           <div
             className="notification-close"
             onClick={() => {

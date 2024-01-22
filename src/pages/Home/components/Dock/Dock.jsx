@@ -9,7 +9,13 @@ import "./Dock.scss";
 import { Close } from "@mui/icons-material";
 
 const Dock = () => {
-  const { openApps, setOpenApps, phoneLocked } = useContext(PhoneContext);
+  const {
+    openApps,
+    setOpenApps,
+    phoneLocked,
+    notifications,
+    setNotifications,
+  } = useContext(PhoneContext);
 
   return (
     <div className="dock-container" style={phoneLocked ? {} : { zIndex: 9999 }}>
@@ -27,8 +33,18 @@ const Dock = () => {
             } else {
               window.open(app.href, "_blank");
             }
+            if (notifications.find((n) => n.appName === app.name)) {
+              setNotifications(
+                notifications.filter((n) => n.appName !== app.name)
+              );
+            }
           }}
         >
+          {notifications.find((n) => n.appName === app.name) && (
+            <div className="notification-dot">
+            </div>
+          )}
+
           {app.icon}
         </a>
       ))}

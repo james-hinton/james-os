@@ -107,21 +107,29 @@ const Contact = ({ appRef }) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsTyping(true);
-    }, 1000);
+
+    setSentMessages((sentMessages) => [
+      ...sentMessages,
+      {
+        type: "bot",
+        text: "Hi there, thanks for taking the time to visit my site. If you are enjoying looking around, please leave me a message. :)",
+      },
+    ]);
 
     setTimeout(() => {
-      console.log("Sending welcome message");
+      setIsTyping(true);
+    }, 3000);
+
+    setTimeout(() => {
       setSentMessages((sentMessages) => [
         ...sentMessages,
         {
           type: "bot",
-          text: "Hi there, thanks for taking the time to visit my site. Leave a message for me here and it will be sent to my email. :)",
+          text: "By the way, if you leave me a message, it will be sent to my email",
         },
       ]);
       setIsTyping(false);
-    }, 3000);
+    }, 5000);
   }, []);
 
   return (
