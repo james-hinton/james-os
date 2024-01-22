@@ -80,6 +80,8 @@
   form {
     display: flex;
     margin-top: 10px;
+    width: 100%;
+    align-items: center;
 
     input {
       flex: 1;
@@ -93,10 +95,8 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: border-color 0.3s;
       font-size: 16px;
-
-      
-      &[type="text"] {
-      }
+      height: 2.5rem;
+      box-sizing: border-box;
     }
 
     input:focus {
@@ -115,6 +115,9 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s;
       font-size: 16px;
+      height: 2.5rem;
+      box-sizing: border-box;
+
     }
 
     button:hover {

@@ -40,8 +40,8 @@ const Post = ({ user, tweet, reply, inReply }) => {
   };
 
   const renderText = (text) => {
-    text = text.replace(/@(\w+)/g, '<a href="/">@$1</a>');
-    text = text.replace(/#(\w+)/g, '<a href="/">#$1</a>');
+    text = text.replace(/@(\w+)/g, '<a>@$1</a>');
+    text = text.replace(/#(\w+)/g, '<a>#$1</a>');
     return <span dangerouslySetInnerHTML={{ __html: text }} />;
   };
 

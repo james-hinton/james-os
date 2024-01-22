@@ -70,9 +70,7 @@ const TwitterNavbar = ({ appRef }) => {
             sidebarExpanded && "twitter-navbar-logo-expanded"
           }`}
         >
-          <a href="/">
             <img src="/twitter/logo-blue.png" alt="Twitter logo" />
-          </a>
         </div>
         {/* Menu Options */}
         <div className="twitter-navbar-menu">
