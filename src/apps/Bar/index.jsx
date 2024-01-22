@@ -1,6 +1,9 @@
 // React
 import { useEffect, useState } from "react";
 
+// Components
+import { Tooltip } from "react-tooltip";
+
 // Styles
 import "./style.scss";
 
@@ -47,8 +50,14 @@ const Bar = () => {
                   );
                   setMinimiseCocktails(false);
                 }}
+                data-tip
+                data-tooltip-id="searchTooltip"
               />
             </div>
+
+            <Tooltip id="searchTooltip" place="bottom" effect="solid">
+              <span>Search for a drink</span>
+            </Tooltip>
 
             {/* Minimise */}
             <div className="bar-content-drinks-icon">
@@ -57,15 +66,25 @@ const Bar = () => {
                   onClick={() => {
                     setMinimiseCocktails(true);
                   }}
+                  data-tip
+                  data-tooltip-id="minimiseTooltip"
                 />
               ) : (
                 <FullscreenIcon
+                data-tip
+                data-tooltip-id="fullscreenTooltip"
                   onClick={() => {
                     setMinimiseCocktails(false);
                   }}
                 />
               )}
             </div>
+            <Tooltip id="fullscreenTooltip" place="bottom" effect="solid">
+              <span>Click to view all cocktails</span>
+            </Tooltip>
+            <Tooltip id="minimiseTooltip" place="bottom" effect="solid">
+              <span>Click to minimise</span>
+            </Tooltip>
           </div>
 
           {/* Table */}

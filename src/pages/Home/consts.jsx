@@ -20,6 +20,7 @@ import Settings from "../../apps/Settings/Settings";
 import Terminal from "../../apps/Terminal/Terminal";
 import Resume from "../../apps/Resume/Resume";
 import Contact from "../../apps/Contact/Contact";
+import ExternalLink from "../../apps/ExternalLink/ExternalLink";
 
 const Twitter = lazy(() => import("../../apps/Twitter"));
 const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
@@ -277,6 +278,14 @@ export const DockApps = [
     name: "Github",
     icon: <CodeIcon />,
     label: "Github",
-    href: "https://github.com/james-hinton/james-os",
+    component: (props) => (
+      <ExternalLink
+        message="Are you sure you want to navigate to the code of this website?"
+        href="https://github.com/james-hinton/"
+        {...props}
+      />
+    ),
+    width: "35%",
+    height: "70%",
   },
 ];
