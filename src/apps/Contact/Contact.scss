@@ -92,9 +92,10 @@
       color: #333;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: border-color 0.3s;
+      font-size: 16px;
+
       
       &[type="text"] {
-        font-size: 16px;
       }
     }
 
@@ -113,6 +114,7 @@
       cursor: pointer;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s;
+      font-size: 16px;
     }
 
     button:hover {
