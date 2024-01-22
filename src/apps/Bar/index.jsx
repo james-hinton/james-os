@@ -19,15 +19,18 @@ const Bar = () => {
   const [drinks, setDrinks] = useState(allCocktails);
   const [selectedCocktail, setSelectedCocktail] = useState(null);
   const [minimiseCocktails, setMinimiseCocktails] = useState(true);
+  const [isInputEmpty, setIsInputEmpty] = useState(true); // New state to track input emptiness
 
   // When user first enters the page, a random cocktail will be selected
   useEffect(() => {
     setSelectedCocktail(drinks[Math.floor(Math.random() * drinks.length)]);
   }, []);
 
-
   return (
-    <div className="bar interactable" style={{ backgroundImage: `url("assets/bar/texture.png")` }}>
+    <div
+      className="bar interactable"
+      style={{ backgroundImage: `url("assets/bar/texture.png")` }}
+    >
       <div className="bar-content">
         <div className="bar-content-logo">
           <img src="/assets/bar/logo.png" alt="logo" />
@@ -49,15 +52,22 @@ const Bar = () => {
                     )
                   );
                   setMinimiseCocktails(false);
+                  setIsInputEmpty(e.target.value === "");
                 }}
                 data-tip
                 data-tooltip-id="searchTooltip"
               />
             </div>
 
-            <Tooltip id="searchTooltip" place="bottom" effect="solid">
-              <span>Search for a drink</span>
-            </Tooltip>
+            {isInputEmpty && (
+              <Tooltip
+                id="searchTooltip"
+                place="bottom"
+                effect="solid"
+              >
+                <span>Type in your favourite drink</span>
+              </Tooltip>
+            )}
 
             {/* Minimise */}
             <div className="bar-content-drinks-icon">
@@ -71,8 +81,8 @@ const Bar = () => {
                 />
               ) : (
                 <FullscreenIcon
-                data-tip
-                data-tooltip-id="fullscreenTooltip"
+                  data-tip
+                  data-tooltip-id="fullscreenTooltip"
                   onClick={() => {
                     setMinimiseCocktails(false);
                   }}
@@ -105,7 +115,6 @@ const Bar = () => {
                     // Minimise
                     setMinimiseCocktails(true);
                   }}
-                  
                 >
                   {/* Name */}
                   <div className="bar-content-drinks-table-row-name">
