@@ -109,6 +109,13 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
                       : " Hello & welcome to my portfolio 👋 I've just sent you a message, unlock the phone or click here to read it"
                   }`}
                   customOnClick={() => {
+                    if (localStorage.getItem(`notification-${"Contact"}`)) {
+                      setIsMovedUp(true);
+                      setTimeout(() => {
+                        setPhoneLocked(false);
+                      }, 500);
+                      return;
+                    }
                     setIsMovedUp(true);
                     setTimeout(() => {
                       setPhoneLocked(false);

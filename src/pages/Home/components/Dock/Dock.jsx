@@ -34,10 +34,6 @@ const Dock = () => {
               window.open(app.href, "_blank");
             }
             if (notifications.find((n) => n.appName === app.name)) {
-              // Check localStorage to see whether this has had a notification before
-              const hasNotification = localStorage.getItem(
-                `notification-${app.name}`
-              );
               localStorage.setItem(`notification-${app.name}`, true);
               setNotifications(
                 notifications.filter((n) => n.appName !== app.name)
