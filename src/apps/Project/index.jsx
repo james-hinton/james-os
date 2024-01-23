@@ -21,7 +21,7 @@ const Project = ({ title, description, image, link, github, tech, about }) => {
         <div className="project-links">
           {link && (
             <a href={link} target="_blank" rel="noopener noreferrer">
-              Live Demo
+              See more
             </a>
           )}
           {github && (

@@ -12,7 +12,8 @@ import { PhoneContext } from "../../context/PhoneContext";
 import "./Lock.scss";
 
 const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
-  const { phoneLocked, setPhoneLocked, setOpenApps, setNotifications } = useContext(PhoneContext);
+  const { phoneLocked, setPhoneLocked, setOpenApps, setNotifications } =
+    useContext(PhoneContext);
   const [isMovedUp, setIsMovedUp] = useState(false);
   const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
   const [showSwipeNotification, setShowSwipeNotification] = useState(false);
@@ -102,18 +103,20 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
                 <Notification
                   icon="assets/contact/bot.png"
                   title="James Hinton"
-                  message="Hello & welcome to my portfolio 👋 I've just sent you a message, unlock the phone or click here to read it"
+                  message={` ${
+                    localStorage.getItem(`notification-${"Contact"}`)
+                      ? "Welcome back to my portfolio 😎"
+                      : " Hello & welcome to my portfolio 👋 I've just sent you a message, unlock the phone or click here to read it"
+                  }`}
                   customOnClick={() => {
                     setIsMovedUp(true);
                     setTimeout(() => {
                       setPhoneLocked(false);
-
-                      // Clcik on dock-app-Contact
                       document
                         .getElementById("dock-app-Contact")
-                        .dispatchEvent(new MouseEvent("click", { bubbles: true }));
-                        
-
+                        .dispatchEvent(
+                          new MouseEvent("click", { bubbles: true })
+                        );
                     }, 500);
                   }}
                 />
@@ -123,7 +126,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
                 <Notification
                   icon="assets/contact/bell.png"
                   title="Reminder"
-                  message="This site is still under development. Use the message app to send any ideas or suggestions."
+                  message="This site is still under development. Use the message app to send any ideas or suggestions"
                 />
               )}
             </div>

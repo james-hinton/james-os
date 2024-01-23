@@ -22,7 +22,9 @@ const Notification = ({ icon, title, message, customOnClick }) => {
         >
           <div
             className="notification-close"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
               setIsClosed(true);
             }}
           >

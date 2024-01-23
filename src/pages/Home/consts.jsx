@@ -113,7 +113,7 @@ export const SecondPage = [
         description="Full Stack Developer"
         image="/assets/projects/os.png"
         link="https://www.ordnancesurvey.co.uk/"
-        github="https://github.com"
+        github="https://github.com/SpatialDays/stac-portal-frontend"
         tech={["React", "Kubernetes", "Azure", "Django"]}
         about="As a Full Stack Developer for Ordnance Survey, I specialized in enhancing and customizing open-source Spatio-Temporal Asset Catalog (STAC) software. My role involved orchestrating a robust infrastructure for satellite data management for the entirety of Ordnance Survey's geo-spatial assets, deploying the entire system using Kubernetes, Terraform, and Azure."
         {...props}
@@ -122,18 +122,18 @@ export const SecondPage = [
     width: "50%",
     height: "70%",
   },
-  // Satellite Applications Catapult
+  // Commonsensing
   {
-    name: "Satellite Applications Catapult",
-    iconHref: "/assets/icons/satapps.png",
-    label: "Satellite Applications Catapult",
+    name: "CommonSensing",
+    iconHref: "/assets/icons/commonsensing.png",
+    label: "CommonSensing",
     component: (props) => (
       <Project
         title="Satellite Applications Catapult"
         description="Geospatial Developer"
         image="/assets/projects/satapps.jpeg"
-        link="https://www.satapps.org/"
-        github="https://github.com"
+        link="https://sa.catapult.org.uk/blogs/adopting-stac-to-simplify-geospatial-workflows/"
+        github="https://github.com/SpatialDays/stac-portal-frontend"
         tech={["Python", "JavaScript", "Satellite Technology"]}
         about="In my role as Lead Developer for the £9.6m IPP CommonSensing project, I employed Python, JavaScript, and other open-source technologies to improve climate resilience in the Pacific Islands through satellite technology. This project required innovative thinking and complex problem-solving to develop solutions that could make a real difference in vulnerable regions."
         {...props}
@@ -149,11 +149,9 @@ export const SecondPage = [
     label: "Yemen Economic Tracking Initiative",
     component: (props) => (
       <Project
-        // title="Yemen Economic Tracking Initiative"
         description="Senior Engineer"
         image="/assets/projects/yeti.svg"
         link="https://www.yeti.org/"
-        github="https://github.com"
         tech={["JQuery", "Django", "AWS"]}
         about="As the leading contributor to the YETI platform's GitHub repository, I enhanced economic analysis tools for Yemen, supported by key international organizations. My expertise in JQuery, Django, HTML, CSS, and AWS formed the backbone of our web modules and data systems, providing crucial insights into Yemen's economic situation."
         {...props}
@@ -171,8 +169,7 @@ export const SecondPage = [
       <Project
         description="Software Engineer"
         image="/assets/projects/ceh.png"
-        link="https://www.ceh.ac.uk/"
-        github="https://github.com"
+        link="https://www.ceh.ac.uk/city-explorer"
         tech={["Azure", "React", "Django"]}
         about="At the UK Centre for Ecology and Hydrology, I'm currently upgrading the City Explorer Toolkit from an MVP (written in R-Shiny) to a more stable, robust build. This redevelopment aims to enhance the tool's functionality in guiding urban planners to strategically allocate green and blue spaces, using comprehensive environmental and demographic data."
         {...props}
@@ -190,8 +187,6 @@ export const SecondPage = [
       <Project
         description="Software Developer"
         image="/assets/projects/whoovr.jpg"
-        link="https://www.whoovr.com/"
-        github="https://github.com"
         tech={["Python Flask", "AWS", "Node"]}
         about="As the Sole Software Developer for Whoovr, I was responsible for a company information web service and API for Ergo Digital Ltd. My work involved detailed design, AWS infrastructure setup/configuration, Python Flask back-end application development, and front-end Javascript, JQuery, HTML, CSS, and Jinja2 development."
         {...props}
@@ -210,8 +205,6 @@ export const SecondPage = [
         title="Requiem"
         description="Software Developer"
         image="/assets/projects/requiem.webp"
-        link="https://www.requiem.com/"
-        github="https://github.com"
         tech={["Python Flask", "AWS", "JavaScript"]}
         about="In my role as a Software Developer for the Requiem Cemetery Management System, I was involved in all aspects from requirements definition and user story documentation to logical and physical database design. My work also included AWS system architecture design and build, back-end development using Python Flask/SQLAlchemy, and front-end development using Bootstrap and JavaScript."
         {...props}
@@ -220,6 +213,26 @@ export const SecondPage = [
     width: "50%",
     height: "70%",
   },
+    // Satellite Applications Catapult
+    {
+      name: "Satellite Applications Catapult",
+      iconHref: "/assets/icons/satapps.png",
+      label: "Satellite Applications Catapult",
+      component: (props) => (
+        <Project
+          title="Satellite Applications Catapult"
+          description="Geospatial Developer"
+          image="/assets/projects/satapps.jpeg"
+          link="https://sa.catapult.org.uk/blogs/adopting-stac-to-simplify-geospatial-workflows/"
+          github="https://github.com/SpatialDays/stac-portal-frontend"
+          tech={["Python", "JavaScript", "Satellite Technology"]}
+          about="In my role as a Full Stack Developer at Satellite Applications Catapult, I focused on refining and personalizing open-source Spatio-Temporal Asset Catalog (STAC) software. My responsibilities included constructing a sturdy infrastructure specifically for managing satellite data, incorporating React and Django into the technology stack. This task was complemented by deploying the comprehensive system through Kubernetes, Terraform, and Azure."
+          {...props}
+        />
+      ),
+      width: "50%",
+      height: "70%",
+    },
 ];
 
 export const ThirdPage = [
