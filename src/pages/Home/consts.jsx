@@ -225,7 +225,26 @@ export const SecondPage = [
           link="https://sa.catapult.org.uk/blogs/adopting-stac-to-simplify-geospatial-workflows/"
           github="https://github.com/SpatialDays/stac-portal-frontend"
           tech={["Python", "JavaScript", "Satellite Technology"]}
-          about="In my role as a Full Stack Developer at Satellite Applications Catapult, I focused on refining and personalizing open-source Spatio-Temporal Asset Catalog (STAC) software. My responsibilities included constructing a sturdy infrastructure specifically for managing satellite data, incorporating React and Django into the technology stack. This task was complemented by deploying the comprehensive system through Kubernetes, Terraform, and Azure."
+          about="In my position as a Full Stack Developer at Satellite Applications Catapult, I specialised in enhancing and customising open-source Spatio-Temporal Asset Catalog (STAC) software. My duties involved building a robust infrastructure tailored for satellite data management, integrating React and Django into our technology framework. Additionally, I was responsible for implementing the extensive system using Kubernetes, Terraform, and Azure."
+          {...props}
+        />
+      ),
+      width: "50%",
+      height: "70%",
+    },
+    // Conspirasea
+    {
+      name: "Conspirasea",
+      iconHref: "/assets/icons/conspirasea.png",
+      label: "Conspirasea",
+      component: (props) => (
+        <Project
+          description="Software Developer"
+          image="/assets/projects/conspirasea.png"
+          link="https://conspirasea.net"
+          github="https://github.com/SpatialDays/Conspirasea-landing"
+          tech={["Satellite Data", "HTML", "Balsamiq"]}
+          about="I have been a part of Conspirasea from the start, a project aimed at using satellite data to stop unauthorised vessels from entering marine protected areas in the UK. Our work earned us second place in the Hack the Planet competition."
           {...props}
         />
       ),
