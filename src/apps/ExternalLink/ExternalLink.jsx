@@ -19,6 +19,9 @@ const ExternalLink = ({ message, href }) => {
     <div className="external-link">
       <div className="external-link-content">
         <p>{message}</p>
+
+        <p>Click here to visit the link:</p>
+        <a href={href} target="_blank" rel="noopener noreferrer"> {href}</a>
         <div className="button-group">
           <button
             onClick={handleStay}
