@@ -131,8 +131,8 @@ export const SecondPage = [
       <Project
         description="Geospatial Developer"
         image="/assets/projects/ipp-commonsensing-logo.png"
-        link="https://sa.catapult.org.uk/blogs/adopting-stac-to-simplify-geospatial-workflows/"
-        github="https://github.com/SpatialDays/stac-portal-frontend"
+        link="https://projects.csopenportal.co.uk/"
+        github="https://github.com/SatelliteApplicationsCatapult"
         tech={["Python", "JavaScript", "Satellite Technology"]}
         about="In my role as Lead Developer for the £9.6m IPP CommonSensing project, I employed Python, JavaScript, and other open-source technologies to improve climate resilience in the Pacific Islands through satellite technology. This project required innovative thinking and complex problem-solving to develop solutions that could make a real difference in vulnerable regions."
         {...props}
