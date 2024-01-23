@@ -34,69 +34,6 @@ const Home = ({ appRef }) => {
   const soundcloudRef = useRef(null);
   const contentRef = useRef(null);
 
-  // useEffect(() => {
-  //   const appWidth = appRef?.current?.offsetWidth;
-
-  //   const stylesConfig = [
-  //     {
-  //       max: 800,
-  //       styles: {
-  //         contentWidth: "100%",
-  //         soundcloudTransform: "scale(0.8)",
-  //         soundcloudTransformOrigin: "top left",
-  //         soundcloudWidth: "100%",
-  //       },
-  //     },
-  //     {
-  //       max: 1000,
-  //       styles: {
-  //         contentWidth: "100%",
-  //         soundcloudTransform: "scale(0.8)",
-  //         soundcloudTransformOrigin: "top left",
-  //         soundcloudWidth: "100%",
-  //       },
-  //     },
-  //     {
-  //       max: 1400,
-  //       styles: {
-  //         contentWidth: "100%",
-  //         soundcloudTransform: "none",
-  //         soundcloudWidth: "100%",
-  //       },
-  //     },
-  //     {
-  //       default: true,
-  //       styles: {
-  //         contentWidth: "100%",
-  //         soundcloudTransform: "none",
-  //         soundcloudWidth: "100%",
-  //       },
-  //     },
-  //   ];
-
-  //   for (const config of stylesConfig) {
-  //     if (config.default || appWidth < config.max) {
-  //       const {
-  //         contentWidth,
-  //         soundcloudTransform,
-  //         soundcloudTransformOrigin,
-  //         soundcloudWidth,
-  //       } = config.styles;
-
-  //       if (contentWidth) contentRef.current.style.width = contentWidth;
-  //       if (soundcloudTransform)
-  //         soundcloudRef.current.style.transform = soundcloudTransform;
-  //       if (soundcloudTransformOrigin)
-  //         soundcloudRef.current.style.transformOrigin =
-  //           soundcloudTransformOrigin;
-  //       if (soundcloudWidth)
-  //         soundcloudRef.current.style.width = soundcloudWidth;
-
-  //       break; // Stop the loop once we find the appropriate breakpoint
-  //     }
-  //   }
-  // }, [appRef?.current?.offsetWidth]);
-
   const [hideSidebar, sideHideSidebar] = useState(false);
 
   useEffect(() => {
@@ -122,7 +59,7 @@ const Home = ({ appRef }) => {
       >
         <div className="sc-w-[100%] sc-max-w-[1200px] sc-bg-white">
           <Profile hideSidebar={hideSidebar} />
-          <ProfileMenu  hideSidebar={hideSidebar} />
+          {!hideSidebar && <ProfileMenu hideSidebar={hideSidebar} />}
 
           {/* Left side 66% */}
           <div className="sc-flex sc-mt-4">

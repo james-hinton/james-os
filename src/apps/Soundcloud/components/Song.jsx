@@ -52,9 +52,8 @@ const Song = ({ track, large, hover, hideSidebar }) => {
               style={
                 hideSidebar
                   ? {
-                      backdropFilter: "blur(8px)",
-                      WebkitBackdropFilter: "blur(8px)",
-                      margin: "0.5rem 0.5rem",
+                      backdropFilter: "blur(5px)",
+                      WebkitBackdropFilter: "blur(6px)",
                       backgroundColor: "rgba(255, 255, 255, 0.5)",
                       borderRadius: "0.5rem",
                     }
@@ -63,7 +62,7 @@ const Song = ({ track, large, hover, hideSidebar }) => {
             >
               <div className="sc-flex sc-flex-row sc-mb-4 sc-items-center ">
                 <div className="sc-mr-4">
-                  {track.song && (
+                  {track.song && !hideSidebar && (
                     <div className="sc-flex sc-items-center sc-justify-center sc-h-8 sc-w-8 sc-rounded-full sc-bg-orange-500 sc-text-white">
                       <p className={"sc-text-xs"}>{track.title[0]}</p>
                     </div>

@@ -10,10 +10,10 @@ const Profile = ({
   return (
     <div className="sc-w-[100%] sc-bg-sc-gray sc-flex sc-justify-center sc-relative">
       {/* Background */}
-      <img className={`sc-w-[100%] sc-object-cover ${hideSidebar ? ' sc-max-h-[15rem]' : 'sc-h-80'} `} src={background}></img>
+      <img className={`sc-w-[100%] sc-object-cover ${hideSidebar ? ' sc-max-h-[13rem]' : 'sc-h-80'} `} src={background}></img>
 
       {/* Profile image over background */}
-      <div className={`sc-absolute sc-top-10 sc-h-max sc-text-white sc-justify-center sc-items-center sc-flex-wrap sc-flex ${hideSidebar ? 'sc-flex-row' : 'sc-flex-row sc-left-20 '} `}>
+      <div className={`sc-absolute sc-w-[80%] sc-top-10 sc-h-max sc-text-white sc-items-center sc-flex-wrap sc-justify-start sc-flex ${hideSidebar ? 'sc-flex-row ' : 'sc-flex-row sc-left-20'} `}>
         {/* Profile image */}
 
         <img
