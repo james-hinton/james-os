@@ -129,9 +129,8 @@ export const SecondPage = [
     label: "CommonSensing",
     component: (props) => (
       <Project
-        title="Satellite Applications Catapult"
         description="Geospatial Developer"
-        image="/assets/projects/satapps.jpeg"
+        image="/assets/projects/ipp-commonsensing-logo.png"
         link="https://sa.catapult.org.uk/blogs/adopting-stac-to-simplify-geospatial-workflows/"
         github="https://github.com/SpatialDays/stac-portal-frontend"
         tech={["Python", "JavaScript", "Satellite Technology"]}
