@@ -11,7 +11,12 @@ import { PhoneContext } from "../../context/PhoneContext";
 
 import "./Lock.scss";
 
-const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
+const Lock = ({
+  lockScreenLoaded,
+  setLockScreenLoaded,
+  startLoadingHome,
+  attemptedPaths,
+}) => {
   const { phoneLocked, setPhoneLocked, setOpenApps, setNotifications } =
     useContext(PhoneContext);
   const [isMovedUp, setIsMovedUp] = useState(false);
@@ -51,6 +56,7 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
 
   useEffect(() => {
     if (!lockScreenLoaded) return;
+    if (attemptedPaths.length > 0) return;
     setTimeout(() => {
       setShowWelcomeNotification(true);
     }, 1000);
@@ -75,6 +81,19 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
       console.error("Failed to load the background image");
     };
   }, []);
+
+  const generateFunnyMessage = (path) => {
+    // Check for special characters
+    if (/[^a-zA-Z0-9\-\/]/.test(path)) {
+      return `Trying to use secret codes on "${path}"? Nice try, but no hidden treasures there!`;
+    }
+    // Check if the path contains 'admin'
+    if (path.toLowerCase().includes("admin")) {
+      return `Oh, sneaky! Trying to access "${path}"? My admin room is full of mysteries... and dust bunnies!`;
+    }
+    // Default message
+    return `Ah, the mysterious "${path}". A place of legend and lore! Sadly, it's not on my map yet. Maybe try somewhere else?`;
+  };
 
   return (
     <div
@@ -134,6 +153,16 @@ const Lock = ({ lockScreenLoaded, setLockScreenLoaded, startLoadingHome }) => {
                   icon="assets/contact/bell.png"
                   title="Reminder"
                   message="This site is still under development. Use the message app to send any ideas or suggestions"
+                />
+              )}
+
+              {attemptedPaths.length > 0 && (
+                <Notification
+                  icon="assets/contact/warning.png"
+                  title="Whoopsie Daisy!"
+                  message={generateFunnyMessage(
+                    attemptedPaths[attemptedPaths.length - 1]
+                  )}
                 />
               )}
             </div>

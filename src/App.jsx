@@ -8,7 +8,9 @@ import Home from "./pages/Home/Home";
 // Components
 import TopBar from "./components/TopBar/TopBar";
 
-const App = () => {
+const App = (
+  { attemptedPaths }
+) => {
   const location = useLocation();
   const [showLock, setShowLock] = useState(true);
   const [lockScreenLoaded, setLockScreenLoaded] = useState(false);
@@ -34,6 +36,7 @@ const App = () => {
           lockScreenLoaded={lockScreenLoaded}
           setLockScreenLoaded={setLockScreenLoaded}
           startLoadingHome={startLoadingHome}
+          attemptedPaths={attemptedPaths}
         />
       )}
     </div>
