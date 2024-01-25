@@ -1,7 +1,7 @@
 .terminal {
   box-sizing: border-box;
   z-index: 0 !important;
-  font-size: 16px;
+  font-size: 13px;
   height: 100%;
   width: 100%;
   background-color: black;
@@ -11,6 +11,10 @@
   padding-top: 0.5rem;
   padding-left: 0.5rem;
   overflow-x: hidden;
+
+  & * {
+    font-family: "Lucida Console", Monaco, monospace;
+  }
 
   .user {
     color: rgb(8, 250, 0);
@@ -45,7 +49,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 16px;
+    min-height: 14px;
 
     .prompt {
       display: flex;
@@ -56,13 +60,14 @@
       background: none;
       border: none;
       color: white;
-      font-size: 16.4px;
+      font-size: 13.1px;
       outline: none;
       flex-grow: 1;
       width: auto;
       letter-spacing: 0.5px;
       margin-left: 0.5rem;
       padding: 0;
+      font-family: "Lucida Console", Monaco, monospace !important;
     }
   }
 
