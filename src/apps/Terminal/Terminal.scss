@@ -1,38 +1,72 @@
 .terminal {
   box-sizing: border-box;
   z-index: 0 !important;
-  font-size: 0.8rem;
+  font-size: 16px;
   height: 100%;
   width: 100%;
   background-color: black;
-  color: limegreen;
-  padding: 1rem;
+  color: white;
   overflow-y: auto;
-  font-family: "Courier New", Courier, monospace;
   opacity: 0.85;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
 
-  .prompt {
-    color: dodgerblue;
+  .user {
+    color: rgb(8, 250, 0);
+  }
+  .colon {
+    color: white;
+  }
+  .dir {
+    color: rgb(40, 149, 252);
+  }
+  .dollar {
+    color: white;
+  }
+  .command {
+    margin-left: 0.5rem;
+  }
+  .file {
+    color: white;
+    margin-right: 0.5rem;
+  }
+
+  .directory {
+    color: rgb(40, 149, 252);
+    margin-right: 0.5rem;
   }
 
   .response {
-    margin: 0.2rem 0.8rem;
-    color: limegreen;
+    color: white;
   }
 
   .input-line {
     display: flex;
     align-items: center;
     width: 100%;
+    height: 16px;
+
+    .prompt {
+      display: flex;
+      align-items: center;
+    }
 
     .terminal-input {
       background: none;
       border: none;
-      color: limegreen;
+      color: white;
+      font-size: 16.4px;
       outline: none;
-      margin-left: 0.5rem;
       flex-grow: 1;
-      width: 100%
+      width: auto;
+      letter-spacing: 0.5px;
+      margin-left: 0.5rem;
+      padding: 0;
     }
+  }
+
+  .prompt.current-dir {
+    color: #ffdd55;
+    font-weight: bold;
   }
 }
