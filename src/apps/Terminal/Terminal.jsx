@@ -90,6 +90,7 @@ const Terminal = () => {
         response = new Date().toLocaleString();
         break;
       case "clear":
+        setCommands([]);
         setTimeout(() => {
           setCommands([]);
           setShowWelcomeMessage(false);
@@ -188,6 +189,53 @@ const Terminal = () => {
       terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
     }
   };
+
+  const autoCompleteDirectory = (partialDir) => {
+    const pathParts = currentDir.split("/").filter(Boolean);
+    let current = fileSystem["/"];
+
+    for (const part of pathParts) {
+      current = current[part];
+      if (!current) return null;
+    }
+
+    const allNames = Object.keys(current);
+    const matches = allNames.filter((name) => name.startsWith(partialDir));
+
+    if (matches.length === 1) {
+      const matchedDir = matches[0];
+      return matchedDir;
+    }
+
+    return null;
+  };
+
+  useEffect(() => {
+    const handleTabKeyPress = (event) => {
+      if (event.key === "Tab") {
+        event.preventDefault();
+        const input = inputRef.current.value;
+        const args = input.split(" ");
+        const lastArg = args[args.length - 1];
+
+        if (lastArg) {
+          const autoCompleteResult = autoCompleteDirectory(lastArg);
+          if (autoCompleteResult) {
+            inputRef.current.value = input.replace(
+              new RegExp(`${lastArg}$`),
+              autoCompleteResult
+            );
+          }
+        }
+      }
+    };
+
+    inputRef.current.addEventListener("keydown", handleTabKeyPress);
+
+    return () => {
+      inputRef.current?.removeEventListener("keydown", handleTabKeyPress);
+    };
+  }, []);
 
   return (
     <div
