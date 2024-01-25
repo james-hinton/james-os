@@ -1,0 +1,38 @@
+{
+    "/": {
+        "readme.txt": "Welcome to James Hinton's Portfolio Terminal! Explore directories or type 'help' for commands.",
+        "projects": {
+            "professional": {
+                "commonsensing.txt": "Principal developer for a £9.6 million project enhancing climate resilience in the Pacific Islands. Technologies: Python, JavaScript, Kubernetes.",
+                "ordnance_survey.txt": "Enhanced Spatio-Temporal Asset Catalog software using GDAL, Rasterio, and PDAL. Frontend mapping with Leaflet.",
+                "yeti.txt": "Contributor to the Yemen Economic Tracking Initiative platform. Skills: Django, JQuery, AWS.",
+                "city_explorer_toolkit.txt": "Upgrading the City Explorer Toolkit to a robust build with Azure, React, Django.",
+                "whoovr.txt": "Sole Software Developer for a company information web service. Full stack development with Python Flask and JavaScript.",
+                "requiem.txt": "Developed the Requiem Cemetery Management System. Involved in full lifecycle from design to deployment."
+            },
+            "personal": {
+                "mandarin_translator.txt": "React-based translation tool for Mandarin Chinese, using APIs, databases, and AWS S3 for audio storage.",
+                "ecosystem_game.txt": "C# Unity project simulating a 3D ecosystem with AI-driven animal behaviors.",
+                "music_prediction.txt": "Deep Learning project for music prediction, employing neural networks for classification and regression."
+            }
+        },
+        "skills": {
+            "programming_languages.txt": "Expertise in JavaScript, Python, C#, and various related technologies like Django, Flask, and React."
+        },
+        "education": {
+            "msc_computing.txt": "Master of Science in Computing from Cardiff University with Distinction.",
+            "ba_business.txt": "Bachelor of Arts in Business (Team Entrepreneurship) from University of the West of England."
+        },
+        "hobbies": {
+            "guitar.txt": "Passionate guitarist, participated in bands, and won a local battle of the bands.",
+            "chess.txt": "Active in online chess tournaments with an ELO rating of 1500.",
+            "rugby.txt": "Rugby enthusiast, attended three grand-slam matches.",
+            "mandarin_learning.txt": "Self-taught Mandarin speaker, approximately HSK2/3 level.",
+            "ctf_challenges.txt": "Engaged in Capture The Flag challenges and local penetration testing with Docker.",
+            "ai_ml_experiments.txt": "Experimenting with public AI models using an RTX3060."
+        }
+    },
+    "commands": {
+        "help.txt": "Explore with 'ls', 'cat', 'cd', 'date', 'clear'. Custom commands: 'about', 'contact'."
+    }
+}

@@ -11,7 +11,7 @@
   "rm": "Gone, like it never existed.",
   "cat": "No purring here, just file content.",
   "grep": "Seek and you shall find.",
-  "help" : "Type `ls` to see what folders are available. Type `cd <directory>` to navigate into a folder. Type `cat <file>` to read a file. Type `clear` to clear the screen.",
+  "help": "Available Commands:\n- `ls` or `dir`: Lists all files and folders in the current directory.\n- `cd <directory>`: Navigates into the specified directory. Use `cd ..` to go back one directory.\n- `cat <file>`: Displays the contents of a file.\n- `clear`: Clears the terminal screen.\n- `date`: Displays the current date and time.\n\n\nAdditional Features:\n- Auto-Completion: Press the Tab key to auto-complete directory and file names. This works when partially typing a file or directory name.\n- Welcome Message: Displays introductory information when the terminal is first loaded.\n\nType a command and press Enter to execute. Use the Tab key for auto-completion when typing directory or file names.",
   "chmod": "Choosing who gets the power!",
   "chown": "Ownership isn't just a concept, it's a command.",
   "man": "Looking for guidance? Aren't we all...",
@@ -95,5 +95,6 @@
   "watch": "Keeping an eye on things.",
   "free": "How much freedom do we have left?",
   "test": "Testing, 1, 2, 3...",
+  "cmatrix": "Entering the matrix...",
   "exit": "Until the next command adventure!"
 }
