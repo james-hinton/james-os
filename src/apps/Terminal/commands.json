@@ -11,7 +11,7 @@
   "rm": "Gone, like it never existed.",
   "cat": "No purring here, just file content.",
   "grep": "Seek and you shall find.",
-  "help" : "Need a hand? I'm here for you!",
+  "help" : "Type `ls` to see what folders are available. Type `cd <directory>` to navigate into a folder. Type `cat <file>` to read a file. Type `clear` to clear the screen.",
   "chmod": "Choosing who gets the power!",
   "chown": "Ownership isn't just a concept, it's a command.",
   "man": "Looking for guidance? Aren't we all...",

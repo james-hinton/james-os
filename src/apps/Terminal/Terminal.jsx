@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import "./Terminal.scss";
 import commandData from "./commands.json";
 
-const Terminal = () => {
+const Terminal = ({ appRef }) => {
   const [commands, setCommands] = useState([]);
   const [currentDir, setCurrentDir] = useState("/");
   const [fileSystem, setFileSystem] = useState({
@@ -62,6 +62,8 @@ const Terminal = () => {
         "Explore with 'ls', 'cat', 'cd', 'date', 'clear'. Custom commands: 'about', 'contact'.",
     },
   });
+  const [showUser, setShowUser] = useState(false);
+
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
   const inputRef = useRef(null);
   const terminalRef = useRef(null);
@@ -94,7 +96,7 @@ const Terminal = () => {
         setTimeout(() => {
           setCommands([]);
           setShowWelcomeMessage(false);
-        }, 1);
+        }, 50);
         return;
     }
 
@@ -110,7 +112,7 @@ const Terminal = () => {
       return "";
     }
 
-    const newPath = currentDir === "/" ? `/${dir}` : `${currentDir}/${dir}`;
+    let newPath = currentDir === "/" ? `/${dir}` : `${currentDir}/${dir}`;
     const pathParts = newPath.split("/").filter(Boolean);
     let current = fileSystem["/"];
 
@@ -119,6 +121,8 @@ const Terminal = () => {
       if (!current) return "Directory not found: " + part;
     }
 
+    // Make sure newPath isnt like ////// so check for multiple slashes
+    if (newPath.match(/\/{2,}/)) newPath = '/'
     setCurrentDir(newPath);
     return "";
   };
@@ -237,6 +241,12 @@ const Terminal = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const appWidth = appRef?.current?.offsetWidth;
+    const isMobile = appWidth < 800;
+    setShowUser(isMobile ? false : true);
+  }, [appRef?.current?.offsetWidth]);
+
   return (
     <div
       className="terminal interactable"
@@ -257,8 +267,13 @@ const Terminal = () => {
       {commands.map((cmd, index) => (
         <div key={`command-${index}`}>
           <span className="prompt">
+          {showUser && (
+            <>
+
             <span className="user">guest@james-hinton.com</span>
             <span className="colon">:</span>
+            </>
+          )}
             <span className="dir">{cmd.dir}</span>
             <span className="dollar">$</span>
             <span className="command">{cmd.command}</span>
@@ -269,8 +284,12 @@ const Terminal = () => {
       ))}
       <div className="input-line">
         <span className="prompt">
-          <span className="user">guest@james-hinton.com</span>
-          <span className="colon">:</span>
+          {showUser && (
+            <>
+              <span className="user">guest@james-hinton.com</span>
+              <span className="colon">:</span>
+            </>
+          )}
           <span className="dir">{currentDir}</span>
           <span className="dollar">$</span>
         </span>
