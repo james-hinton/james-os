@@ -34,8 +34,7 @@ const Room = () => {
         <ErrorBoundary>
           <Canvas
             camera={{
-              position: [0, 50, 140],
-              rotation: [0, -0.19993853092067707, 0],
+              position: [-70, 70, 90],
               fov: 45,
             }}
             colorManagement
