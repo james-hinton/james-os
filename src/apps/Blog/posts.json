@@ -10,14 +10,14 @@
           "content": "STAC (SpatioTemporal Asset Catalog) is an open specification aimed at making geospatial data more accessible and discoverable. It's a framework designed for efficient handling of vast amounts of Earth observation data."
         },
         {
-          "image": "public/assets/blog/stac/logo.png"
+          "image": "/assets/blog/stac/logo.png"
         },
         {
           "subtitle": "The Development Challenge",
           "content": "The task was to create a 'STAC Portal' – a user-friendly front-end interface that simplifies discovering public satellite data, like Sentinel, and manages existing geospatial assets. The project aimed at ensuring efficient data usage and preventing redundant data procurement."
         },
         {
-          "image": "public/assets/blog/stac/map.jpg"
+          "image": "/assets/blog/stac/map.jpg"
         },
         {
           "subtitle": "My Role in the Project",
