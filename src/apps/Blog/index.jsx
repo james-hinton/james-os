@@ -19,6 +19,16 @@ const Blog = ({ title, sections }) => {
                 src={section.image}
                 alt={`Section Image ${index}`}
                 className="blog-image"
+                // if theres imageType, and if its imageType is portrait,landscape, or square
+                style={
+                  section.imageType &&
+                  (section.imageType === "portrait"
+                    ? { height: "100%", width: "auto" }
+                    : section.imageType === "landscape"
+                    ? { height: "auto", width: "100%" }
+                    : { height: "100%", width: "100%" })
+                }
+                
               />
             )}
           </div>

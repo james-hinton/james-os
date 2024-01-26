@@ -3,7 +3,7 @@
     {
       "iconHref": "/assets/icons/blog-stac.png",
       "label": "STAC Blog",
-      "title": "My Journey with STAC: Developing a Geospatial Revolution",
+      "title": "My Journey with STAC: Developing a Geospatial Data Portal",
       "intro": "I was part of a team that developed a STAC Portal for Satellite Applications Catapult. This blog is a reflection of my experience and the impact of this project.",
       "sections": [
         {
@@ -17,7 +17,8 @@
           "content": "The task was to create a 'STAC Portal' – a user-friendly front-end interface that simplifies discovering public satellite data, like Sentinel, and manages existing geospatial assets. The project aimed at ensuring efficient data usage and preventing redundant data procurement."
         },
         {
-          "image": "/assets/blog/stac/map.jpg"
+          "image": "/assets/blog/stac/map.jpg",
+          "imageType": "landscape"
         },
         {
           "subtitle": "My Role in the Project",
@@ -32,6 +33,30 @@
           "content": "This development not only streamlined data management for Satellite Applications Catapult but also set a precedent for using STAC in practical, real-world applications. It underscores the potential of STAC in transforming geospatial data handling and inspires future innovations in this field."
         }
       ]
-    }
+    },
+    {
+        "iconHref": "/assets/icons/blog-james.png",
+        "label": "James OS Blog",
+        "title": "Exploring James Hinton's Web-Based OS Portfolio",
+        "intro": "An overview of 'James OS', a React-based portfolio with an OS-like interface, hosting a variety of web applications.",
+        "sections": [
+          {
+            "content": "James OS is a web-based portfolio designed as an operating system interface, developed using React Vite SCSS. It serves as a platform for showcasing various web development projects."
+          },
+          {
+            "image": "/assets/blog/portfolio/home.png",
+            "imageType": "landscape"
+          },
+          {
+            "subtitle": "Web Application Spectrum",
+            "content": "The portfolio contains a range of web applications, from interactive tools to data-driven platforms. Each application is built to demonstrate functionality and technical implementation within a web environment."
+          },
+          {
+            "subtitle": "Technical Details",
+            "content": "James OS is engineered for performance and scalability. The integration of multiple applications is managed through efficient optimisation techniques within the React Vite SCSS framework."
+          }
+        ]
+      }
+      
   ]
 }
