@@ -38,6 +38,7 @@ const Song = ({ track, large, hover, hideSidebar }) => {
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
                   borderRadius: "0.5rem",
+                  padding: "0.5rem"
                 }
               : {}
           }
@@ -60,7 +61,9 @@ const Song = ({ track, large, hover, hideSidebar }) => {
                   : {}
               }
             >
-              <div className="sc-flex sc-flex-row sc-mb-4 sc-items-center ">
+              <div 
+                className={`sc-flex sc-flex-row  sc-items-center ${hideSidebar ? '' : 'sc-mb-4'}`}
+              >
                 <div className="sc-mr-4">
                   {track.song && !hideSidebar && (
                     <div className="sc-flex sc-items-center sc-justify-center sc-h-8 sc-w-8 sc-rounded-full sc-bg-orange-500 sc-text-white">
