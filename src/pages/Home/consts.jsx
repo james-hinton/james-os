@@ -15,8 +15,10 @@ import {
 import WeatherWidget from "./components/Widgets/Weather/Weather";
 import GalleryWidget from "./components/Widgets/Gallery/Gallery";
 
+// Data
+import postsData from "../../apps/Blog/posts.json";
+
 // Apps
-import Settings from "../../apps/Settings/Settings";
 import Terminal from "../../apps/Terminal/Terminal";
 import Resume from "../../apps/Resume/Resume";
 import Contact from "../../apps/Contact/Contact";
@@ -28,6 +30,7 @@ const PrimevalTraces = lazy(() => import("../../apps/PrimevalTraces"));
 const Project = lazy(() => import("../../apps/Project"));
 const Room = lazy(() => import("../../apps/Room"));
 const Bar = lazy(() => import("../../apps/Bar"));
+const Blog = lazy(() => import("../../apps/Blog"));
 
 export const HomeApps = [
   {
@@ -212,89 +215,64 @@ export const SecondPage = [
     width: "50%",
     height: "70%",
   },
-    // Satellite Applications Catapult
-    {
-      name: "Satellite Applications Catapult",
-      iconHref: "/assets/icons/satapps.png",
-      label: "Satellite Applications Catapult",
-      component: (props) => (
-        <Project
-          title="Satellite Applications Catapult"
-          description="Geospatial Developer"
-          image="/assets/projects/satapps.jpeg"
-          link="https://sa.catapult.org.uk/blogs/adopting-stac-to-simplify-geospatial-workflows/"
-          github="https://github.com/SpatialDays/stac-portal-frontend"
-          tech={["Python", "JavaScript", "Satellite Technology"]}
-          about="In my position as a Full Stack Developer at Satellite Applications Catapult, I specialised in enhancing and customising open-source Spatio-Temporal Asset Catalog (STAC) software. My duties involved building a robust infrastructure tailored for satellite data management, integrating React and Django into our technology framework. Additionally, I was responsible for implementing the extensive system using Kubernetes, Terraform, and Azure."
-          {...props}
-        />
-      ),
-      width: "50%",
-      height: "70%",
-    },
-    // Conspirasea
-    {
-      name: "Conspirasea",
-      iconHref: "/assets/icons/conspirasea.png",
-      label: "Conspirasea",
-      component: (props) => (
-        <Project
-          description="Software Developer"
-          image="/assets/projects/conspirasea.png"
-          link="https://conspirasea.net"
-          github="https://github.com/SpatialDays/Conspirasea-landing"
-          tech={["Satellite Data", "HTML", "Balsamiq"]}
-          about="I have been a part of Conspirasea from the start, a project aimed at using satellite data to stop unauthorised vessels from entering marine protected areas in the UK. Our work earned us second place in the Hack the Planet competition."
-          {...props}
-        />
-      ),
-      width: "50%",
-      height: "70%",
-    },
+  // Satellite Applications Catapult
+  {
+    name: "Satellite Applications Catapult",
+    iconHref: "/assets/icons/satapps.png",
+    label: "Satellite Applications Catapult",
+    component: (props) => (
+      <Project
+        title="Satellite Applications Catapult"
+        description="Geospatial Developer"
+        image="/assets/projects/satapps.jpeg"
+        link="https://sa.catapult.org.uk/blogs/adopting-stac-to-simplify-geospatial-workflows/"
+        github="https://github.com/SpatialDays/stac-portal-frontend"
+        tech={["Python", "JavaScript", "Satellite Technology"]}
+        about="In my position as a Full Stack Developer at Satellite Applications Catapult, I specialised in enhancing and customising open-source Spatio-Temporal Asset Catalog (STAC) software. My duties involved building a robust infrastructure tailored for satellite data management, integrating React and Django into our technology framework. Additionally, I was responsible for implementing the extensive system using Kubernetes, Terraform, and Azure."
+        {...props}
+      />
+    ),
+    width: "50%",
+    height: "70%",
+  },
+  // Conspirasea
+  {
+    name: "Conspirasea",
+    iconHref: "/assets/icons/conspirasea.png",
+    label: "Conspirasea",
+    component: (props) => (
+      <Project
+        description="Software Developer"
+        image="/assets/projects/conspirasea.png"
+        link="https://conspirasea.net"
+        github="https://github.com/SpatialDays/Conspirasea-landing"
+        tech={["Satellite Data", "HTML", "Balsamiq"]}
+        about="I have been a part of Conspirasea from the start, a project aimed at using satellite data to stop unauthorised vessels from entering marine protected areas in the UK. Our work earned us second place in the Hack the Planet competition."
+        {...props}
+      />
+    ),
+    width: "50%",
+    height: "70%",
+  },
 ];
 
-export const ThirdPage = [
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-  {
-    name: "Placeholder",
-    iconHref: "/assets/icons/placeholder.png",
-    label: "Placeholder",
-  },
-];
+export const ThirdPage = postsData.posts.map((post) => ({
+  name: post.label,
+  iconHref: post.iconHref,
+  label: post.label,
+  component: (props) => (
+    <Blog
+      title={post.title}
+      intro={post.intro}
+      sections={post.sections}
+      images={post.images}
+      {...props}
+    />
+  ),
+  width: "30%",
+  height: "70%",
+  
+}));
 
 export const DockApps = [
   {

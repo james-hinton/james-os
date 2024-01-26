@@ -1,0 +1,37 @@
+{
+  "posts": [
+    {
+      "iconHref": "/assets/icons/blog-stac.png",
+      "label": "STAC Blog",
+      "title": "My Journey with STAC: Developing a Geospatial Revolution",
+      "intro": "I was part of a team that developed a STAC Portal for Satellite Applications Catapult. This blog is a reflection of my experience and the impact of this project.",
+      "sections": [
+        {
+          "content": "STAC (SpatioTemporal Asset Catalog) is an open specification aimed at making geospatial data more accessible and discoverable. It's a framework designed for efficient handling of vast amounts of Earth observation data."
+        },
+        {
+          "image": "public/assets/blog/stac/logo.png"
+        },
+        {
+          "subtitle": "The Development Challenge",
+          "content": "The task was to create a 'STAC Portal' – a user-friendly front-end interface that simplifies discovering public satellite data, like Sentinel, and manages existing geospatial assets. The project aimed at ensuring efficient data usage and preventing redundant data procurement."
+        },
+        {
+          "image": "public/assets/blog/stac/map.jpg"
+        },
+        {
+          "subtitle": "My Role in the Project",
+          "content": "As a key developer, I integrated various open-source tools with the STAC standard alongside developing custom compliant microservices. My focus was on developing functionalities that enable users to draw an Area of Interest (AOI), specify temporal extents, and set parameters like cloud-cover. This included parsing metadata and displaying it effectively on the STAC Portal."
+        },
+        {
+          "subtitle": "Technical Insights",
+          "content": "The technical architecture involved serving Cloud Optimized Geotiffs (COGs) using TiTiler on a Leaflet map. We provided options to download assets or generate WMTS URLs for browser integration. For public collections, we utilised STAC Index and Microsoft Planetary Computer to dynamically serve data."
+        },
+        {
+          "subtitle": "Impact and Future Directions",
+          "content": "This development not only streamlined data management for Satellite Applications Catapult but also set a precedent for using STAC in practical, real-world applications. It underscores the potential of STAC in transforming geospatial data handling and inspires future innovations in this field."
+        }
+      ]
+    }
+  ]
+}

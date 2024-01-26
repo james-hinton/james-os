@@ -42,10 +42,10 @@ const Dock = () => {
           }}
         >
           {/* Check if app has a notification and that localStorage doesn't have a notification for this app */}
-          {notifications.find((n) => n.appName === app.name) && !localStorage.getItem(`notification-${app.name}`) && (
-            <div className="notification-dot">
-            </div>
-          )}
+          {notifications.find((n) => n.appName === app.name) &&
+            !localStorage.getItem(`notification-${app.name}`) && (
+              <div className="notification-dot"></div>
+            )}
 
           {app.icon}
         </a>
@@ -54,9 +54,9 @@ const Dock = () => {
       {openApps.length > 0 && (
         <div className="open-apps">
           {openApps.map((app, index) => (
-            <div key={index} className="open-app">
+            <div key={index} className="dock-app">
               <div
-                className="open-app__close"
+                className="dock-app__close"
                 onClick={() => {
                   setOpenApps(openApps.filter((a) => a !== app));
                 }}
