@@ -4,7 +4,7 @@ const Profile = ({
   hideSidebar
 }) => {
   const [background, setBackground] = useState(
-    "./soundcloud/profile-background-desert.jpg"
+    "./soundcloud/profile-background-desert.png"
   );
 
   return (
