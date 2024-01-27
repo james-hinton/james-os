@@ -24,7 +24,7 @@ const Gazetteer = ({ setMapCenter, setMapZoom }) => {
     } else {
       setSuggestions([]);
     }
-  }, 1000);
+  }, 500);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
