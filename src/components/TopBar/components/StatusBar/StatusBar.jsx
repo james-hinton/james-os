@@ -64,7 +64,12 @@ const StatusBar = () => {
   };
 
   return (
-    <div className="status-bar">
+    <div
+      className="status-bar"
+      onClick={() => {
+        window.location.href = "/";
+      }}
+    >
       <WifiIcon data-tip data-tooltip-id="wifiTooltip" />
       <Tooltip id="wifiTooltip" place="bottom" effect="solid">
         Connected

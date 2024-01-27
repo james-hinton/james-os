@@ -52,12 +52,7 @@ const Island = () => {
   }, [phoneLocked]);
 
   return (
-    <div
-      className="island-container"
-      onClick={() => {
-        window.location.href = "/";
-      }}
-    >
+    <div className="island-container">
       <div
         className={
           "island" + (phoneLocked ? " island-locked" : "island-unlocked")
