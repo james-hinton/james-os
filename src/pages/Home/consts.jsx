@@ -6,7 +6,6 @@ import {
   ThreeDRotationOutlined,
   Terminal as TerminalIcon,
   Email,
-  // Code
   Code as CodeIcon,
   Settings as SettingsIcon,
 } from "@mui/icons-material";

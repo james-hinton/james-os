@@ -67,8 +67,6 @@ const Twitter = ({ appRef }) => {
       },
     ];
 
-    console.log('Twitter appWidth', appWidth)
-
     for (const config of stylesConfig) {
       if (config.default || appWidth < config.max) {
         const {

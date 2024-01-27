@@ -11,7 +11,6 @@ import "./style.scss";
 const users = [
   {
     id: 1,
-
     name: "James Hinton",
     username: "jameshinton",
     followers: 100,
@@ -34,10 +33,21 @@ const users = [
     id: 3,
     name: "National Aeronautics and Space Administration",
     username: "NASA",
-    followers: 8394389433,
-    following: 1290129012,
+    followers: 2393289382,
+    following: 44848,
     activelyFollowing: false,
     avatar: "/twitter/avatars/nasa.png",
+    verified: true,
+  },
+  // SirDavidAttenborough
+  {
+    id: 4,
+    name: "Ronnie Pickering",
+    username: "RonniePickering",
+    followers: 128912,
+    following: 59054,
+    activelyFollowing: false,
+    avatar: "/twitter/avatars/ronnie.jpg",
     verified: true,
   },
 ];
