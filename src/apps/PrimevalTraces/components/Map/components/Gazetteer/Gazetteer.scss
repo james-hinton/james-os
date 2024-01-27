@@ -1,0 +1,15 @@
+.gazetteer {
+
+    &-search {
+        width: 100%;
+        position: relative;
+
+        .search-close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+    }
+}

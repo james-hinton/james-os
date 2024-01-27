@@ -134,12 +134,7 @@ const Home = () => {
   // Check for scroll wheel to initiate swipe
   useEffect(() => {
     const handleWheel = (e) => {
-      console.log("Wheel fired", e);
-
       const openApps = document.querySelectorAll(".open-app");
-      console.log("openApps", openApps);
-
-
       if (isDragging) return;
 
       // check if the user is scrolling on an open app
@@ -154,8 +149,6 @@ const Home = () => {
       }
 
       if (isScrollingOnOpenApp) return;
-      
-
 
       if (e.deltaY > 0 && currentPage + 1 < PAGES.length) {
         setCurrentPage(currentPage + 1);

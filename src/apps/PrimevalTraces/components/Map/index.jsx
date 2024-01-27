@@ -4,20 +4,17 @@ import PrimevalMarker from "./components/PrimevalMarker";
 import { retrieveFossilsForBoundingBox } from "../../services/Fossils";
 import "leaflet/dist/leaflet.css";
 import "./style.scss";
+import Gazetteer from "./components/Gazetteer/Gazetteer";
 
 // Component responsible for listening to map events
 const UpdateMap = ({ onMoveEnd, isOpenTooltip }) => {
   const map = useMapEvents({
-    // Listen for the moveend event on the map
     moveend: () => {
-      // Only call onMoveEnd if no tooltip is open
       if (!isOpenTooltip) {
         onMoveEnd(map.getBounds());
       }
     },
   });
-
-  // Call onMoveEnd immediately after the first render
   useEffect(() => {
     onMoveEnd(map.getBounds());
   }, []);
@@ -26,12 +23,9 @@ const UpdateMap = ({ onMoveEnd, isOpenTooltip }) => {
 };
 
 const PrimevalMap = () => {
-  // Create a ref for the MapContainer
   const mapRef = useRef();
-  // State for the fossils data
   const [fossils, setFossils] = useState([]);
   const [shownFossils, setShownFossils] = useState([]);
-  // State for the open status of the tooltip
   const [isOpenTooltip, setIsOpenTooltip] = useState(false);
 
   // Function to update the map, called on moveend event and tooltip close
@@ -94,6 +88,10 @@ const PrimevalMap = () => {
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Gazetteer
+          setMapCenter={(center) => mapRef.current.setView(center)}
+          setMapZoom={(zoom) => mapRef.current.setZoom(zoom)}
         />
         {shownFossils.map((fossil, index) => (
           <PrimevalMarker

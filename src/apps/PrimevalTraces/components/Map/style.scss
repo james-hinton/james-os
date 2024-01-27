@@ -16,4 +16,8 @@
   z-index:1;
   overflow: hidden;
   user-select: text;
+
+  .leaflet-popup {
+    z-index:9999!important;
+  }
 }
