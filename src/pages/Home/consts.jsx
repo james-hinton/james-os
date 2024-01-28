@@ -74,9 +74,8 @@ export const HomeApps = [
     label: "Bar",
     href: "/translate",
     component: Bar,
-    width: "44%",
+    width: "10%",
     height: "81%",
-    defaultMinWidth: "1000px",
   },
   {
     name: "Paleontology",
@@ -93,7 +92,7 @@ export const HomeApps = [
     label: "3D",
     href: "/3droom",
     component: Room,
-    width: "80%",
+    width: "30%",
     height: "70%",
   },
   {

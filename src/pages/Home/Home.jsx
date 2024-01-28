@@ -47,7 +47,7 @@ const Home = () => {
   const [appPositions, setAppPositions] = useState({});
 
   const homeScreenRef = useRef(null);
-  const isSmallScreen = window.innerHeight < 700 || window.innerWidth < 700;
+  const isSmallScreen = window.innerHeight < 500 || window.innerWidth < 700;
   const openAppsRef = useRef(openApps);
 
   const [zIndices, setZIndices] = useState({});
