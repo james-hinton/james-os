@@ -22,11 +22,14 @@ const UpdateMap = ({ onMoveEnd, isOpenTooltip }) => {
   return null;
 };
 
-const PrimevalMap = () => {
+const PrimevalMap = (
+  { appRef } // eslint-disable-line
+) => {
   const mapRef = useRef();
   const [fossils, setFossils] = useState([]);
   const [shownFossils, setShownFossils] = useState([]);
   const [isOpenTooltip, setIsOpenTooltip] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   // Function to update the map, called on moveend event and tooltip close
   const updateMap = (bounds) => {
@@ -82,6 +85,15 @@ const PrimevalMap = () => {
     }
   }, [isOpenTooltip]);
 
+  useEffect(() => {
+    if (appRef.current?.offsetWidth < 800) {
+      setIsSmallScreen(true);
+    }
+    if (appRef.current?.offsetHeight < 350) {
+      setIsSmallScreen(true);
+    }
+  }, [appRef]);
+
   return (
     <div className="primeval-map">
       <MapContainer center={[51.5, 0]} zoom={11} ref={mapRef}>
@@ -100,6 +112,7 @@ const PrimevalMap = () => {
             fossil={fossil} // Using idn property as content of the marker
             isOpenTooltip={isOpenTooltip}
             setIsOpenTooltip={setIsOpenTooltip}
+            isSmallScreen={isSmallScreen}
           />
         ))}
         <UpdateMap onMoveEnd={updateMap} isOpenTooltip={isOpenTooltip} />

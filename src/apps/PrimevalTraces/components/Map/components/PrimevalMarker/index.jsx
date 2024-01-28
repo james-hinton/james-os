@@ -2,7 +2,12 @@ import L from "leaflet";
 import { Marker, Popup } from "react-leaflet";
 import FossilIcon from "../../../../assets/fossil-1.svg";
 
-const PrimevalMarker = ({ position, fossil, setIsOpenTooltip }) => {
+const PrimevalMarker = ({
+  position,
+  fossil,
+  setIsOpenTooltip,
+  isSmallScreen,
+}) => {
   const icon = new L.Icon({
     iconUrl: FossilIcon,
     iconRetinaUrl: FossilIcon,
@@ -158,6 +163,13 @@ const PrimevalMarker = ({ position, fossil, setIsOpenTooltip }) => {
     );
   };
 
+  const calculateAutoPanPadding = () => {
+    if (isSmallScreen) {
+      return [50, 10];
+    }
+    return [60, 70];
+  };
+
   return (
     <Marker
       position={position}
@@ -167,7 +179,13 @@ const PrimevalMarker = ({ position, fossil, setIsOpenTooltip }) => {
         popupclose: handleClose,
       }}
     >
-      <Popup>{renderPopupContent()}</Popup>
+      <Popup
+        autoPan={true}
+        keepInView={true}
+        autoPanPaddingTopLeft={calculateAutoPanPadding()}
+      >
+        {renderPopupContent()}
+      </Popup>
     </Marker>
   );
 };

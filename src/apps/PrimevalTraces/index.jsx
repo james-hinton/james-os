@@ -13,13 +13,6 @@ const PrimevalTraces = ({ appRef }) => {
     return () => clearTimeout(timeout);
   }, []);
 
-  useEffect(() => {
-    const meta = document.createElement("meta");
-    meta.name = "viewport";
-    meta.content = "width=device-width, initial-scale=1";
-    document.getElementsByTagName("head")[0].appendChild(meta);
-  }, []);
-
   return (
     <div
       id="primeval"
@@ -49,7 +42,9 @@ const PrimevalTraces = ({ appRef }) => {
           </div>
         </div>
       )}
-      <Map />
+      <Map 
+        appRef={appRef}
+      />
     </div>
   );
 };
