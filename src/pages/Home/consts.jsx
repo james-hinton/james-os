@@ -76,6 +76,7 @@ export const HomeApps = [
     component: Bar,
     width: "44%",
     height: "81%",
+    defaultMinWidth: "1000px",
   },
   {
     name: "Paleontology",
@@ -270,7 +271,6 @@ export const ThirdPage = postsData.posts.map((post) => ({
   ),
   width: "30%",
   height: "70%",
-  
 }));
 
 export const DockApps = [

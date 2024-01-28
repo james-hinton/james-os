@@ -2,11 +2,23 @@
   position: absolute;
   height: 3rem;
   display: flex;
-  justify-content: space-between; /* Keeps items on the edges */
-  align-items: center; /* Center items vertically */
+  justify-content: space-between;
+  align-items: center;
   width: 100vw;
-  z-index: 1008;
+  z-index: 999;
   user-select: none;
+  pointer-events: none;
+
+
+  .island-container {
+    pointer-events: none;
+  }
+
+  .status-bar {
+    pointer-events: auto;
+  }
+
+  
 
   @media (max-height: 500px) {
     display: none;

@@ -15,6 +15,8 @@ import "./OpenApp.scss";
 const OpenApp = ({
   app,
   index,
+  zIndex,
+  onClick,
   openApps,
   setOpenApps,
   appPositions,
@@ -116,6 +118,7 @@ const OpenApp = ({
       <div
         id={`draggable-${index}`}
         ref={appRef}
+        onClick={onClick}
         style={
           isSmallScreen
             ? {
@@ -124,7 +127,7 @@ const OpenApp = ({
                 position: "absolute",
                 top: "4rem",
                 left: 0,
-                zIndex: 1010,
+                zIndex: zIndex,
                 overflow: "hidden",
               }
             : {
@@ -133,7 +136,8 @@ const OpenApp = ({
                 left: getLeftPosition(app.width || "50%"),
                 height: app.height || "35%",
                 width: app.width || "50%",
-                zIndex: 1010,
+                minWidth: "630px",
+                zIndex: zIndex,
                 backgroundColor: "white",
                 overflow: "hidden",
               }
