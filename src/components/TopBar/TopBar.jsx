@@ -15,7 +15,9 @@ const TopBar = () => {
   }, [location]);
 
   return (
-    <div className="top-bar fade-in">
+    <div className="top-bar fade-in"
+      style={{ zIndex: locked ? 9999 : 0 }}
+    >
       <div className="island-container">
         <Island locked={locked} />
       </div>
