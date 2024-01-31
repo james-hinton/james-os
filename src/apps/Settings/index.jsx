@@ -14,7 +14,7 @@ const Settings = () => {
   };
 
   return (
-    <div className="settings">
+    <div className="settings interactable">
       <div className="wallpaper-grid">
         {availableBackgrounds.map((wallpaper, index) => (
           <img
