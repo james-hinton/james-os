@@ -17,7 +17,7 @@ const Lock = ({
   startLoadingHome,
   attemptedPaths,
 }) => {
-  const { phoneLocked, setPhoneLocked, background } = useContext(PhoneContext);
+  const { phoneLocked, setPhoneLocked, background, setBackground } = useContext(PhoneContext);
   const [isMovedUp, setIsMovedUp] = useState(false);
   const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
   const [showSwipeNotification, setShowSwipeNotification] = useState(false);
@@ -74,6 +74,10 @@ const Lock = ({
 
     img.onerror = () => {
       console.error("Failed to load the background image");
+      // remove from local storage
+      localStorage.removeItem("background");
+      // set the default background
+      setBackground("background.jpg");
     };
   }, []);
 

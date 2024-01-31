@@ -79,7 +79,7 @@ export const HomeApps = [
     height: "81%",
   },
   {
-    name: "Paleontology",
+    name: "Fossils",
     iconHref: "/assets/icons/fossils.png",
     label: "Fossils",
     href: "/paleontology",
@@ -108,7 +108,7 @@ export const HomeApps = [
     label: "Settings",
     component: Settings,
     width: "30%",
-    height: "50%",
+    height: "60%",
   },
 ];
 
