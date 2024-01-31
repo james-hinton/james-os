@@ -138,7 +138,6 @@ const OpenApp = ({
                 width: app.width || "50%",
                 minWidth: "630px",
                 zIndex: zIndex,
-                backgroundColor: "white",
                 overflow: "hidden",
               }
         }

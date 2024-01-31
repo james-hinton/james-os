@@ -1,5 +1,6 @@
 import { createContext, useReducer } from "react";
 
+const storedBackground = localStorage.getItem("background");
 const initialState = {
   phoneLocked: true,
   openApps: [],
@@ -12,6 +13,7 @@ const initialState = {
       eventTrigger: "welcome",
     },
   ],
+  background: localStorage.getItem("background") || "background.jpg",
 };
 
 function reducer(state, action) {
@@ -28,6 +30,10 @@ function reducer(state, action) {
       return { ...state, darkenScreen: action.payload };
     case "SET_NOTIFICATIONS":
       return { ...state, notifications: action.payload };
+    case "SET_BACKGROUND":
+      const newState = { ...state, background: action.payload };
+      localStorage.setItem("background", action.payload); // Save to localStorage
+      return newState;
     default:
       return state;
   }
@@ -62,6 +68,10 @@ const PhoneProvider = ({ children }) => {
     dispatch({ type: "SET_NOTIFICATIONS", payload });
   };
 
+  const setBackground = (payload) => {
+    dispatch({ type: "SET_BACKGROUND", payload });
+  };
+
   const value = {
     phoneLocked: state.phoneLocked,
     openApps: state.openApps,
@@ -69,6 +79,7 @@ const PhoneProvider = ({ children }) => {
     popupContent: state.popupContent,
     darkenScreen: state.darkenScreen,
     notifications: state.notifications,
+    background: state.background,
 
     setPhoneLocked,
     setOpenApps,
@@ -76,6 +87,7 @@ const PhoneProvider = ({ children }) => {
     setPopupContent,
     setDarkenScreen,
     setNotifications,
+    setBackground,
   };
 
   return (

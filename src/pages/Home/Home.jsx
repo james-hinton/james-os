@@ -38,6 +38,7 @@ const Home = () => {
     setPopupContent,
     darkenScreen,
     setDarkenScreen,
+    background,
   } = useContext(PhoneContext);
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -245,7 +246,17 @@ const Home = () => {
   }, [zIndices]);
 
   return (
-    <div className="home-screen" ref={homeScreenRef} {...handlers}>
+    <div
+      className="home-screen"
+      ref={homeScreenRef}
+      {...handlers}
+      style={{
+        backgroundImage: `url(/assets/wallpapers/${background})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div
         className="page-container"
         style={{

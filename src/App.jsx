@@ -20,7 +20,7 @@ const App = (
     if (!lockScreenLoaded) return;
     setTimeout(() => {
       setStartLoadingHome(true);
-    }, 1000);
+    }, 2000);
   }, [lockScreenLoaded]);
 
   useEffect(() => {

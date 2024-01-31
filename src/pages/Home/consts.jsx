@@ -22,6 +22,7 @@ import Terminal from "../../apps/Terminal/Terminal";
 import Resume from "../../apps/Resume/Resume";
 import Contact from "../../apps/Contact/Contact";
 import ExternalLink from "../../apps/ExternalLink/ExternalLink";
+import Settings from "../../apps/Settings";
 
 const Twitter = lazy(() => import("../../apps/Twitter"));
 const Soundcloud = lazy(() => import("../../apps/Soundcloud"));
@@ -100,6 +101,14 @@ export const HomeApps = [
     icon: <TerminalIcon />,
     label: "Terminal",
     component: Terminal,
+  },
+  {
+    name: "Settings",
+    icon: <SettingsIcon />,
+    label: "Settings",
+    component: Settings,
+    width: "30%",
+    height: "50%",
   },
 ];
 

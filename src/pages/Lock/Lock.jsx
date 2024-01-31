@@ -17,12 +17,10 @@ const Lock = ({
   startLoadingHome,
   attemptedPaths,
 }) => {
-  const { phoneLocked, setPhoneLocked, setOpenApps, setNotifications } =
-    useContext(PhoneContext);
+  const { phoneLocked, setPhoneLocked, background } = useContext(PhoneContext);
   const [isMovedUp, setIsMovedUp] = useState(false);
   const [showWelcomeNotification, setShowWelcomeNotification] = useState(false);
   const [showSwipeNotification, setShowSwipeNotification] = useState(false);
-  const [backgroundImage, setBackgroundImage] = useState("");
 
   const handlers = useSwipeable({
     onSwipedUp: () => {
@@ -68,13 +66,10 @@ const Lock = ({
   useEffect(() => {
     // Preload the image
     const img = new Image();
-    const imageUrl = "/assets/wallpapers/background.jpg";
+    const imageUrl = "/assets/wallpapers/" + background;
     img.src = imageUrl;
     img.onload = () => {
-      setBackgroundImage(imageUrl);
-      setTimeout(() => {
-        setLockScreenLoaded(true);
-      }, 1500);
+      setLockScreenLoaded(true);
     };
 
     img.onerror = () => {
@@ -98,19 +93,25 @@ const Lock = ({
   return (
     <div
       className={`lock-screen ${isMovedUp ? "move-up" : ""} ${
-        backgroundImage ? "fade-in" : ""
+        background ? "fade-in" : ""
       }`}
       {...handlers}
       style={{
         display: phoneLocked ? "block" : "none",
-        backgroundImage: `url(${backgroundImage})`,
+        // backgroundImage: `url(/assets/wallpapers/${background})`,
+        // when image is loaded use the background image
+        // When lock screen is loadd
+        // use the background image
+        backgroundImage: lockScreenLoaded
+          ? `url(/assets/wallpapers/${background})`
+          : "",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
       <div className="lock-screen-content">
-        {!lockScreenLoaded && !backgroundImage ? (
+        {!lockScreenLoaded && !background ? (
           <div className="lock-screen-loading">
             <img src={"tail-spin.svg"} alt="Loading..." />
           </div>
