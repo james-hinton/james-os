@@ -65,11 +65,11 @@
     }
   }
 
-  @media (min-height: 700px) {
+  @media (min-height: 650px) {
     height: 12rem;
   }
 
-  @media (max-height: 500px) {
+  @media (max-height: 550px) {
     display: none;
   }
 }
