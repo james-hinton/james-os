@@ -29,7 +29,11 @@
     }
   }
 
-  @media (max-height: 500px) {
+  @media (max-height: 800px) {
     height: 5rem;
+  }
+
+  @media (max-height: 500px) {
+    display: none;
   }
 }

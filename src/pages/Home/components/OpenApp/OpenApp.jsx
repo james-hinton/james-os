@@ -30,7 +30,7 @@ const OpenApp = ({
   const getLeftPosition = (width) => {
     if (width.endsWith("%")) {
       const widthValue = parseFloat(width);
-      return `${(100 - widthValue) / 2}%`;
+      return `${(100 - widthValue) / 4}%`;
     }
     return "25%";
   };
