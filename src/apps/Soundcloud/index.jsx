@@ -14,20 +14,23 @@ const Home = ({ appRef }) => {
       title: "Discotation",
       song: "./soundcloud/disco.mp3",
       image: "./soundcloud/disco.jpg",
-      description: "Drum & Bass",
+      description:
+        "Should've been writing our dissertations, but instead, my friend and I made this disco track. 'Discotation' – a little wordplay",
       artist: "James Hinton & Aidan Maskell",
     },
     {
       title: "Dream",
       song: "./soundcloud/dream.mp3",
       image: "./soundcloud/dream.jpg",
-      description: "Jazzy song",
+      description:
+        "Layered synths and a dash of guitar – that's the vibe of this one. It's a spacey, dreamy kind of track.",
     },
     {
       title: "Skitz",
       song: "./soundcloud/skitz.mp3",
       image: "./soundcloud/skitz.jpg",
-      description: "Drum & Bass",
+      description:
+        "A week, a Streets sample, and a whole lot of creative energy. 'Skitz' might just blow your speakers – consider yourself warned.",
     },
   ]);
 
@@ -51,8 +54,6 @@ const Home = ({ appRef }) => {
       className="interactable sc-bg-sc-background sc-bg-sc-background "
       ref={soundcloudRef}
     >
-      {/* <Navbar appRef={appRef} /> */}
-
       <div
         className="sc-flex sc-justify-center soundcloud-container"
         ref={contentRef}

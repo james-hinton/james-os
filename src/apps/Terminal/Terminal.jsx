@@ -223,6 +223,8 @@ const Terminal = ({ appRef }) => {
     const isMobile = appWidth < 800;
     setShowUser(isMobile ? false : true);
   }, [appRef?.current?.offsetWidth]);
+  
+  scrollToBottom();
 
   return (
     <div

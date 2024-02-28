@@ -193,9 +193,11 @@ const OpenApp = ({
           onMouseDown={(e) => e.stopPropagation()}
           onTouchStart={(e) => e.stopPropagation()}
         >
-          <Suspense fallback={<div>Loading...</div>}>
-            <app.component appRef={appRef} />
-          </Suspense>
+  <Suspense fallback={<div
+    className="app-loading"
+  >Loading...</div>}>
+    <app.component appRef={appRef} />
+  </Suspense>
         </div>
       </div>
     </Draggable>

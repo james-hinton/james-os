@@ -8,6 +8,16 @@
   overflow-x: hidden;
 }
 
+.app-loading {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  transition: all 0.3s ease;
+}
+
 .handle {
   @media (max-width: 700px) {
     display: none;
