@@ -3,7 +3,7 @@ const Song = ({ track, large, hover, hideSidebar }) => {
     <>
       <div
         className={
-          "sc-flex sc-mr-2 sc-bg-white sc-p-2" +
+          "sc-flex sc-bg-white sc-p-2" +
           (hover ? " sc-hover:bg-gray-200 sc-hover:font-bold" : "")
         }
       >

@@ -123,7 +123,7 @@ const OpenApp = ({
           isSmallScreen
             ? {
                 width: "100%",
-                height: "70%",
+                height: "60%",
                 position: "absolute",
                 top: "4rem",
                 left: 0,
