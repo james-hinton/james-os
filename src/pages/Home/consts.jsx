@@ -101,6 +101,7 @@ export const HomeApps = [
     icon: <TerminalIcon />,
     label: "Terminal",
     component: Terminal,
+    smallScreenHeight: "50%",
   },
   {
     name: "Settings",

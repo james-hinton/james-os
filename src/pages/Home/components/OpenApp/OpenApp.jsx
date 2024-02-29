@@ -25,6 +25,7 @@ const OpenApp = ({
   isSmallScreen,
   setIsDragging,
   setDarkenScreen,
+  smallScreenHeight,
 }) => {
   // Listen for Control + Command + Q shortcut and lock
   const getLeftPosition = (width) => {
@@ -123,7 +124,7 @@ const OpenApp = ({
           isSmallScreen
             ? {
                 width: "100%",
-                height: "60%",
+                height: smallScreenHeight || "70%",
                 position: "absolute",
                 top: "4rem",
                 left: 0,

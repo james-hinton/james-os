@@ -234,16 +234,9 @@ const Home = () => {
 
   // Function to bring a window to the front
   const bringToFront = (index) => {
-    console.log("bring to front");
     const maxZIndex = Math.max(0, ...Object.values(zIndices));
-    console.log("Max Z :", maxZIndex);
     setZIndices((prev) => ({ ...prev, [index]: maxZIndex + 1 }));
   };
-
-  // Log the zIndices
-  useEffect(() => {
-    console.log(zIndices);
-  }, [zIndices]);
 
   return (
     <div
@@ -295,6 +288,7 @@ const Home = () => {
           isSmallScreen={isSmallScreen}
           setIsDragging={setIsDragging}
           setDarkenScreen={setDarkenScreen}
+          smallScreenHeight={app.smallScreenHeight}
         />
       ))}
 
